@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dinner.coupon.dal.ShopCouponDO">
+
+    <resultMap type="shopCoupon" id="BaseResponse">
+         <result property=" id" column=" id" />
+         <result property=" shop_id" column=" shop_id" />
+         <result property=" price" column=" price" />
+         <result property=" is_deleted" column=" is_deleted" />
+         <result property=" create_time" column=" create_time" />
+         <result property=" update_time" column=" update_time" />
+         <result property=" sum" column=" sum" />
+    </resultMap>
+    <insert id="insertShopCoupon" parameterType="shopCoupon" useGeneratedKeys="true" keyProperty="id">
+     INSERT INTO shop_coupon 
+     (
+    	shop_id,
+    	price,
+
+
+    	`sum`
+     ) 
+      VALUES 
+     (
+    	#{shop_id},
+    	#{price},
+
+    	#{sum}
+     )
+    </insert>
+  
+    <delete id="deleteById" parameterType="Long">
+      DELETE FROM shop_coupon WHERE id = #{id}
+    </delete>
+  	
+
+  	  
+    <select id="countPage" resultType="java.lang.Integer">
+     SELECT count(*) FROM shop_coupon
+        <where>
+            <include refid="pubItem"/>
+        </where>
+    </select>
+  
+    <select id="queryPage"   resultMap="BaseResponse">
+      SELECT 
+    	id,
+    	shop_id,
+    	price,
+    	is_deleted,
+    	create_time,
+    	update_time,
+    	sum
+      FROM shop_coupon
+      ORDER BY create_time DESC
+      LIMIT #{page.startRow},#{page.pageSize}
+    </select>
+  
+    <select id="queryById" parameterType="Long" resultMap="BaseResponse">
+      SELECT
+    	id,
+    	shop_id,
+    	price,
+    	is_deleted,
+    	create_time,
+    	update_time,
+    	sum
+      FROM shop_coupon
+      WHERE id = #{id}
+    </select>
+  
+    <update id="updateShopCoupon" parameterType="shopCoupon">
+      UPDATE shop_coupon
+      <trim suffixOverrides="," prefix="set" suffix="where id=#{id}">
+          <if test="shop_id != null and shop_id !='' ">shop_id = #{shop_id},</if>
+          <if test="price != null and price !='' ">price = #{price},</if>
+          <if test="is_deleted != null and is_deleted !='' ">is_deleted = #{is_deleted},</if>
+          <if test="create_time != null and create_time !='' ">create_time = #{create_time},</if>
+          update_time = NOW(),
+          <if test="sum != null and sum !='' ">sum = #{sum}</if>
+      </trim>
+
+    </update>
+
+    <select id="queryList" resultMap="BaseResponse" parameterType="shopCoupon">
+        SELECT
+            id,
+            shop_id,
+            price,
+            is_deleted,
+            create_time,
+            update_time,
+            sum
+        FROM shop_coupon
+        <where>
+            <include refid="pubItem"/>
+        </where>
+        ORDER BY create_time DESC
+    </select>
+
+
+    <sql id="pubItem">
+         <if test="shop_id != null and shop_id !='' ">and shop_id = #{shop_id}</if>
+         <if test="price != null and price !='' ">and price = #{price}</if>
+         <if test="is_deleted != null and is_deleted !='' ">and is_deleted = #{is_deleted}</if>
+         <if test="create_time != null and create_time !='' ">and create_time = #{create_time}</if>
+         <if test="update_time != null and update_time !='' ">and update_time = #{update_time}</if>
+         <if test="sum != null and sum !='' ">and sum = #{sum}</if>
+    </sql>
+
+
+  
+</mapper>

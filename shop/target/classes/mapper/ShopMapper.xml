@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dinner.shop.dal.ShopDO">
+
+    <resultMap type="shop" id="BaseResponse">
+         <result property=" id" column=" id" />
+         <result property=" shop_name" column=" shop_name" />
+         <result property=" head_img_url" column=" head_img_url" />
+         <result property=" shop_email" column=" shop_email" />
+         <result property=" shop_tel" column=" shop_tel" />
+         <result property=" shop_password" column=" shop_password" />
+         <result property=" app_id" column=" app_id" />
+         <result property=" app_secret" column=" app_secret" />
+         <result property=" mch_id" column=" mch_id" />
+         <result property=" pay_key" column=" pay_key" />
+         <result property=" create_time" column=" create_time" />
+         <result property=" update_time" column=" update_time" />
+         <result property=" last_login_ip" column=" last_login_ip" />
+         <result property=" is_deleted" column=" is_deleted" />
+         <result property=" is_confirm" column=" is_confirm" />
+         <result property=" is_on" column=" is_on" />
+         <result property=" use_start_time" column=" use_start_time" />
+         <result property=" use_end_time" column=" use_end_time" />
+        <result property="shop_user_name" column="shop_user_name" />
+        <result property="shop_user_code" column="shop_user_code" />
+    </resultMap>
+
+    <resultMap type="shop" id="BaseResponseById">
+        <result property=" id" column=" id" />
+        <result property=" shop_name" column=" shop_name" />
+        <result property=" head_img_url" column=" head_img_url" />
+        <result property=" shop_email" column=" shop_email" />
+        <result property=" shop_tel" column=" shop_tel" />
+        <result property=" shop_password" column=" shop_password" />
+        <result property=" app_id" column=" app_id" />
+        <result property=" app_secret" column=" app_secret" />
+        <result property=" mch_id" column=" mch_id" />
+        <result property=" pay_key" column=" pay_key" />
+        <result property=" create_time" column=" create_time" />
+        <result property=" update_time" column=" update_time" />
+        <result property=" last_login_ip" column=" last_login_ip" />
+        <result property=" is_deleted" column=" is_deleted" />
+        <result property=" is_confirm" column=" is_confirm" />
+        <result property=" is_on" column=" is_on" />
+        <result property=" use_start_time" column=" use_start_time" />
+        <result property=" use_end_time" column=" use_end_time" />
+        <result property="shop_user_name" column="shop_user_name" />
+        <result property="shop_user_code" column="shop_user_code" />
+        <association property="shop_detail" select="com.dinner.shop.dal.ShopDetailDO.queryOneByShopId" column="id" ></association>
+    </resultMap>
+
+    <insert id="insertShop" parameterType="shop" useGeneratedKeys="true" keyProperty="id">
+     INSERT INTO shop 
+     (
+    	shop_name,
+    	head_img_url,
+    	shop_email,
+    	shop_tel,
+    	shop_password,
+    	app_id,
+    	app_secret,
+    	mch_id,
+    	pay_key,
+        shop_user_name,
+        shop_user_code,
+    	last_login_ip,
+    	use_start_time,
+    	use_end_time
+     ) 
+      VALUES 
+     (
+    	#{shop_name},
+    	#{head_img_url},
+    	#{shop_email},
+    	#{shop_tel},
+    	#{shop_password},
+    	#{app_id},
+    	#{app_secret},
+    	#{mch_id},
+    	#{pay_key},
+    	#{shop_user_name},
+    	#{shop_user_code},
+    	#{last_login_ip},
+    	#{use_start_time},
+    	#{use_end_time}
+     )
+    </insert>
+  
+    <delete id="deleteById" parameterType="Long">
+      DELETE FROM shop WHERE id = #{id}
+    </delete>
+  	
+
+  	  
+    <select id="countPage" resultType="java.lang.Integer">
+     SELECT count(*) FROM shop
+        <where>
+            <include refid="pubItem"/>
+        </where>
+    </select>
+  
+    <select id="queryPage"   resultMap="BaseResponse">
+      SELECT 
+    	id,
+    	shop_name,
+    	head_img_url,
+    	shop_email,
+    	shop_tel,
+    	shop_password,
+    	app_id,
+    	app_secret,
+    	mch_id,
+    	pay_key,
+    	create_time,
+    	update_time,
+    	last_login_ip,
+    	is_deleted,
+    	is_confirm,
+    	is_on,
+    	use_start_time,
+    	use_end_time,
+    	shop_user_name,
+    	shop_user_code
+      FROM shop
+      ORDER BY create_time DESC
+    </select>
+  
+    <select id="queryById" parameterType="Long" resultMap="BaseResponseById">
+      SELECT
+    	id,
+    	shop_name,
+    	head_img_url,
+    	shop_email,
+    	shop_tel,
+    	shop_password,
+    	app_id,
+    	app_secret,
+    	mch_id,
+    	pay_key,
+    	create_time,
+    	update_time,
+    	last_login_ip,
+    	is_deleted,
+    	is_confirm,
+    	is_on,
+    	use_start_time,
+    	use_end_time,
+    	shop_user_name,
+    	shop_user_code
+      FROM shop
+      WHERE id = #{id}
+    </select>
+  
+    <update id="updateShop" parameterType="shop">
+      UPDATE shop
+        <trim suffix="," prefix="set" suffixOverrides=" WHERE id = #{id}">
+            <if test="shop_name != null and shop_name !='' ">shop_name = #{shop_name},</if>
+            <if test="head_img_url != null and head_img_url !='' ">head_img_url = #{head_img_url},</if>
+            <if test="shop_email != null and shop_email !='' ">shop_email = #{shop_email},</if>
+            <if test="shop_tel != null and shop_tel !='' ">shop_tel = #{shop_tel},</if>
+            <if test="shop_password != null and shop_password !='' ">shop_password = #{shop_password},</if>
+            <if test="app_id != null and app_id !='' ">app_id = #{app_id},</if>
+            <if test="app_secret != null and app_secret !='' ">app_secret = #{app_secret},</if>
+            <if test="mch_id != null and mch_id !='' ">mch_id = #{mch_id},</if>
+            <if test="pay_key != null and pay_key !='' ">pay_key = #{pay_key},</if>
+            <if test="create_time != null and create_time !='' ">create_time = #{create_time},</if>
+            <if test="update_time != null and update_time !='' ">update_time = #{update_time},</if>
+            <if test="last_login_ip != null and last_login_ip !='' ">last_login_ip = #{last_login_ip},</if>
+            <if test="is_deleted != null and is_deleted !='' ">is_deleted = #{is_deleted},</if>
+            <if test="is_confirm != null and is_confirm !='' ">is_confirm = #{is_confirm},</if>
+            <if test="is_on != null">is_on = #{is_on},</if>
+            <if test="use_start_time != null and use_start_time !='' ">use_start_time = #{use_start_time},</if>
+            <if test="use_end_time != null and use_end_time !='' ">use_end_time = #{use_end_time}</if>
+            <if test="shop_user_name != null and shop_user_name !='' ">shop_user_name = #{shop_user_name}</if>
+            <if test="shop_user_code != null and shop_user_code !='' ">shop_user_code = #{shop_user_code}</if>
+        </trim>
+    </update>
+
+    <select id="queryList" resultMap="BaseResponse" parameterType="shop">
+        SELECT
+            id,
+            shop_name,
+            head_img_url,
+            shop_email,
+            shop_tel,
+            shop_password,
+            app_id,
+            app_secret,
+            mch_id,
+            pay_key,
+            create_time,
+            update_time,
+            last_login_ip,
+            is_deleted,
+            is_confirm,
+            is_on,
+            use_start_time,
+            use_end_time,
+        shop_user_name,
+        shop_user_code
+        FROM shop
+        <where>
+            <include refid="pubItem"/>
+        </where>
+        ORDER BY create_time DESC
+    </select>
+
+
+    <sql id="pubItem">
+         <if test="shop_name != null and shop_name !='' ">and shop_name = #{shop_name}</if>
+         <if test="head_img_url != null and head_img_url !='' ">and head_img_url = #{head_img_url}</if>
+         <if test="shop_email != null and shop_email !='' ">and shop_email = #{shop_email}</if>
+         <if test="shop_tel != null and shop_tel !='' ">and shop_tel = #{shop_tel}</if>
+         <if test="shop_password != null and shop_password !='' ">and shop_password = #{shop_password}</if>
+         <if test="app_id != null and app_id !='' ">and app_id = #{app_id}</if>
+         <if test="app_secret != null and app_secret !='' ">and app_secret = #{app_secret}</if>
+         <if test="mch_id != null and mch_id !='' ">and mch_id = #{mch_id}</if>
+         <if test="pay_key != null and pay_key !='' ">and pay_key = #{pay_key}</if>
+         <if test="create_time != null and create_time !='' ">and create_time = #{create_time}</if>
+         <if test="update_time != null and update_time !='' ">and update_time = #{update_time}</if>
+         <if test="last_login_ip != null and last_login_ip !='' ">and last_login_ip = #{last_login_ip}</if>
+         <if test="is_deleted != null and is_deleted !='' ">and is_deleted = #{is_deleted}</if>
+         <if test="is_confirm != null and is_confirm !='' ">and is_confirm = #{is_confirm}</if>
+         <if test="is_on != null and is_on !='' ">and is_on = #{is_on}</if>
+         <if test="use_start_time != null and use_start_time !='' ">and use_start_time = #{use_start_time}</if>
+         <if test="use_end_time != null and use_end_time !='' ">and use_end_time = #{use_end_time}</if>
+    </sql>
+
+
+  
+</mapper>

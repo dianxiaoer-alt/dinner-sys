@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dinner.shop.dal.ShopUseLogDO">
+
+    <resultMap type="shopUseLog" id="BaseResponse">
+         <result property=" id" column=" id" />
+         <result property=" shop_id" column=" shop_id" />
+         <result property=" use_start_time" column=" use_start_time" />
+         <result property=" use_end_time" column=" use_end_time" />
+         <result property=" create_time" column=" create_time" />
+        <result property="is_using" column="is_using" />
+        <result property="shop_meal_id" column="shop_meal_id" />
+        <result property="shop_name" column="shop_name" />
+        <association property="shop_meal" column="shop_meal_id" select="com.dinner.shop.dal.ShopMealDO.queryById"></association>
+    </resultMap>
+    <insert id="insertShopUseLog" parameterType="shopUseLog" useGeneratedKeys="true" keyProperty="id">
+     INSERT INTO shop_use_log 
+     (
+    	shop_id,
+    	use_start_time,
+    	use_end_time,
+        is_using,
+        shop_meal_id
+     ) 
+      VALUES 
+     (
+    	#{shop_id},
+    	#{use_start_time},
+    	#{use_end_time},
+        #{is_using},
+        #{shop_meal_id}
+     )
+    </insert>
+  
+    <delete id="deleteById" parameterType="Long">
+      DELETE FROM shop_use_log WHERE id = #{id}
+    </delete>
+  	
+
+  	  
+    <select id="countPage" resultType="java.lang.Integer">
+     SELECT count(*) FROM shop_use_log
+        <where>
+            <include refid="pubItem"/>
+        </where>
+    </select>
+  
+    <select id="queryPage"   resultMap="BaseResponse">
+      SELECT 
+    	id,
+    	shop_id,
+    	use_start_time,
+    	use_end_time,
+    	create_time,
+    	is_using,
+    	shop_meal_id,
+    	(select shop_name from shop as s where s.id=shop_id ) as shop_name
+      FROM shop_use_log
+        <where>
+            <include refid="pubItem"/>
+        </where>
+      ORDER BY create_time DESC
+
+    </select>
+  
+    <select id="queryById" parameterType="Long" resultMap="BaseResponse">
+      SELECT
+    	id,
+    	shop_id,
+    	use_start_time,
+    	use_end_time,
+    	create_time,
+    	is_using,
+    	shop_meal_id
+      FROM shop_use_log
+      WHERE id = #{id}
+    </select>
+  
+    <update id="updateShopUseLog" parameterType="shopUseLog">
+      UPDATE shop_use_log
+      <trim suffix="," prefix="set" suffixOverrides=" WHERE id = #{id}">
+          <if test="shop_id != null and shop_id !='' ">shop_id = #{shop_id},</if>
+          <if test="use_start_time != null and use_start_time !='' ">use_start_time = #{use_start_time},</if>
+          <if test="use_end_time != null and use_end_time !='' ">use_end_time = #{use_end_time},</if>
+          <if test="create_time != null and create_time !='' ">create_time = #{create_time},</if>
+          <if test="is_using != null ">is_using = #{is_using},</if>
+          <if test="shop_meal_id != null and shop_meal_id !='' ">shop_meal_id = #{shop_meal_id}</if>
+      </trim>
+    </update>
+
+    <select id="queryList" resultMap="BaseResponse" parameterType="shopUseLog">
+        SELECT
+            id,
+            shop_id,
+            use_start_time,
+            use_end_time,
+            create_time,
+        is_using,
+        shop_meal_id
+        FROM shop_use_log
+        <where>
+            <include refid="pubItem"/>
+        </where>
+        ORDER BY create_time DESC
+    </select>
+
+
+    <sql id="pubItem">
+         <if test="shop_id != null and shop_id !='' ">and shop_id = #{shop_id}</if>
+         <if test="use_start_time != null and use_start_time !='' ">and use_start_time = #{use_start_time}</if>
+         <if test="use_end_time != null and use_end_time !='' ">and use_end_time = #{use_end_time}</if>
+         <if test="create_time != null and create_time !='' ">and create_time = #{create_time}</if>
+        <if test="is_using != null and is_using !='' ">and is_using = #{is_using}</if>
+        <if test="shop_meal_id != null and shop_meal_id !='' "> and shop_meal_id = #{shop_meal_id}</if>
+    </sql>
+
+
+  
+</mapper>

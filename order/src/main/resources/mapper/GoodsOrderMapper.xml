@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dinner.order.dal.GoodsOrderDO">
+
+    <resultMap type="goodsOrder" id="BaseResponse">
+         <result property=" id" column=" id" />
+         <result property=" user_id" column=" user_id" />
+         <result property=" table_num" column=" table_num" />
+         <result property=" order_num" column=" order_num" />
+         <result property=" order_price" column=" order_price" />
+         <result property=" is_deleted" column=" is_deleted" />
+         <result property=" is_payed" column=" is_payed" />
+         <result property=" create_time" column=" create_time" />
+         <result property=" pay_time" column=" pay_time" />
+         <result property=" pay_type" column=" pay_type" />
+        <result property="nick_name" column="nick_name" />
+    </resultMap>
+    <insert id="insertGoodsOrder" parameterType="goodsOrder" useGeneratedKeys="true" keyProperty="id">
+     INSERT INTO goods_order 
+     (
+    	user_id,
+    	table_num,
+    	order_num,
+    	order_price,
+    	pay_time,
+    	pay_type
+     ) 
+      VALUES 
+     (
+    	#{user_id},
+    	#{table_num},
+    	#{order_num},
+    	#{order_price},
+    	#{pay_time},
+    	#{pay_type}
+     )
+    </insert>
+  
+    <delete id="deleteById" parameterType="Long">
+      DELETE FROM goods_order WHERE id = #{id}
+    </delete>
+  	
+
+  	  
+    <select id="countPage" resultType="java.lang.Integer">
+     SELECT count(*) FROM goods_order
+        <where>
+            <include refid="pubItem"/>
+        </where>
+    </select>
+  
+    <select id="queryPage"   resultMap="BaseResponse">
+      SELECT 
+    	id,
+    	user_id,
+    	table_num,
+    	order_num,
+    	order_price,
+    	is_deleted,
+    	is_payed,
+    	create_time,
+    	pay_time,
+    	pay_type,
+    	(select nick_name from user as u where u.id = user_id ) as  nick_name
+      FROM goods_order
+      where 1=1
+        <include refid="pubItem"/>
+      ORDER BY create_time DESC
+    </select>
+  
+    <select id="queryById" parameterType="Long" resultMap="BaseResponse">
+      SELECT
+    	id,
+    	user_id,
+    	table_num,
+    	order_num,
+    	order_price,
+    	is_deleted,
+    	is_payed,
+    	create_time,
+    	pay_time,
+    	pay_type
+      FROM goods_order
+
+      WHERE id = #{id}
+    </select>
+  
+    <update id="updateGoodsOrder" parameterType="goodsOrder">
+      UPDATE goods_order
+
+      <trim suffixOverrides="," prefix="set" suffix="WHERE id = #{id}">
+          <if test="user_id != null and user_id !='' ">user_id = #{user_id},</if>
+          <if test="table_num != null and table_num !='' ">table_num = #{table_num},</if>
+          <if test="order_num != null and order_num !='' ">order_num = #{order_num},</if>
+          <if test="order_price != null and order_price !='' ">order_price = #{order_price},</if>
+          <if test="is_deleted != null and is_deleted !='' ">is_deleted = #{is_deleted},</if>
+          <if test="is_payed != null and is_payed !='' ">is_payed = #{is_payed},</if>
+          <if test="create_time != null and create_time !='' ">create_time = #{create_time},</if>
+          <if test="pay_time != null and pay_time !='' ">pay_time = #{pay_time},</if>
+          <if test="pay_type != null and pay_type !='' ">pay_type = #{pay_type}</if>
+      </trim>
+
+
+    </update>
+
+    <select id="queryList" resultMap="BaseResponse" parameterType="goodsOrder">
+        SELECT
+            id,
+            user_id,
+            table_num,
+            order_num,
+            order_price,
+            is_deleted,
+            is_payed,
+            create_time,
+            pay_time,
+            pay_type
+        FROM goods_order
+        <where>
+            <include refid="pubItem"/>
+        </where>
+        ORDER BY create_time DESC
+    </select>
+
+
+    <sql id="pubItem">
+         <if test="user_id != null and user_id !='' ">and user_id = #{user_id}</if>
+         <if test="table_num != null and table_num !='' ">and table_num = #{table_num}</if>
+         <if test="order_num != null and order_num !='' ">and order_num = #{order_num}</if>
+         <if test="order_price != null and order_price !='' ">and order_price = #{order_price}</if>
+         <if test="is_deleted != null and is_deleted !='' ">and is_deleted = #{is_deleted}</if>
+         <if test="is_payed != null and is_payed !='' ">and is_payed = #{is_payed}</if>
+         <if test="create_time != null and create_time !='' ">and create_time = #{create_time}</if>
+         <if test="pay_time != null and pay_time !='' ">and pay_time = #{pay_time}</if>
+         <if test="pay_type != null and pay_type !='' ">and pay_type = #{pay_type}</if>
+    </sql>
+
+
+  
+</mapper>

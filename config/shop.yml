@@ -1,0 +1,71 @@
+server:
+  port: 8085
+spring:
+  application:
+    name: shop
+  #redis 配置
+  redis:
+    database: 1
+    host: 47.93.44.35
+    timeout: 1000                # 连接超时时间（毫秒）
+    jedis:
+      pool:
+        max-active: 8            # 连接池最大连接数（使用负值表示没有限制）
+        max-wait: -1             # 连接池最大阻塞等待时间（使用负值表示没有限制）
+        max-idle: 8              # 连接池中的最大空闲连接
+        min-idle: 0
+    password:
+    port: 6379
+
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/dinner_sys?characterEncoding=UTF-8&useUnicode=true&useSSL=false
+    username: '{cipher}c205b6e459babc3d79440daac211bfb65e4fdb89810b43203d66cb5c1d6d8215'
+    password: '{cipher}6bda051780592c1f5ad1b6ae9eb00d90dffabb1a9231409b35cbd7cae84f12cd'
+    driver-class-name: com.mysql.jdbc.Driver
+    druid:
+      initial-size: 5 #连接池初始化大小
+      min-idle: 10 #最小空闲连接数
+      max-active: 20 #最大连接数
+      # 配置获取连接等待超时的时间
+      maxWait: 60000
+      # 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+      timeBetweenEvictionRunsMillis: 60000
+      # 配置一个连接在池中最小生存的时间，单位是毫秒
+      minEvictableIdleTimeMillis: 300000
+      validationQuery: SELECT 1 FROM DUAL
+      testWhileIdle: true
+      testOnBorrow: false
+      testOnReturn: false
+      # 打开PSCache，并且指定每个连接上PSCache的大小
+      poolPreparedStatements: true
+      maxPoolPreparedStatementPerConnectionSize: 20
+      # 配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙
+      filters: stat,wall,slf4j
+      # 通过connectProperties属性来打开mergeSql功能；慢SQL记录
+      connectionProperties: druid.stat.mergeSql\=true;druid.stat.slowSqlMillis\=5000
+      web-stat-filter:
+        exclusions: "*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*" #不统计这些请求数据
+      stat-view-servlet: #访问监控网页的登录用户名和密码
+        login-username: druid
+        login-password: druid
+    #json 时间戳统一转换
+  jackson:
+    date-format:   yyyy-MM-dd HH:mm:ss
+    time-zone:   GMT+8
+#mybatis的配置
+mybatis:
+ configuration:
+#   sql日志显示，这里使用标准显示
+  log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+#  数据库中如果有类似 如  user_name 等命名，会将 _后的字母大写，这里是为了和实体类对应
+  map-underscore-to-camel-case: false
+#  配置mapper文件的路径
+ mapper-locations: classpath:mapper/*.xml
+ type-aliases-package: com.dinner.commons.domain
+
+ # 配置文件加密key
+jasypt:
+   encryptor:
+      password: dinner-sys
+
+
