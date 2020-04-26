@@ -1,6 +1,8 @@
 server:
   port: 8030
 spring:
+  resource:
+    static-locations: classpath:/static/,classpath:/public/,classpath:/templates/
   session:
     timeout: -1
   jackson:
