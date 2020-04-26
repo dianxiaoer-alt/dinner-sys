@@ -5,6 +5,8 @@
     <file url="file://$PROJECT_DIR$/admin-web" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/commons" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/config-center" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/config-utils" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/config-utils/config-utils-oss" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/coupon" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/goods" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/message" charset="UTF-8" />

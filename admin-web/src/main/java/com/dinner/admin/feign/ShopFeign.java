@@ -20,7 +20,7 @@ import java.util.List;
 /**
  * shop店铺服务
  */
-@FeignClient("shop")
+@FeignClient(value = "shop")
 public interface ShopFeign {
 
 

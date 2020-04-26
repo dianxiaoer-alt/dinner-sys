@@ -15,7 +15,7 @@ import java.util.List;
 /**
  * 商品服务
  */
-@FeignClient("goods")
+@FeignClient(value = "goods")
 public interface GoodsFeign {
     @RequestMapping(value = "goods/save")
     Result<Integer> save( @RequestBody GoodsReq goodsReq);

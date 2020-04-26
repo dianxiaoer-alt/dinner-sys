@@ -60,15 +60,16 @@
   
     <update id="updateShopMeal" parameterType="shopMeal">
       UPDATE shop_meal
-      SET
-         <if test="meal_title != null and meal_title !='' ">meal_title = #{meal_title},</if>
-         <if test="meal_desc != null and meal_desc !='' ">meal_desc = #{meal_desc},</if>
-         <if test="meal_img != null and meal_img !='' ">meal_img = #{meal_img},</if>
-         <if test="meal_price != null and meal_price !='' ">meal_price = #{meal_price},</if>
-         <if test="is_deleted != null and is_deleted !='' ">is_deleted = #{is_deleted},</if>
-         <if test="create_time != null and create_time !='' ">create_time = #{create_time},</if>
-         <if test="update_time != null and update_time !='' ">update_time = #{update_time}</if>
-      WHERE id = #{id}
+      <trim suffix="where id =#{id}" prefix="set" suffixOverrides=",">
+          <if test="meal_title != null and meal_title !='' ">meal_title = #{meal_title},</if>
+          <if test="meal_desc != null and meal_desc !='' ">meal_desc = #{meal_desc},</if>
+          <if test="meal_img != null and meal_img !='' ">meal_img = #{meal_img},</if>
+          <if test="meal_price != null and meal_price !='' ">meal_price = #{meal_price},</if>
+          <if test="is_deleted != null and is_deleted !='' ">is_deleted = #{is_deleted},</if>
+
+          update_time =NOW()
+      </trim>
+
     </update>
 
     <select id="queryList" resultMap="BaseResponse" parameterType="shopMeal">

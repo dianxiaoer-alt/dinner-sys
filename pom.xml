@@ -19,6 +19,7 @@
         <module>user</module>
         <module>message</module>
         <module>coupon</module>
+        <module>config-utils</module>
     </modules>
 
     <!-- 引入Spring Boot的依赖 -->

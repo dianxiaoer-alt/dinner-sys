@@ -16,6 +16,7 @@
         <module name="goods" />
         <module name="config-center" />
         <module name="coupon" />
+        <module name="config-utils-oss" />
       </profile>
     </annotationProcessing>
   </component>
@@ -24,6 +25,8 @@
       <module name="admin-web" options="-parameters" />
       <module name="commons" options="-parameters" />
       <module name="config-center" options="-parameters" />
+      <module name="config-utils" options="-parameters" />
+      <module name="config-utils-oss" options="-parameters" />
       <module name="coupon" options="-parameters" />
       <module name="dinner-sys" options="-parameters" />
       <module name="goods" options="-parameters" />

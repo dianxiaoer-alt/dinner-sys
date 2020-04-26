@@ -23,6 +23,12 @@ import lombok.Setter;
 @Setter
 public class ShopQuery extends Query {
 
+    private Long shop_id;
+    private Integer is_deleted;
+    private Integer is_on;
+
+    private Integer is_confirm;
+
     @Override
     public String toString() {
       return ReflectionToStringBuilder.toString(this);

@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@FeignClient("order")
+@FeignClient(value = "order")
 public interface OrderFeign {
     @RequestMapping(value="order/save")
     Result<Long> save(@RequestBody GoodsOrderReq goodsOrderReq);

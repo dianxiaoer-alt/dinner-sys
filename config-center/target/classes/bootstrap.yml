@@ -11,8 +11,8 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/dianxiaoer-alt/dinner-config-server.git #git仓库地址
-          searchPaths: / #仓库路径
+          uri: https://github.com/dianxiaoer-alt/dinner-sys.git #git仓库地址
+          searchPaths: /config #仓库路径
           username: clq_zuiweng@163.com #git仓库用户名
           password: 1234567890cLQ #git仓库密码
       label: master #仓库的分支

@@ -56,6 +56,9 @@
     	shop_meal_id,
     	(select shop_name from shop as s where s.id=shop_id ) as shop_name
       FROM shop_use_log
+        <where>
+            <include refid="pubItem"/>
+        </where>
       ORDER BY create_time DESC
 
     </select>

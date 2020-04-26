@@ -122,6 +122,9 @@
     	shop_user_name,
     	shop_user_code
       FROM shop
+        <where>
+            <include refid="pubItem"/>
+        </where>
       ORDER BY create_time DESC
     </select>
   

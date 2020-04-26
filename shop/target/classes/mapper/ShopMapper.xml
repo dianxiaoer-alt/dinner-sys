@@ -122,6 +122,9 @@
     	shop_user_name,
     	shop_user_code
       FROM shop
+        <where>
+            <include refid="pubItem"/>
+        </where>
       ORDER BY create_time DESC
     </select>
   
@@ -219,9 +222,9 @@
          <if test="create_time != null and create_time !='' ">and create_time = #{create_time}</if>
          <if test="update_time != null and update_time !='' ">and update_time = #{update_time}</if>
          <if test="last_login_ip != null and last_login_ip !='' ">and last_login_ip = #{last_login_ip}</if>
-         <if test="is_deleted != null and is_deleted !='' ">and is_deleted = #{is_deleted}</if>
-         <if test="is_confirm != null and is_confirm !='' ">and is_confirm = #{is_confirm}</if>
-         <if test="is_on != null and is_on !='' ">and is_on = #{is_on}</if>
+         <if test="is_deleted != null  ">and is_deleted = #{is_deleted}</if>
+         <if test="is_confirm != null ">and is_confirm = #{is_confirm}</if>
+         <if test="is_on != null ">and is_on = #{is_on}</if>
          <if test="use_start_time != null and use_start_time !='' ">and use_start_time = #{use_start_time}</if>
          <if test="use_end_time != null and use_end_time !='' ">and use_end_time = #{use_end_time}</if>
     </sql>

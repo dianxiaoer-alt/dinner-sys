@@ -26,6 +26,6 @@ public class ExceptionHandlerAdvice {
     @ExceptionHandler(Exception.class)
     public BaseResult handleMethodException(Exception e) {
        e.printStackTrace();
-        return new Result(11000,e.getLocalizedMessage());
+        return new Result(11000,"未知错误");
     }
 }

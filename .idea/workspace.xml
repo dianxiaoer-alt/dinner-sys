@@ -1,21 +1,172 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e772f38f-8be8-47a9-9ede-33d6934b5a0f" name="Default Changelist" comment="" />
+    <list default="true" id="e772f38f-8be8-47a9-9ede-33d6934b5a0f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/src/main/java/com/dinner/admin/feign/ShopMealFeign.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/src/main/java/com/dinner/admin/vo/ShopMealController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/src/main/resources/public/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/src/main/resources/public/login.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/src/main/resources/public/views/order/fail-order-list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/src/main/resources/public/views/order/order-detail.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/src/main/resources/public/views/order/success-order-list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/src/main/resources/public/views/shop-meal/add-shop-meal.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/src/main/resources/public/views/shop-meal/shop-meal-list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/src/main/resources/public/views/shop-meal/update-shop-meal.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/src/main/resources/public/views/shop/add-shop-use-log.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/src/main/resources/public/views/shop/be-toDate-shop-list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/src/main/resources/public/views/shop/past-shop-list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/src/main/resources/public/views/shop/shop-detail-info.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/src/main/resources/public/views/shop/shop-use-list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/src/main/resources/public/views/shop/shop-using-list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/src/main/resources/public/views/shop/toConfirm-shop.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/src/main/resources/public/views/shop/unconfirm-shop-list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/src/main/resources/static/css/dinner-sys.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/src/main/resources/static/json/admin-user-byId.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/src/main/resources/static/json/order-list.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/src/main/resources/static/json/shop-info.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/src/main/resources/static/json/shop-list.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/src/main/resources/static/json/shop-meail-page-list.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/src/main/resources/static/json/shop-meal-byId.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/src/main/resources/static/json/shop-meal-list.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/src/main/resources/static/json/shop-use-list.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/src/main/resources/static/layui/config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/src/main/resources/static/layui/font/iconfont.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/src/main/resources/static/layui/lay/modules/all_list_table.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/src/main/resources/static/layui/lay/modules/transfer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config-utils/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config-utils/config-utils-oss/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config-utils/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin-web/src/main/java/com/dinner/admin/feign/GoodsFeign.java" beforeDir="false" afterPath="$PROJECT_DIR$/admin-web/src/main/java/com/dinner/admin/feign/GoodsFeign.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin-web/src/main/java/com/dinner/admin/feign/OrderFeign.java" beforeDir="false" afterPath="$PROJECT_DIR$/admin-web/src/main/java/com/dinner/admin/feign/OrderFeign.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin-web/src/main/java/com/dinner/admin/feign/ShopFeign.java" beforeDir="false" afterPath="$PROJECT_DIR$/admin-web/src/main/java/com/dinner/admin/feign/ShopFeign.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin-web/src/main/java/com/dinner/admin/vo/ShopController.java" beforeDir="false" afterPath="$PROJECT_DIR$/admin-web/src/main/java/com/dinner/admin/vo/ShopController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin-web/src/main/java/com/dinner/admin/vo/exception/ExceptionHandlerAdvice.java" beforeDir="false" afterPath="$PROJECT_DIR$/admin-web/src/main/java/com/dinner/admin/vo/exception/ExceptionHandlerAdvice.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin-web/src/main/resources/static/layui/css/layui.css" beforeDir="false" afterPath="$PROJECT_DIR$/admin-web/src/main/resources/static/layui/css/layui.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin-web/src/main/resources/static/layui/css/layui.mobile.css" beforeDir="false" afterPath="$PROJECT_DIR$/admin-web/src/main/resources/static/layui/css/layui.mobile.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin-web/src/main/resources/static/layui/css/modules/code.css" beforeDir="false" afterPath="$PROJECT_DIR$/admin-web/src/main/resources/static/layui/css/modules/code.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin-web/src/main/resources/static/layui/css/modules/laydate/default/laydate.css" beforeDir="false" afterPath="$PROJECT_DIR$/admin-web/src/main/resources/static/layui/css/modules/laydate/default/laydate.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin-web/src/main/resources/static/layui/css/modules/layer/default/layer.css" beforeDir="false" afterPath="$PROJECT_DIR$/admin-web/src/main/resources/static/layui/css/modules/layer/default/layer.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin-web/src/main/resources/static/layui/font/iconfont.eot" beforeDir="false" afterPath="$PROJECT_DIR$/admin-web/src/main/resources/static/layui/font/iconfont.eot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin-web/src/main/resources/static/layui/font/iconfont.svg" beforeDir="false" afterPath="$PROJECT_DIR$/admin-web/src/main/resources/static/layui/font/iconfont.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin-web/src/main/resources/static/layui/font/iconfont.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/admin-web/src/main/resources/static/layui/font/iconfont.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin-web/src/main/resources/static/layui/font/iconfont.woff" beforeDir="false" afterPath="$PROJECT_DIR$/admin-web/src/main/resources/static/layui/font/iconfont.woff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin-web/src/main/resources/static/layui/lay/all-mobile.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin-web/src/main/resources/static/layui/lay/all-mobile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin-web/src/main/resources/static/layui/lay/all.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin-web/src/main/resources/static/layui/lay/all.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin-web/src/main/resources/static/layui/lay/modules/carousel.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin-web/src/main/resources/static/layui/lay/modules/carousel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin-web/src/main/resources/static/layui/lay/modules/code.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin-web/src/main/resources/static/layui/lay/modules/code.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin-web/src/main/resources/static/layui/lay/modules/colorpicker.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin-web/src/main/resources/static/layui/lay/modules/colorpicker.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin-web/src/main/resources/static/layui/lay/modules/element.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin-web/src/main/resources/static/layui/lay/modules/element.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin-web/src/main/resources/static/layui/lay/modules/flow.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin-web/src/main/resources/static/layui/lay/modules/flow.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin-web/src/main/resources/static/layui/lay/modules/form.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin-web/src/main/resources/static/layui/lay/modules/form.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin-web/src/main/resources/static/layui/lay/modules/jquery.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin-web/src/main/resources/static/layui/lay/modules/jquery.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin-web/src/main/resources/static/layui/lay/modules/laydate.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin-web/src/main/resources/static/layui/lay/modules/laydate.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin-web/src/main/resources/static/layui/lay/modules/layedit.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin-web/src/main/resources/static/layui/lay/modules/layedit.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin-web/src/main/resources/static/layui/lay/modules/layer.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin-web/src/main/resources/static/layui/lay/modules/layer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin-web/src/main/resources/static/layui/lay/modules/laypage.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin-web/src/main/resources/static/layui/lay/modules/laypage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin-web/src/main/resources/static/layui/lay/modules/laytpl.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin-web/src/main/resources/static/layui/lay/modules/laytpl.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin-web/src/main/resources/static/layui/lay/modules/mobile.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin-web/src/main/resources/static/layui/lay/modules/mobile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin-web/src/main/resources/static/layui/lay/modules/rate.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin-web/src/main/resources/static/layui/lay/modules/rate.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin-web/src/main/resources/static/layui/lay/modules/slider.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin-web/src/main/resources/static/layui/lay/modules/slider.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin-web/src/main/resources/static/layui/lay/modules/table.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin-web/src/main/resources/static/layui/lay/modules/table.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin-web/src/main/resources/static/layui/lay/modules/tree.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin-web/src/main/resources/static/layui/lay/modules/tree.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin-web/src/main/resources/static/layui/lay/modules/upload.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin-web/src/main/resources/static/layui/lay/modules/upload.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin-web/src/main/resources/static/layui/lay/modules/util.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin-web/src/main/resources/static/layui/lay/modules/util.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin-web/src/main/resources/static/layui/layui.all.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin-web/src/main/resources/static/layui/layui.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin-web/src/main/resources/static/layui/layui.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin-web/src/main/resources/static/views/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/admin-web/src/main/resources/public/views/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin-web/target/classes/com/dinner/admin/vo/ShopController.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin-web/target/classes/com/dinner/admin/vo/ShopController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin-web/target/classes/com/dinner/admin/vo/exception/ExceptionHandlerAdvice.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin-web/target/classes/com/dinner/admin/vo/exception/ExceptionHandlerAdvice.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin-web/target/classes/static/layui/css/layui.css" beforeDir="false" afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/css/layui.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin-web/target/classes/static/layui/css/layui.mobile.css" beforeDir="false" afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/css/layui.mobile.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin-web/target/classes/static/layui/css/modules/code.css" beforeDir="false" afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/css/modules/code.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin-web/target/classes/static/layui/css/modules/laydate/default/font.css" beforeDir="false" afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/css/modules/laydate/default/font.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin-web/target/classes/static/layui/css/modules/laydate/default/laydate.css" beforeDir="false" afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/css/modules/laydate/default/laydate.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin-web/target/classes/static/layui/css/modules/layer/default/layer.css" beforeDir="false" afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/css/modules/layer/default/layer.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin-web/target/classes/static/layui/font/iconfont.eot" beforeDir="false" afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/font/iconfont.eot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin-web/target/classes/static/layui/font/iconfont.svg" beforeDir="false" afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/font/iconfont.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin-web/target/classes/static/layui/font/iconfont.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/font/iconfont.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin-web/target/classes/static/layui/font/iconfont.woff" beforeDir="false" afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/font/iconfont.woff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin-web/target/classes/static/layui/lay/all-mobile.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/lay/all-mobile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin-web/target/classes/static/layui/lay/all.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/lay/all.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin-web/target/classes/static/layui/lay/modules/carousel.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/lay/modules/carousel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin-web/target/classes/static/layui/lay/modules/code.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/lay/modules/code.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin-web/target/classes/static/layui/lay/modules/colorpicker.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/lay/modules/colorpicker.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin-web/target/classes/static/layui/lay/modules/element.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/lay/modules/element.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin-web/target/classes/static/layui/lay/modules/flow.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/lay/modules/flow.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin-web/target/classes/static/layui/lay/modules/form.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/lay/modules/form.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin-web/target/classes/static/layui/lay/modules/jquery.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/lay/modules/jquery.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin-web/target/classes/static/layui/lay/modules/laydate.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/lay/modules/laydate.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin-web/target/classes/static/layui/lay/modules/layedit.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/lay/modules/layedit.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin-web/target/classes/static/layui/lay/modules/layer.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/lay/modules/layer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin-web/target/classes/static/layui/lay/modules/laypage.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/lay/modules/laypage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin-web/target/classes/static/layui/lay/modules/laytpl.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/lay/modules/laytpl.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin-web/target/classes/static/layui/lay/modules/mobile.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/lay/modules/mobile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin-web/target/classes/static/layui/lay/modules/mobile/layer-mobile.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/lay/modules/mobile/layer-mobile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin-web/target/classes/static/layui/lay/modules/mobile/layim-mobile-open.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/lay/modules/mobile/layim-mobile-open.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin-web/target/classes/static/layui/lay/modules/mobile/zepto.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/lay/modules/mobile/zepto.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin-web/target/classes/static/layui/lay/modules/rate.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/lay/modules/rate.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin-web/target/classes/static/layui/lay/modules/slider.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/lay/modules/slider.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin-web/target/classes/static/layui/lay/modules/table.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/lay/modules/table.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin-web/target/classes/static/layui/lay/modules/tree.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/lay/modules/tree.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin-web/target/classes/static/layui/lay/modules/upload.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/lay/modules/upload.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin-web/target/classes/static/layui/lay/modules/util.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/lay/modules/util.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin-web/target/classes/static/layui/layui.all.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin-web/target/classes/static/layui/layui.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/layui.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin-web/target/classes/static/views/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/commons/src/main/java/com/dinner/commons/query/ShopQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/commons/src/main/java/com/dinner/commons/query/ShopQuery.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commons/target/classes/com/dinner/commons/domain/GoodsOrder.class" beforeDir="false" afterPath="$PROJECT_DIR$/commons/target/classes/com/dinner/commons/domain/GoodsOrder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commons/target/classes/com/dinner/commons/query/ShopQuery.class" beforeDir="false" afterPath="$PROJECT_DIR$/commons/target/classes/com/dinner/commons/query/ShopQuery.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config-center/target/classes/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config-center/target/classes/bootstrap.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop/src/main/resources/mapper/ShopMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/shop/src/main/resources/mapper/ShopMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop/src/main/resources/mapper/ShopMealMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/shop/src/main/resources/mapper/ShopMealMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop/target/classes/com/dinner/shop/vo/ShopUseLogVO.class" beforeDir="false" afterPath="$PROJECT_DIR$/shop/target/classes/com/dinner/shop/vo/ShopUseLogVO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop/target/classes/mapper/ShopMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/shop/target/classes/mapper/ShopMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop/target/classes/mapper/ShopMealMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/shop/target/classes/mapper/ShopMealMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop/target/classes/mapper/ShopUseLogMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/shop/target/classes/mapper/ShopUseLogMapper.xml" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="MySQL - jdbc:mysql://localhost:3306?useUnicode=true&amp;characterEncoding=UTF-8&amp;autoReconnect=true&amp;useSSL=false&amp;serverTimezone=Asia/Shanghai" type="feb32156:DbDataSourceImpl" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="HTML File" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
@@ -31,21 +182,27 @@
     </option>
   </component>
   <component name="ProjectId" id="1a4qLityMAd8c20xMVohJ7AJcWd" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="DatabaseDriversLRU" value="mysql" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RequestMappingsPanelOrder0" value="0" />
     <property name="RequestMappingsPanelOrder1" value="1" />
     <property name="RequestMappingsPanelWidth0" value="75" />
     <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="jdk.selected.JAVA_MODULE" value="1.8" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/admin-web/src/main/resources/templates" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+    <property name="settings.editor.selected.configurable" value="database.main" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -56,11 +213,11 @@
       <recent name="com.dinner.user.config" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\new_dinner_sys\dinner-sys\admin-web\src\main\resources\templates" />
+      <recent name="E:\new_dinner_sys\dinner-sys\admin-web\src\main\resources\static" />
       <recent name="E:\新扫码点餐系统\dinner-sys\sql" />
       <recent name="E:\新扫码点餐系统\dinner-sys\doc" />
       <recent name="E:\新扫码点餐系统\dinner-sys\config" />
-      <recent name="E:\新扫码点餐系统\dinner-sys\shop\src\main\java\com\dinner\shop\vo" />
-      <recent name="E:\新扫码点餐系统\dinner-sys\shop\src\main\java\com\dinner\shop\ao\impl" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -75,20 +232,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.OrderApplication">
-    <configuration name="JasyptUtils" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.dinner.commons.utils.JasyptUtils" />
-      <module name="commons" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.dinner.commons.utils.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Spring Boot.AdminWebApplication">
     <configuration name="AdminWebApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="admin-web" />
       <extension name="coverage">
@@ -102,15 +246,28 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="OrderApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
-      <module name="order" />
+    <configuration name="ConfigServerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="config-center" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.dinner.order.*" />
+          <option name="PATTERN" value="com.dinner.config.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.dinner.order.OrderApplication" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.dinner.config.ConfigServerApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GoodsApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="goods" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.dinner.goods.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.dinner.goods.GoodsApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -142,21 +299,41 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.JasyptUtils" />
+      <item itemvalue="Spring Boot.ConfigServerApplication" />
+      <item itemvalue="Spring Boot.GoodsApplication" />
       <item itemvalue="Spring Boot.AdminWebApplication" />
       <item itemvalue="Spring Boot.UserApplication" />
       <item itemvalue="Spring Boot.ShopApplication" />
-      <item itemvalue="Spring Boot.OrderApplication" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Spring Boot.OrderApplication" />
-        <item itemvalue="Spring Boot.ShopApplication" />
         <item itemvalue="Spring Boot.AdminWebApplication" />
-        <item itemvalue="Application.JasyptUtils" />
+        <item itemvalue="Spring Boot.ShopApplication" />
         <item itemvalue="Spring Boot.UserApplication" />
+        <item itemvalue="Spring Boot.GoodsApplication" />
+        <item itemvalue="Spring Boot.ConfigServerApplication" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="allServicesViewState">
+      <serviceView>
+        <treeState>
+          <expand>
+            <path>
+              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@f7717195" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+            </path>
+            <path>
+              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@f7717195" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@2f3492e6" type="9fbbdea:ServiceModel$ServiceNode" />
+            </path>
+          </expand>
+          <select />
+        </treeState>
+      </serviceView>
+    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -175,11 +352,31 @@
       <workItem from="1586082576122" duration="10003000" />
       <workItem from="1586139536931" duration="59482000" />
       <workItem from="1586321314905" duration="27260000" />
-      <workItem from="1586919544766" duration="129000" />
+      <workItem from="1586919544766" duration="2552000" />
+      <workItem from="1587218405584" duration="2186000" />
+      <workItem from="1587360226402" duration="3662000" />
+      <workItem from="1587517641306" duration="690000" />
+      <workItem from="1587550768829" duration="24520000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
 </project>
