@@ -36,7 +36,7 @@
 			table.render({
 				elem: '#use_list' //指定原始表格元素选择器（推荐id选择器）
 					,
-				url: "../../json/order-list.js",
+				url: "../../order/queryPage",
 				cols: [
 					[{
 						field: 'order_num',
@@ -78,15 +78,7 @@
 					  title:'店铺详细信息',
 					  maxmin:true,
 					  area:['85%','85%'],
-					  content: './shop-detail-info.html' //这里content是一个普通的String
-					});
-			  }else if(obj.event === 'update'){
-			  	layer.open({
-					  type: 2, 
-					  title:'修改店铺套餐',
-					  maxmin:true,
-					  area:['85%','85%'],
-					  content: './update-shop-meal.html?shop_id='+obj.data.id //这里content是一个普通的String
+					  content: './shop-detail-info.html?order_id='+obj.data.id //这里content是一个普通的String
 					});
 			  }
 			});

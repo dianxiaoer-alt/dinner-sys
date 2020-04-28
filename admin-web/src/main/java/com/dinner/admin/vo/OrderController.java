@@ -39,7 +39,7 @@ public class OrderController {
 
 
     @RequestMapping(value = "queryPage",method = {RequestMethod.POST,RequestMethod.GET})
-    public Result<PageInfo<GoodsOrder>> queryPage(@RequestBody GoodsOrderQuery query) {
+    public Result<PageInfo<GoodsOrder>> queryPage( GoodsOrderQuery query) {
         return orderFeign.queryPage( query);
     }
 

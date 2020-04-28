@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="user" />
         <module name="commons" />
+        <module name="shop-admin-web" />
         <module name="order" />
         <module name="register-center" />
         <module name="message" />
@@ -16,6 +17,7 @@
         <module name="goods" />
         <module name="config-center" />
         <module name="coupon" />
+        <module name="app-web" />
         <module name="config-utils-oss" />
       </profile>
     </annotationProcessing>
@@ -23,6 +25,7 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="admin-web" options="-parameters" />
+      <module name="app-web" options="-parameters" />
       <module name="commons" options="-parameters" />
       <module name="config-center" options="-parameters" />
       <module name="config-utils" options="-parameters" />
@@ -34,6 +37,7 @@
       <module name="order" options="-parameters" />
       <module name="register-center" options="-parameters" />
       <module name="shop" options="-parameters" />
+      <module name="shop-admin-web" options="-parameters" />
       <module name="user" options="-parameters" />
     </option>
   </component>

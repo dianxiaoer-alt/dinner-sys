@@ -45,7 +45,7 @@
 			var order_id = location.search.substring(9);
 			layui.use(['layer'],function(){
 				var $ = layui.$;
-				$.get("../../../json/order-Byid.js",{orderId:order_id},function(res){
+				$.get("../../order/",{goodsOrderId:order_id},function(res){
 					
 				},'json');
 			});

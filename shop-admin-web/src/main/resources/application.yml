@@ -1,0 +1,13 @@
+server:
+  port: 9898
+aliyun:
+  oss:
+    endpoint: oss-cn-beijing.aliyuncs.com # oss对外服务的访问域名
+    accessKeyId: LTAI4Fw7wuDJwNoJUAcmcXJK # 访问身份验证中用到用户标识
+    accessKeySecret: Xidolnh2FiT4UqXBWv9AMKIp5zFOSS # 用户用于加密签名字符串和oss用来验证签名字符串的密钥
+    bucketName: dinner-sys # oss的存储空间
+    prefix: dinner/goods
+    #policy:
+    #expire: 300 # 签名有效期(S)
+    #maxSize: 10 # 上传文件大小(M)
+    #callback: http://39.98.190.128:8080/aliyun/oss/callback # 文件上传成功后的回调地址
