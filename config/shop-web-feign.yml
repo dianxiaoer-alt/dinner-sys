@@ -1,0 +1,26 @@
+server:
+  port: 8040
+spring:
+  resource:
+    static-locations: classpath:/static/,classpath:/public/,classpath:/templates/
+  session:
+    timeout: -1
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  application:
+    name: shop-web-feign
+  thymeleaf:
+    prefix: classpath:/static/
+    suffix: .html
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true
+
+# 配置文件加密key
+jasypt:
+  encryptor:
+    password: dinner-sys

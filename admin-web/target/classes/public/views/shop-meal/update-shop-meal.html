@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>修改店铺套餐</title>
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+		<link rel="stylesheet" href="../../layui/css/layui.css" media="all">
+	</head>
+	<body>
+		<div class="layui-card">
+		  <div class="layui-card-body">
+		  		<form class="layui-form" action="">
+				<input type="hidden" id="id" name="id">
+				  <div class="layui-form-item">
+				    <label class="layui-form-label">套餐名称</label>
+				    <div class="layui-input-inline">
+				      <input type="text" id="meal_title" name="meal_title" maxlength="20" required lay-verify="required" placeholder="请输入套餐名称" autocomplete="off" class="layui-input">
+				    </div>
+				    <div class="layui-form-mid layui-word-aux">最多20个字符</div>
+				  </div>
+				  
+				  
+				  <div class="layui-form-item">
+				    <label class="layui-form-label">套餐价格</label>
+				    <div class="layui-input-inline">
+				      <input type="number" id="meal_price" name="meal_price" min="5000"  required lay-verify="required" placeholder="请输入套餐价格" autocomplete="off" class="layui-input">
+				    </div>
+				    <div class="layui-form-mid layui-word-aux">最多20个字符</div>
+				  </div>
+				 
+				  <div class="layui-form-item layui-form-text">
+				    <label class="layui-form-label">套餐描述</label>
+				    <div class="layui-input-block">
+				      <textarea name="meal_desc" id="meal_desc" placeholder="请输入套餐描述" required class="layui-textarea"></textarea>
+				    </div>
+				  </div>
+				  
+				  <div class="layui-form-item layui-form-text">
+				    <label class="layui-form-label">套餐海报图</label>
+				    <div class="layui-input-block">
+				      	<button type="button" class="layui-btn" id="test1">
+						  <i class="layui-icon">&#xe67c;</i>上传图片
+						</button>
+						<br />
+						<div style="width: 90%;margin-top: 20px;">
+							<img style="width: 100%;" id="meal_img" />
+						</div>
+				    </div>
+				  </div>
+				  
+				 
+				  <div class="layui-form-item">
+				    <div class="layui-input-block">
+				      <button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
+				      <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+				    </div>
+				  </div>
+				</form>
+ 
+		  </div>
+		</div>
+	</body>
+	<script type="text/javascript" src="../../layui/layui.js" ></script>
+<script>
+//Demo
+var id = location.search.substring(4);
+document.getElementById("id").value=id;
+layui.use(['form','upload'], function(){
+  var form = layui.form,
+  upload = layui.upload,
+  $ = layui.$;
+  
+  $.get("../../shopMeal/queryById",{shopMealId:id},function(res){
+  	var meal = res.data;
+  	document.getElementById("meal_title").value=meal.meal_title;
+  	document.getElementById("meal_price").value=meal.meal_price;
+  	$("#meal_desc").html(meal.meal_desc);
+  	$("#meal_img").attr('src',meal.meal_img);
+  },'json');
+  
+  //监听提交
+  form.on('submit(formDemo)', function(data){
+  	//$.post(""); //ajax更新
+	  $.post("../../shopMeal/update",data.field,function (res) {
+		  if(res.code == 0){
+			  parent.layer.msg("操作成功");
+		  }else{
+			  parent.layer.msg("操作失败");
+		  }
+	  },'json');
+
+	  location.href='./shop-meal-list.html';
+    return false;
+  });
+  
+  //执行实例
+  var uploadInst = upload.render({
+    elem: '#test1' //绑定元素
+    ,url: '/upload/' //上传接口
+    ,done: function(res){
+      //上传完毕回调
+      $.post();
+    }
+    
+  });
+  
+  
+});
+</script>
+</html>

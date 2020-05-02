@@ -1,0 +1,13 @@
+spring:
+  cloud:
+    config:
+      name: shop
+      discovery:
+        enabled: true
+        service-id: configServer
+      label: master
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/

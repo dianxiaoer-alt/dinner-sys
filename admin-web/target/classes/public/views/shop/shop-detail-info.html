@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+		<link rel="stylesheet" href="../../layui/css/layui.css" media="all">
+			<link rel="stylesheet" href="../../css/dinner-sys.css" media="all">
+	</head>
+	<body>
+		
+		<div class="layui-card">
+			<div class="layui-card-body">
+				<div class="shop_head_img">
+					<img style="width: 100%;height: 100%; border-radius: 50%;" id="head_img_url" class="" />
+				</div>
+				<br />
+				
+				<div class="layui-card">
+				  <div class="layui-card-header">基本信息</div>
+				  <div class="layui-card-body">
+					  <table class="layui-table">
+					  <colgroup>
+					    <col width="200">
+					    <col width="200">
+					  </colgroup>
+					
+					  <tbody class="shop_info">
+					    <tr>
+					      <td><b>店铺名称：</b><span id="shop_name"></span></td>
+					      <td><b>联系人姓名：</b><span id="shop_user_name"></span></td>
+					      
+					    <tr>
+					      <td><b>联系人电话：</b><span id="shop_tel"></span></td>
+					      <td><b>联系人邮箱：</b><span id="email"></span></td>
+					    </tr>
+					    </tr>
+					    <tr>
+					    	<td><b>联系人身份证：</b><span id="shop_code"></span></td>
+					    </tr>
+					    
+					  </tbody>
+					</table>
+				  </div>
+				</div>
+				
+				
+				<div class="layui-card">
+				  <div class="layui-card-header">认证信息</div>
+				  <div class="layui-card-body">
+					   <div class="code_img">
+							<div><img id="face_img"  alt="身份证正面">身份证正面</div>
+							<div><img id="back_img" img alt="身份证反面">身份证反面</div>
+		
+						</div>
+						<div class="deal_img_div"><img id="deal_img" alt="营业执照">营业执照</div>
+				  </div>
+				</div>
+				
+			</div>
+		</div>
+	
+	</body>
+	<script type="text/javascript" src="../../layui/layui.js" ></script>
+	<script>
+		var shop_id = location.search.substring(9);
+		layui.use('layer',function(){
+			var layer = layui.layer,
+			$ = layui.$;
+			$.get("../../shop/queryById",{shopId:1},function(res){
+				console.log(res)
+				var shop = res.data;
+				$("#head_img_url").attr('src',shop.head_img_url);
+				$("#shop_name").html(shop.shop_name);
+				$("#email").html(shop.shop_email);
+				$("#shop_tel").html(shop.shop_tel);
+				$("#shop_code").html(shop.shop_user_code);
+				$("#shop_user_name").html(shop.shop_user_name);
+				
+				var detail = shop.shop_detail;
+				$("#face_img").attr('src',detail.code_face);
+				$("#back_img").attr('src',detail.code_back);
+				$("#deal_img").attr('src',detail.deal_img);
+			},'json')
+			
+		})
+	</script>
+</html>

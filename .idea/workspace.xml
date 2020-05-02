@@ -1,33 +1,345 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e772f38f-8be8-47a9-9ede-33d6934b5a0f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/admin-web/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app-web/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app-web/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config-utils/config-utils-oss/src/main/java/com/dinner/config/oss/Test.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config-utils/config-utils-oss/src/main/java/com/dinner/config/oss/client/AbstractDinnerOssClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config-utils/config-utils-oss/src/main/java/com/dinner/config/oss/client/DinnerOssClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config-utils/config-utils-oss/src/main/java/com/dinner/config/oss/config/OssConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config-utils/config-utils-oss/src/main/java/com/dinner/config/oss/factory/OssUploadFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config-utils/config-utils-oss/src/main/java/com/dinner/config/oss/factory/impl/OssUploadFactoryBuilder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config-utils/config-utils-oss/src/main/java/com/dinner/config/oss/utils/PathConfigEnum.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shop-admin-web/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shop-admin-web/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shop-admin-web/src/main/java/com/dinner/shop/admin/ShopAdminWebApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shop-admin-web/src/main/java/com/dinner/shop/admin/config/OssUploadConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shop-admin-web/src/main/java/com/dinner/shop/admin/vo/TestUploadController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shop-admin-web/src/main/resources/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shop-admin-web/src/main/resources/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+    <list default="true" id="e772f38f-8be8-47a9-9ede-33d6934b5a0f" name="Default Changelist" comment="新增商家管理平台">
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/bootstrap.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/com/dinner/admin/AdminWebApplication.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/com/dinner/admin/ao/impl/AdminUserDetailServiceImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/com/dinner/admin/config/CorsConfig$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/com/dinner/admin/config/CorsConfig.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/com/dinner/admin/config/JasyptConfig.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/com/dinner/admin/config/SpringSecurityConfig.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/com/dinner/admin/feign/GoodsFeign.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/com/dinner/admin/feign/OrderFeign.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/com/dinner/admin/feign/ShopFeign.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/com/dinner/admin/feign/ShopMealFeign.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/com/dinner/admin/feign/UserFeign.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/com/dinner/admin/handler/MyAuthenticationFailureHandler.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/com/dinner/admin/handler/MyAuthenticationSuccessHandler.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/com/dinner/admin/vo/OrderController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/com/dinner/admin/vo/ShopController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/com/dinner/admin/vo/ShopMealController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/com/dinner/admin/vo/exception/ExceptionHandlerAdvice.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/public/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/public/login.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/public/views/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/public/views/order/fail-order-list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/public/views/order/order-detail.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/public/views/order/success-order-list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/public/views/shop-meal/add-shop-meal.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/public/views/shop-meal/shop-meal-list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/public/views/shop-meal/update-shop-meal.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/public/views/shop/add-shop-use-log.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/public/views/shop/be-toDate-shop-list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/public/views/shop/past-shop-list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/public/views/shop/shop-detail-info.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/public/views/shop/shop-use-list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/public/views/shop/shop-using-list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/public/views/shop/toConfirm-shop.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/public/views/shop/unconfirm-shop-list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/css/amazeui.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/css/app.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/css/dinner-sys.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/js/amazeui.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/js/app.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/js/jquery.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/json/admin-user-byId.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/json/order-list.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/json/shop-info.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/json/shop-list.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/json/shop-meail-page-list.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/json/shop-meal-byId.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/json/shop-meal-list.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/json/shop-use-list.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/css/layui.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/css/layui.mobile.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/css/modules/code.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/css/modules/laydate/default/font.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/css/modules/laydate/default/laydate.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/css/modules/layer/default/icon-ext.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/css/modules/layer/default/icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/css/modules/layer/default/layer.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/css/modules/layer/default/loading-0.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/css/modules/layer/default/loading-1.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/css/modules/layer/default/loading-2.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/css/modules/layim/html/chatlog.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/css/modules/layim/html/find.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/css/modules/layim/html/getmsg.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/css/modules/layim/html/msgbox.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/css/modules/layim/layim.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/css/modules/layim/mobile/layim.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/css/modules/layim/skin/1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/css/modules/layim/skin/2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/css/modules/layim/skin/3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/css/modules/layim/skin/4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/css/modules/layim/skin/5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/css/modules/layim/skin/logo.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/css/modules/layim/voice/default.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/font/iconfont.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/font/iconfont.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/font/iconfont.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/font/iconfont.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/font/iconfont.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/images/face/0.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/images/face/1.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/images/face/10.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/images/face/11.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/images/face/12.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/images/face/13.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/images/face/14.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/images/face/15.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/images/face/16.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/images/face/17.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/images/face/18.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/images/face/19.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/images/face/2.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/images/face/20.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/images/face/21.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/images/face/22.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/images/face/23.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/images/face/24.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/images/face/25.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/images/face/26.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/images/face/27.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/images/face/28.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/images/face/29.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/images/face/3.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/images/face/30.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/images/face/31.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/images/face/32.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/images/face/33.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/images/face/34.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/images/face/35.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/images/face/36.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/images/face/37.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/images/face/38.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/images/face/39.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/images/face/4.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/images/face/40.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/images/face/41.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/images/face/42.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/images/face/43.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/images/face/44.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/images/face/45.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/images/face/46.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/images/face/47.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/images/face/48.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/images/face/49.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/images/face/5.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/images/face/50.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/images/face/51.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/images/face/52.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/images/face/53.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/images/face/54.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/images/face/55.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/images/face/56.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/images/face/57.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/images/face/58.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/images/face/59.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/images/face/6.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/images/face/60.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/images/face/61.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/images/face/62.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/images/face/63.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/images/face/64.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/images/face/65.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/images/face/66.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/images/face/67.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/images/face/68.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/images/face/69.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/images/face/7.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/images/face/70.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/images/face/71.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/images/face/8.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/images/face/9.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/lay/all-mobile.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/lay/all.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/lay/modules/all_list_table.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/lay/modules/carousel.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/lay/modules/code.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/lay/modules/colorpicker.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/lay/modules/element.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/lay/modules/flow.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/lay/modules/form.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/lay/modules/jquery.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/lay/modules/laydate.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/lay/modules/layedit.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/lay/modules/layer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/lay/modules/layim.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/lay/modules/laypage.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/lay/modules/laytpl.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/lay/modules/mobile.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/lay/modules/mobile/layer-mobile.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/lay/modules/mobile/layim-mobile-open.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/lay/modules/mobile/layim-mobile.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/lay/modules/mobile/upload-mobile.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/lay/modules/mobile/zepto.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/lay/modules/rate.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/lay/modules/slider.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/lay/modules/table.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/lay/modules/transfer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/lay/modules/tree.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/lay/modules/upload.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/lay/modules/util.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/layui.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/lib/admin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/lib/extend/echarts.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/lib/extend/echartsTheme.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/lib/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/lib/view.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/style/admin.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/style/login.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/style/res/bg-none.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/style/res/layui-logo.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/style/res/logo-black.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/style/res/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/style/res/template/character.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/style/res/template/huge.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/style/res/template/portrait.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/layui/style/template.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/target/classes/static/login.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/commons/target/classes/com/dinner/commons/BaseResult.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/commons/target/classes/com/dinner/commons/domain/AdminUser.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/commons/target/classes/com/dinner/commons/domain/Goods.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/commons/target/classes/com/dinner/commons/domain/GoodsOrder.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/commons/target/classes/com/dinner/commons/domain/GoodsType.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/commons/target/classes/com/dinner/commons/domain/Message.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/commons/target/classes/com/dinner/commons/domain/OrderDetail.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/commons/target/classes/com/dinner/commons/domain/Shop.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/commons/target/classes/com/dinner/commons/domain/ShopCoupon.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/commons/target/classes/com/dinner/commons/domain/ShopDetail.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/commons/target/classes/com/dinner/commons/domain/ShopMeal.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/commons/target/classes/com/dinner/commons/domain/ShopUseLog.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/commons/target/classes/com/dinner/commons/domain/User.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/commons/target/classes/com/dinner/commons/domain/base/Base.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/commons/target/classes/com/dinner/commons/page/Page.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/commons/target/classes/com/dinner/commons/page/PageResult.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/commons/target/classes/com/dinner/commons/query/AdminUserQuery.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/commons/target/classes/com/dinner/commons/query/GoodsOrderQuery.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/commons/target/classes/com/dinner/commons/query/GoodsQuery.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/commons/target/classes/com/dinner/commons/query/GoodsTypeQuery.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/commons/target/classes/com/dinner/commons/query/MessageQuery.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/commons/target/classes/com/dinner/commons/query/OrderDetailQuery.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/commons/target/classes/com/dinner/commons/query/ShopCouponQuery.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/commons/target/classes/com/dinner/commons/query/ShopDetailQuery.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/commons/target/classes/com/dinner/commons/query/ShopMealQuery.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/commons/target/classes/com/dinner/commons/query/ShopQuery.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/commons/target/classes/com/dinner/commons/query/ShopUseLogQuery.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/commons/target/classes/com/dinner/commons/query/UserQuery.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/commons/target/classes/com/dinner/commons/query/base/Query.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/commons/target/classes/com/dinner/commons/request/AdminUserReq.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/commons/target/classes/com/dinner/commons/request/GoodsOrderReq.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/commons/target/classes/com/dinner/commons/request/GoodsReq.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/commons/target/classes/com/dinner/commons/request/GoodsTypeReq.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/commons/target/classes/com/dinner/commons/request/MessageReq.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/commons/target/classes/com/dinner/commons/request/OrderDetailReq.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/commons/target/classes/com/dinner/commons/request/ShopCouponReq.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/commons/target/classes/com/dinner/commons/request/ShopDetailReq.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/commons/target/classes/com/dinner/commons/request/ShopMealReq.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/commons/target/classes/com/dinner/commons/request/ShopReq.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/commons/target/classes/com/dinner/commons/request/ShopUseLogReq.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/commons/target/classes/com/dinner/commons/request/UserReq.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/commons/target/classes/com/dinner/commons/result/Result.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/commons/target/classes/com/dinner/commons/result/ResultCodeEnum.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/commons/target/classes/com/dinner/commons/test/Test.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/commons/target/classes/com/dinner/commons/utils/JasyptUtils.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config-center/target/classes/bootstrap.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config-center/target/classes/com/dinner/config/ConfigServerApplication.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/shop-web-feign.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/系统配置.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/goods/target/classes/bootstrap.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/goods/target/classes/com/dinner/goods/GoodsApplication.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/goods/target/classes/com/dinner/goods/ao/GoodsAO.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/goods/target/classes/com/dinner/goods/ao/impl/GoodsAOImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/goods/target/classes/com/dinner/goods/bo/GoodsBO.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/goods/target/classes/com/dinner/goods/bo/impl/GoodsBOImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/goods/target/classes/com/dinner/goods/config/Swagger2Config.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/goods/target/classes/com/dinner/goods/dal/GoodsDO.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/goods/target/classes/com/dinner/goods/vo/GoodsVO.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/goods/target/classes/ehcache.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/goods/target/classes/mapper/GoodsMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/order/target/classes/bootstrap.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/order/target/classes/com/dinner/order/OrderApplication.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/order/target/classes/com/dinner/order/ao/GoodsOrderAO.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/order/target/classes/com/dinner/order/ao/OrderDetailAO.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/order/target/classes/com/dinner/order/ao/impl/GoodsOrderAOImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/order/target/classes/com/dinner/order/ao/impl/OrderDetailAOImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/order/target/classes/com/dinner/order/bo/GoodsOrderBO.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/order/target/classes/com/dinner/order/bo/OrderDetailBO.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/order/target/classes/com/dinner/order/bo/impl/GoodsOrderBOImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/order/target/classes/com/dinner/order/bo/impl/OrderDetailBOImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/order/target/classes/com/dinner/order/config/Swagger2Config.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/order/target/classes/com/dinner/order/dal/GoodsOrderDO.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/order/target/classes/com/dinner/order/dal/OrderDetailDO.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/order/target/classes/com/dinner/order/feign/GoodsFeign.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/order/target/classes/com/dinner/order/vo/GoodsOrderVO.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/order/target/classes/com/dinner/order/vo/OrderDetailVO.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/order/target/classes/mapper/GoodsOrderMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/order/target/classes/mapper/OrderDetailMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/register-center/target/classes/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/register-center/target/classes/com/dinner/register/RegisterCenterApplication.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shop-admin-web/src/main/java/com/dinner/shop/admin/config/InterceptorConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shop-admin-web/src/main/java/com/dinner/shop/admin/constant/ShopUserSession.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shop-admin-web/src/main/java/com/dinner/shop/admin/feign/GoodsFeign.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shop-admin-web/src/main/java/com/dinner/shop/admin/feign/impl/GoodsFeignImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shop-admin-web/src/main/resources/bootstrap.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shop/target/classes/bootstrap.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shop/target/classes/com/dinner/shop/ShopApplication.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shop/target/classes/com/dinner/shop/ao/ShopAO.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shop/target/classes/com/dinner/shop/ao/ShopDetailAO.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shop/target/classes/com/dinner/shop/ao/ShopMealAO.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shop/target/classes/com/dinner/shop/ao/ShopUseLogAO.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shop/target/classes/com/dinner/shop/ao/impl/ShopAOImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shop/target/classes/com/dinner/shop/ao/impl/ShopDetailAOImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shop/target/classes/com/dinner/shop/ao/impl/ShopMealAOImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shop/target/classes/com/dinner/shop/ao/impl/ShopUseLogAOImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shop/target/classes/com/dinner/shop/bo/ShopBO.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shop/target/classes/com/dinner/shop/bo/ShopDetailBO.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shop/target/classes/com/dinner/shop/bo/ShopMealBO.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shop/target/classes/com/dinner/shop/bo/ShopUseLogBO.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shop/target/classes/com/dinner/shop/bo/impl/ShopBOImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shop/target/classes/com/dinner/shop/bo/impl/ShopDetailBOImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shop/target/classes/com/dinner/shop/bo/impl/ShopMealBOImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shop/target/classes/com/dinner/shop/bo/impl/ShopUseLogBOImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shop/target/classes/com/dinner/shop/config/HttpServletConfig.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shop/target/classes/com/dinner/shop/config/JasyptConfig.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shop/target/classes/com/dinner/shop/config/Swagger2Config.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shop/target/classes/com/dinner/shop/dal/ShopDO.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shop/target/classes/com/dinner/shop/dal/ShopDetailDO.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shop/target/classes/com/dinner/shop/dal/ShopMealDO.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shop/target/classes/com/dinner/shop/dal/ShopUseLogDO.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shop/target/classes/com/dinner/shop/vo/ShopDetailVO.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shop/target/classes/com/dinner/shop/vo/ShopMealVO.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shop/target/classes/com/dinner/shop/vo/ShopUseLogVO.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shop/target/classes/com/dinner/shop/vo/ShopVO.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shop/target/classes/mapper/ShopDetailMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shop/target/classes/mapper/ShopMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shop/target/classes/mapper/ShopMealMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shop/target/classes/mapper/ShopUseLogMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user/target/classes/bootstrap.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user/target/classes/com/dinner/user/UserApplication.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user/target/classes/com/dinner/user/ao/AdminUserAO.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user/target/classes/com/dinner/user/ao/UserAO.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user/target/classes/com/dinner/user/ao/impl/AdminUserAOImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user/target/classes/com/dinner/user/ao/impl/UserAOImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user/target/classes/com/dinner/user/bo/AdminUserBO.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user/target/classes/com/dinner/user/bo/UserBO.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user/target/classes/com/dinner/user/bo/impl/AdminUserBOImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user/target/classes/com/dinner/user/bo/impl/UserBOImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user/target/classes/com/dinner/user/config/Swagger2Config.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user/target/classes/com/dinner/user/dal/AdminUserDO.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user/target/classes/com/dinner/user/dal/UserDO.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user/target/classes/com/dinner/user/vo/AdminUserVO.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user/target/classes/com/dinner/user/vo/UserVO.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user/target/classes/mapper/AdminUserMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user/target/classes/mapper/UserMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin-web/src/main/java/com/dinner/admin/vo/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/admin-web/src/main/java/com/dinner/admin/vo/OrderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin-web/src/main/resources/public/views/order/fail-order-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/admin-web/src/main/resources/public/views/order/fail-order-list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin-web/src/main/resources/public/views/order/order-detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/admin-web/src/main/resources/public/views/order/order-detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin-web/src/main/resources/public/views/order/success-order-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/admin-web/src/main/resources/public/views/order/success-order-list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config-utils/config-utils-oss/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/config-utils/config-utils-oss/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin-web/src/main/resources/public/views/shop/unconfirm-shop-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/admin-web/src/main/resources/public/views/shop/unconfirm-shop-list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/新建文本文档.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop-admin-web/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/shop-admin-web/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop-admin-web/src/main/resources/application.yml" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -59,8 +371,8 @@
       <list>
         <option value="Interface" />
         <option value="Enum" />
-        <option value="Class" />
         <option value="HTML File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -96,7 +408,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="jdk.selected.JAVA_MODULE" value="1.8" />
-    <property name="last_opened_file_path" value="D:/Devsolft/idea-workspases/generator" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
@@ -105,11 +417,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.dinner.shop.admin.feign" />
       <recent name="com.dinner.config.oss" />
       <recent name="com.dinner.admin.config" />
       <recent name="com.dinner.commons.utils" />
       <recent name="com.dinner.message.config" />
-      <recent name="com.dinner.coupon.config" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\new_dinner_sys\dinner-sys\admin-web\src\main\resources\templates" />
@@ -131,49 +443,16 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.ShopAdminWebApplication">
-    <configuration name="Test (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="config-utils-oss" />
+  <component name="RunManager" selected="Application.Test">
+    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.dinner.commons.test.Test" />
+      <module name="commons" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.dinner.config.oss.*" />
+          <option name="PATTERN" value="com.dinner.commons.test.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.dinner.config.oss" />
-      <option name="MAIN_CLASS_NAME" value="com.dinner.config.oss.Test" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="config-utils-oss" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.dinner.config.oss.test.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.dinner.config.oss.test" />
-      <option name="MAIN_CLASS_NAME" value="com.dinner.config.oss.test.Test" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Test.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="config-utils-oss" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.dinner.config.oss.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.dinner.config.oss" />
-      <option name="MAIN_CLASS_NAME" value="com.dinner.config.oss.Test" />
-      <option name="METHOD_NAME" value="test" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -191,33 +470,59 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ShopAdminWebApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
-      <module name="shop-admin-web" />
+    <configuration name="GoodsApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="goods" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.dinner.shop.admin.*" />
+          <option name="PATTERN" value="com.dinner.goods.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.dinner.shop.admin.ShopAdminWebApplication" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.dinner.goods.GoodsApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ShopApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="shop" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.dinner.shop.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.dinner.shop.ShopApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="user" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.dinner.user.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.dinner.user.UserApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.Test" />
-      <item itemvalue="JUnit.Test (1)" />
-      <item itemvalue="JUnit.Test.test" />
+      <item itemvalue="Spring Boot.ShopApplication" />
+      <item itemvalue="Spring Boot.UserApplication" />
+      <item itemvalue="Spring Boot.GoodsApplication" />
       <item itemvalue="Spring Boot.AdminWebApplication" />
-      <item itemvalue="Spring Boot.ShopAdminWebApplication" />
+      <item itemvalue="Application.Test" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Spring Boot.ShopAdminWebApplication" />
-        <item itemvalue="JUnit.Test.test" />
-        <item itemvalue="JUnit.Test (1)" />
-        <item itemvalue="JUnit.Test" />
+        <item itemvalue="Application.Test" />
+        <item itemvalue="Spring Boot.ShopApplication" />
         <item itemvalue="Spring Boot.AdminWebApplication" />
+        <item itemvalue="Spring Boot.GoodsApplication" />
+        <item itemvalue="Spring Boot.UserApplication" />
       </list>
     </recent_temporary>
   </component>
@@ -263,7 +568,9 @@
       <workItem from="1587360226402" duration="3662000" />
       <workItem from="1587517641306" duration="690000" />
       <workItem from="1587550768829" duration="41444000" />
-      <workItem from="1588070560341" duration="7279000" />
+      <workItem from="1588070560341" duration="9613000" />
+      <workItem from="1588126161658" duration="183000" />
+      <workItem from="1588126640866" duration="25961000" />
     </task>
     <servers />
   </component>
@@ -285,6 +592,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="新增商家管理平台" />
+    <option name="LAST_COMMIT_MESSAGE" value="新增商家管理平台" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
