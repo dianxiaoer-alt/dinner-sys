@@ -20,6 +20,15 @@ eureka:
   instance:
     prefer-ip-address: true
 
+aliyun:
+  oss:
+    endpoint: oss-cn-beijing.aliyuncs.com # oss对外服务的访问域名
+    accessKeyId: ENC(+M1iPAjZnE4mZNCaO4j0pHmzQI4vfJdBuGzdC5ybFHpzIk51BBhfXg==) # 访问身份验证中用到用户标识
+    accessKeySecret: ENC(Cl5q2unbLihtEgxPkVnuE1TVckT0X+oxRdhLk92h04cI73zaVxE4ag==) # 用户用于加密签名字符串和oss用来验证签名字符串的密钥
+    bucketName: dinner-sys # oss的存储空间
+    prefix: dinner/goods
+
+
 # 配置文件加密key
 jasypt:
   encryptor:

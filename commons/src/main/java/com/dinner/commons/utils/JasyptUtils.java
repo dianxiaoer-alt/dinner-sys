@@ -54,9 +54,9 @@ public class JasyptUtils {
 
     public static void main(String[] args) {
         // 加密
-        //System.out.println(encryptPwd("order-shop", "Xidolnh2FiT4UqXBWv9AMKIp5zFOSS"));
+        System.out.println(encryptPwd("dinner-sys", "Xidolnh2FiT4UqXBWv9AMKIp5zFOSS"));
         // 解密
-        System.out.println(decyptPwd("dinner-sys", "EJVpHadNlN/pTxcykASm+Q=="));
+        //System.out.println(decyptPwd("dinner-sys", "EJVpHadNlN/pTxcykASm+Q=="));
     }
 
 }

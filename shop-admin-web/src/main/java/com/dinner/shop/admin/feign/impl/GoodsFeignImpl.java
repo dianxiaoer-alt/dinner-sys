@@ -6,6 +6,7 @@ import com.dinner.commons.request.GoodsReq;
 import com.dinner.commons.result.Result;
 import com.dinner.shop.admin.feign.GoodsFeign;
 import com.github.pagehelper.PageInfo;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -15,6 +16,7 @@ import java.util.List;
  * @author:陈丽强
  * @Date:2020/5/2 16:18
  */
+@Service
 public class GoodsFeignImpl implements GoodsFeign {
 
     @Override
