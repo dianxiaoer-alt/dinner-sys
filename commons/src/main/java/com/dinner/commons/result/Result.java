@@ -4,6 +4,7 @@ package com.dinner.commons.result;
 
 
 import com.dinner.commons.BaseResult;
+import com.dinner.commons.error.ErrorEnum;
 import lombok.Data;
 
 
@@ -21,7 +22,15 @@ public class Result<T> extends BaseResult {
 	public Result(ResultCodeEnum resultCodeEnum) {
 		if (resultCodeEnum != null) {
 			super.setCode(resultCodeEnum.getCode());
-			super.setMsg(resultCodeEnum.getMsg()); ;
+			super.setMsg(resultCodeEnum.getMsg());
+		}
+	}
+
+
+	public Result(ErrorEnum errorEnum) {
+		if (errorEnum != null) {
+			super.setCode(errorEnum.getCode());
+			super.setMsg(errorEnum.getMsg());
 		}
 	}
 
@@ -59,6 +68,10 @@ public class Result<T> extends BaseResult {
 	 * */
 	public static  <T> Result<T> error(ResultCodeEnum ResultCodeEnum){
 		return new Result<T>(ResultCodeEnum);
+	}
+
+	public static  <T> Result<T> error(ErrorEnum errorEnum){
+		return new Result<T>(errorEnum);
 	}
 
 	/**

@@ -2,15 +2,83 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e772f38f-8be8-47a9-9ede-33d6934b5a0f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/shop-admin-web/src/main/java/com/dinner/shop/admin/vo/GoodsController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/src/main/java/com/dinner/admin/contants/AbstractFallbackFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/src/main/java/com/dinner/admin/feign/impl/GoodsFeignFallbackFactoryImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/src/main/java/com/dinner/admin/feign/impl/OrderFeignFallbackFactoryImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/src/main/java/com/dinner/admin/feign/impl/ShopFeignFallbackFactoryImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/src/main/java/com/dinner/admin/feign/impl/ShopMealFeignFallbackFactoryImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-web/src/main/java/com/dinner/admin/feign/impl/UserFeignFallbackFactoryImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/commons/src/main/java/com/dinner/commons/error/ErrorEnum.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/commons/src/main/java/com/dinner/commons/utils/IPUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shop-admin-web/src/main/java/com/dinner/shop/admin/ServletInitializer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shop-admin-web/src/main/java/com/dinner/shop/admin/config/WebMvcConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shop-admin-web/src/main/java/com/dinner/shop/admin/config/jwt/JWTTokenConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shop-admin-web/src/main/java/com/dinner/shop/admin/config/jwt/PassToken.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shop-admin-web/src/main/java/com/dinner/shop/admin/config/jwt/UserLoginToken.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shop-admin-web/src/main/java/com/dinner/shop/admin/config/jwt/UserPassToken.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shop-admin-web/src/main/java/com/dinner/shop/admin/constant/AbstractFallbackFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shop-admin-web/src/main/java/com/dinner/shop/admin/feign/ShopFeign.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shop-admin-web/src/main/java/com/dinner/shop/admin/feign/UserFeign.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shop-admin-web/src/main/java/com/dinner/shop/admin/feign/impl/GoodsFeignFallbackFactoryImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shop-admin-web/src/main/java/com/dinner/shop/admin/feign/impl/ShopFeignFallbackFactoryImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shop-admin-web/src/main/java/com/dinner/shop/admin/vo/ShopController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shop-admin-web/src/main/java/com/dinner/shop/admin/vo/error/ShopControllerAdvice.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin-web/src/main/java/com/dinner/admin/feign/GoodsFeign.java" beforeDir="false" afterPath="$PROJECT_DIR$/admin-web/src/main/java/com/dinner/admin/feign/GoodsFeign.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin-web/src/main/java/com/dinner/admin/feign/OrderFeign.java" beforeDir="false" afterPath="$PROJECT_DIR$/admin-web/src/main/java/com/dinner/admin/feign/OrderFeign.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin-web/src/main/java/com/dinner/admin/feign/ShopFeign.java" beforeDir="false" afterPath="$PROJECT_DIR$/admin-web/src/main/java/com/dinner/admin/feign/ShopFeign.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin-web/src/main/java/com/dinner/admin/feign/ShopMealFeign.java" beforeDir="false" afterPath="$PROJECT_DIR$/admin-web/src/main/java/com/dinner/admin/feign/ShopMealFeign.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin-web/src/main/java/com/dinner/admin/feign/UserFeign.java" beforeDir="false" afterPath="$PROJECT_DIR$/admin-web/src/main/java/com/dinner/admin/feign/UserFeign.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin-web/target/classes/com/dinner/admin/feign/GoodsFeign.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin-web/target/classes/com/dinner/admin/feign/GoodsFeign.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin-web/target/classes/com/dinner/admin/feign/OrderFeign.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin-web/target/classes/com/dinner/admin/feign/OrderFeign.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin-web/target/classes/com/dinner/admin/feign/ShopFeign.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin-web/target/classes/com/dinner/admin/feign/ShopFeign.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin-web/target/classes/com/dinner/admin/feign/ShopMealFeign.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin-web/target/classes/com/dinner/admin/feign/ShopMealFeign.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin-web/target/classes/com/dinner/admin/feign/UserFeign.class" beforeDir="false" afterPath="$PROJECT_DIR$/admin-web/target/classes/com/dinner/admin/feign/UserFeign.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin-web/target/classes/public/views/shop/unconfirm-shop-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/admin-web/target/classes/public/views/shop/unconfirm-shop-list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commons/src/main/java/com/dinner/commons/BaseResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/commons/src/main/java/com/dinner/commons/BaseResult.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commons/src/main/java/com/dinner/commons/result/Result.java" beforeDir="false" afterPath="$PROJECT_DIR$/commons/src/main/java/com/dinner/commons/result/Result.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commons/src/main/java/com/dinner/commons/result/ResultCodeEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/commons/src/main/java/com/dinner/commons/result/ResultCodeEnum.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/commons/src/main/java/com/dinner/commons/utils/JasyptUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/commons/src/main/java/com/dinner/commons/utils/JasyptUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commons/target/classes/com/dinner/commons/test/Test.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/commons/target/classes/com/dinner/commons/BaseResult.class" beforeDir="false" afterPath="$PROJECT_DIR$/commons/target/classes/com/dinner/commons/BaseResult.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commons/target/classes/com/dinner/commons/result/Result.class" beforeDir="false" afterPath="$PROJECT_DIR$/commons/target/classes/com/dinner/commons/result/Result.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commons/target/classes/com/dinner/commons/result/ResultCodeEnum.class" beforeDir="false" afterPath="$PROJECT_DIR$/commons/target/classes/com/dinner/commons/result/ResultCodeEnum.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/commons/target/classes/com/dinner/commons/utils/JasyptUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/commons/target/classes/com/dinner/commons/utils/JasyptUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/admin-web-feign.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config/admin-web-feign.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/coupon.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config/coupon.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/goods.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config/goods.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/message.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config/message.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/order.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config/order.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/shop-web-feign.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config/shop-web-feign.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-admin-web/src/main/java/com/dinner/shop/admin/ShopAdminWebApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/shop-admin-web/src/main/java/com/dinner/shop/admin/ShopAdminWebApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-admin-web/src/main/java/com/dinner/shop/admin/config/InterceptorConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/shop-admin-web/src/main/java/com/dinner/shop/admin/config/InterceptorConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-admin-web/src/main/java/com/dinner/shop/admin/feign/impl/GoodsFeignImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/shop-admin-web/src/main/java/com/dinner/shop/admin/feign/impl/GoodsFeignImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/shop.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config/shop.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/user.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config/user.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/系统配置.txt" beforeDir="false" afterPath="$PROJECT_DIR$/doc/系统配置.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop-admin-web/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/shop-admin-web/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop-admin-web/src/main/java/com/dinner/shop/admin/config/InterceptorConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/shop-admin-web/src/main/java/com/dinner/shop/admin/config/HandlerInterceptorConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop-admin-web/src/main/java/com/dinner/shop/admin/constant/ShopUserSession.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop-admin-web/src/main/java/com/dinner/shop/admin/feign/GoodsFeign.java" beforeDir="false" afterPath="$PROJECT_DIR$/shop-admin-web/src/main/java/com/dinner/shop/admin/feign/GoodsFeign.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop-admin-web/src/main/java/com/dinner/shop/admin/feign/impl/GoodsFeignImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop-admin-web/src/main/java/com/dinner/shop/admin/vo/GoodsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/shop-admin-web/src/main/java/com/dinner/shop/admin/vo/GoodsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop-admin-web/src/main/resources/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/shop-admin-web/src/main/resources/bootstrap.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop-admin-web/target/classes/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/shop-admin-web/target/classes/bootstrap.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop-admin-web/target/classes/com/dinner/shop/admin/config/InterceptorConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop-admin-web/target/classes/com/dinner/shop/admin/feign/GoodsFeign.class" beforeDir="false" afterPath="$PROJECT_DIR$/shop-admin-web/target/classes/com/dinner/shop/admin/feign/GoodsFeign.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop-admin-web/target/classes/com/dinner/shop/admin/feign/impl/GoodsFeignImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop-admin-web/target/classes/com/dinner/shop/admin/vo/GoodsController.class" beforeDir="false" afterPath="$PROJECT_DIR$/shop-admin-web/target/classes/com/dinner/shop/admin/vo/GoodsController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop/src/main/java/com/dinner/shop/ao/ShopAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/shop/src/main/java/com/dinner/shop/ao/ShopAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop/src/main/java/com/dinner/shop/ao/impl/ShopAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/shop/src/main/java/com/dinner/shop/ao/impl/ShopAOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop/src/main/java/com/dinner/shop/bo/ShopBO.java" beforeDir="false" afterPath="$PROJECT_DIR$/shop/src/main/java/com/dinner/shop/bo/ShopBO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop/src/main/java/com/dinner/shop/bo/impl/ShopBOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/shop/src/main/java/com/dinner/shop/bo/impl/ShopBOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop/src/main/java/com/dinner/shop/dal/ShopDO.java" beforeDir="false" afterPath="$PROJECT_DIR$/shop/src/main/java/com/dinner/shop/dal/ShopDO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop/src/main/java/com/dinner/shop/vo/ShopVO.java" beforeDir="false" afterPath="$PROJECT_DIR$/shop/src/main/java/com/dinner/shop/vo/ShopVO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop/src/main/resources/mapper/ShopMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/shop/src/main/resources/mapper/ShopMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop/target/classes/com/dinner/shop/ao/ShopAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/shop/target/classes/com/dinner/shop/ao/ShopAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop/target/classes/com/dinner/shop/ao/impl/ShopAOImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/shop/target/classes/com/dinner/shop/ao/impl/ShopAOImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop/target/classes/com/dinner/shop/bo/ShopBO.class" beforeDir="false" afterPath="$PROJECT_DIR$/shop/target/classes/com/dinner/shop/bo/ShopBO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop/target/classes/com/dinner/shop/bo/impl/ShopBOImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/shop/target/classes/com/dinner/shop/bo/impl/ShopBOImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop/target/classes/com/dinner/shop/dal/ShopDO.class" beforeDir="false" afterPath="$PROJECT_DIR$/shop/target/classes/com/dinner/shop/dal/ShopDO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop/target/classes/com/dinner/shop/vo/ShopVO.class" beforeDir="false" afterPath="$PROJECT_DIR$/shop/target/classes/com/dinner/shop/vo/ShopVO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop/target/classes/mapper/ShopMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/shop/target/classes/mapper/ShopMapper.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -40,9 +108,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Enum" />
         <option value="HTML File" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -79,7 +147,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="jdk.selected.JAVA_MODULE" value="1.8" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/shop-admin-web/src/main/java/com/dinner/shop/admin/config/jwt" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
@@ -88,18 +156,18 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.dinner.shop.admin.feign" />
-      <recent name="com.dinner.config.oss" />
-      <recent name="com.dinner.admin.config" />
       <recent name="com.dinner.commons.utils" />
-      <recent name="com.dinner.message.config" />
+      <recent name="com.dinner.shop.admin.feign.impl" />
+      <recent name="com.dinner.shop.admin.feign" />
+      <recent name="com.dinner.shop.admin.constant" />
+      <recent name="com.dinner.admin.feign.impl" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\new_dinner_sys\dinner-sys\shop-admin-web\src\main\java\com\dinner\shop\admin\config\jwt" />
       <recent name="E:\new_dinner_sys\dinner-sys\admin-web\src\main\resources\templates" />
       <recent name="E:\new_dinner_sys\dinner-sys\admin-web\src\main\resources\static" />
       <recent name="E:\新扫码点餐系统\dinner-sys\sql" />
       <recent name="E:\新扫码点餐系统\dinner-sys\doc" />
-      <recent name="E:\新扫码点餐系统\dinner-sys\config" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -114,42 +182,42 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.JasyptUtils">
-    <configuration name="JasyptUtils" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.dinner.commons.utils.JasyptUtils" />
-      <module name="commons" />
+  <component name="RunManager" selected="Spring Boot.ShopAdminWebApplication">
+    <configuration name="ConfigServerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="config-center" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.dinner.commons.utils.*" />
+          <option name="PATTERN" value="com.dinner.config.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.dinner.config.ConfigServerApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.dinner.commons.test.Test" />
-      <module name="commons" />
+    <configuration name="GoodsApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="goods" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.dinner.commons.test.*" />
+          <option name="PATTERN" value="com.dinner.goods.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.dinner.goods.GoodsApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AdminWebApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
-      <module name="admin-web" />
+    <configuration name="RegisterCenterApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="register-center" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.dinner.admin.*" />
+          <option name="PATTERN" value="com.dinner.register.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.dinner.admin.AdminWebApplication" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.dinner.register.RegisterCenterApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -182,18 +250,18 @@
     </configuration>
     <list>
       <item itemvalue="Spring Boot.ShopApplication" />
-      <item itemvalue="Spring Boot.AdminWebApplication" />
-      <item itemvalue="Application.Test" />
       <item itemvalue="Spring Boot.ShopAdminWebApplication" />
-      <item itemvalue="Application.JasyptUtils" />
+      <item itemvalue="Spring Boot.RegisterCenterApplication" />
+      <item itemvalue="Spring Boot.ConfigServerApplication" />
+      <item itemvalue="Spring Boot.GoodsApplication" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.JasyptUtils" />
         <item itemvalue="Spring Boot.ShopAdminWebApplication" />
-        <item itemvalue="Application.Test" />
+        <item itemvalue="Spring Boot.GoodsApplication" />
         <item itemvalue="Spring Boot.ShopApplication" />
-        <item itemvalue="Spring Boot.AdminWebApplication" />
+        <item itemvalue="Spring Boot.ConfigServerApplication" />
+        <item itemvalue="Spring Boot.RegisterCenterApplication" />
       </list>
     </recent_temporary>
   </component>
@@ -241,7 +309,8 @@
       <workItem from="1587550768829" duration="41444000" />
       <workItem from="1588070560341" duration="9613000" />
       <workItem from="1588126161658" duration="183000" />
-      <workItem from="1588126640866" duration="27339000" />
+      <workItem from="1588126640866" duration="54244000" />
+      <workItem from="1588514922113" duration="10529000" />
     </task>
     <task id="LOCAL-00001" summary="新增商家管理平台">
       <created>1588409056864</created>

@@ -1,6 +1,7 @@
 package com.dinner.shop.ao.impl;
 
 import com.dinner.commons.domain.Shop;
+import com.dinner.commons.error.ErrorEnum;
 import com.dinner.commons.page.PageResult;
 import com.dinner.commons.query.ShopQuery;
 import com.dinner.commons.request.ShopReq;
@@ -10,6 +11,7 @@ import com.dinner.shop.ao.ShopAO;
 import com.dinner.shop.bo.ShopBO;
 import com.dinner.shop.config.JasyptConfig;
 import com.github.pagehelper.PageInfo;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +19,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 @Service("ShopAO")
+@Slf4j
 public class ShopAOImpl implements ShopAO {
     /**
      * 业务操作对象
@@ -50,6 +53,12 @@ public class ShopAOImpl implements ShopAO {
 
                 if(StringUtils.isNoneBlank(shop.getShop_password()))
                     shop.setShop_password(jasyptConfig.encryptPwd(shop.getShop_password()));
+
+                Shop req = new Shop();
+                req.setShop_tel(shop.getShop_tel());
+                List<Shop> list = shopManager.queryList(req);
+                if(!list.isEmpty() && list.size()>1) //已经注册过
+                    return Result.error(ErrorEnum.USER_REPEAT_ERROR);
 
                 shopManager.insertShop(shop);
                 resp = Result.success(shop.getId());
@@ -147,5 +156,27 @@ public class ShopAOImpl implements ShopAO {
             resp =resp.error(ResultCodeEnum.FAIL.getCode(),e.getMessage());
         }
         return resp;
+    }
+
+    @Override
+    public Result<Shop> shopLoginByTelOrEmail(String value, String password,String ip) {
+        if (StringUtils.isBlank(value) || StringUtils.isBlank(password))
+            return Result.error(ResultCodeEnum.PARAMS_IS_NULL);
+
+        Shop shop = shopManager.shopLoginByTelOrEmail(value);
+        if (shop == null)
+            return Result.error(ResultCodeEnum.NO_DATA);
+
+        if(!password.equals(jasyptConfig.decyptPwd(shop.getShop_password())))
+            return Result.error(ErrorEnum.USER_NAME_PWD_ERROE);
+
+        Shop req = new Shop();
+        req.setLast_login_ip(ip);
+        req.setId(shop.getId());
+        log.info("id-------------"+shop.getId());
+
+        shopManager.updateShop(req);
+
+        return Result.success(shop);
     }
 }

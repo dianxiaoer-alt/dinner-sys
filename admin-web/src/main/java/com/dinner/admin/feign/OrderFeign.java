@@ -1,5 +1,6 @@
 package com.dinner.admin.feign;
 
+import com.dinner.admin.feign.impl.OrderFeignFallbackFactoryImpl;
 import com.dinner.commons.domain.GoodsOrder;
 import com.dinner.commons.query.GoodsOrderQuery;
 import com.dinner.commons.request.GoodsOrderReq;
@@ -11,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@FeignClient(value = "order")
+@FeignClient(value = "order",fallbackFactory = OrderFeignFallbackFactoryImpl.class)
 public interface OrderFeign {
     @RequestMapping(value="order/save")
     Result<Long> save(@RequestBody GoodsOrderReq goodsOrderReq);

@@ -4,7 +4,7 @@ import com.dinner.commons.domain.Goods;
 import com.dinner.commons.query.GoodsQuery;
 import com.dinner.commons.request.GoodsReq;
 import com.dinner.commons.result.Result;
-import com.dinner.shop.admin.feign.impl.GoodsFeignImpl;
+import com.dinner.shop.admin.feign.impl.GoodsFeignFallbackFactoryImpl;
 import com.github.pagehelper.PageInfo;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,7 +17,7 @@ import java.util.List;
 /**
  * 商品服务
  */
-@FeignClient(value = "goods",fallback = GoodsFeignImpl.class)
+@FeignClient(value = "goods",fallbackFactory = GoodsFeignFallbackFactoryImpl.class)
 public interface GoodsFeign {
     @RequestMapping(value = "goods/save")
     Result<Integer> save(@RequestBody GoodsReq goodsReq);

@@ -95,4 +95,7 @@ public interface ShopAO {
 	 */
 	Result<List<Shop>> queryList(ShopQuery query);
 
+
+	Result<Shop> shopLoginByTelOrEmail(String value,String password,String ip);
+
 }

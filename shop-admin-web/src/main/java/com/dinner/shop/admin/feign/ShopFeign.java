@@ -1,6 +1,5 @@
-package com.dinner.admin.feign;
+package com.dinner.shop.admin.feign;
 
-import com.dinner.admin.feign.impl.ShopFeignFallbackFactoryImpl;
 import com.dinner.commons.domain.Shop;
 import com.dinner.commons.domain.ShopDetail;
 import com.dinner.commons.query.ShopDetailQuery;
@@ -8,14 +7,17 @@ import com.dinner.commons.query.ShopQuery;
 import com.dinner.commons.request.ShopDetailReq;
 import com.dinner.commons.request.ShopReq;
 import com.dinner.commons.result.Result;
+import com.dinner.commons.utils.IPUtils;
+import com.dinner.shop.admin.feign.impl.ShopFeignFallbackFactoryImpl;
 import com.github.pagehelper.PageInfo;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 /**
@@ -51,6 +53,17 @@ public interface ShopFeign {
    Result<List<Shop>> queryList(@RequestBody ShopQuery query);
 
 
+    /**
+     * 登录
+     * @param value
+     * @param password
+     * @return
+     */
+    @GetMapping("shop/shopLoginByTelOrEmail")
+     Result<Shop> shopLoginByTelOrEmail(@RequestParam("value") String value,@RequestParam("password") String password);
+
+
+
 
     /******************************店铺详情，营业执照信息*********************************/
 
@@ -61,7 +74,7 @@ public interface ShopFeign {
 
    //根据ID删除
     @RequestMapping(value = "shopDetail/delete")
-   Result<Integer> deleteShopDetailById(@RequestParam("shopDetailId")Long shopDetailId) ;
+   Result<Integer> deleteShopDetailById(@RequestParam("shopDetailId") Long shopDetailId) ;
 
    //根据ID查询
     @RequestMapping(value = "shopDetail/queryById")

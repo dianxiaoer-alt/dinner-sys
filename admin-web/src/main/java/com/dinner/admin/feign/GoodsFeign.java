@@ -1,5 +1,6 @@
 package com.dinner.admin.feign;
 
+import com.dinner.admin.feign.impl.GoodsFeignFallbackFactoryImpl;
 import com.dinner.commons.domain.Goods;
 import com.dinner.commons.query.GoodsQuery;
 import com.dinner.commons.request.GoodsReq;
@@ -15,7 +16,7 @@ import java.util.List;
 /**
  * 商品服务
  */
-@FeignClient(value = "goods")
+@FeignClient(value = "goods",fallbackFactory = GoodsFeignFallbackFactoryImpl.class)
 public interface GoodsFeign {
     @RequestMapping(value = "goods/save")
     Result<Integer> save( @RequestBody GoodsReq goodsReq);

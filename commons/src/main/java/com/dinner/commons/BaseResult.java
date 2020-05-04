@@ -13,9 +13,9 @@ import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 public  class BaseResult {
     public BaseResult(){}
     //状态码
-    private Integer code;
+    private Integer code = 0;
     //返回信息
-    private String msg;
+    private String msg = "SUCCESS";
 
     public BaseResult(Integer code, String msg) {
        this.code=code;

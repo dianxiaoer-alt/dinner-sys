@@ -1,6 +1,11 @@
 server:
   port: 8088
 spring:
+  #出现错误时, 直接抛出异常
+  mvc.throw-exception-if-no-handler-found: true
+  #不要为我们工程中的资源文件建立映射
+  resources:
+    add-mappings: false
   application:
     name: message
   #redis 配置

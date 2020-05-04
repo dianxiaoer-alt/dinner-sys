@@ -3,7 +3,7 @@
 <mapper namespace="com.dinner.shop.dal.ShopDO">
 
     <resultMap type="shop" id="BaseResponse">
-         <result property=" id" column=" id" />
+         <result property="id" column="id" />
          <result property=" shop_name" column=" shop_name" />
          <result property=" head_img_url" column=" head_img_url" />
          <result property=" shop_email" column=" shop_email" />
@@ -26,7 +26,7 @@
     </resultMap>
 
     <resultMap type="shop" id="BaseResponseById">
-        <result property=" id" column=" id" />
+        <result property="id" column="id" />
         <result property=" shop_name" column=" shop_name" />
         <result property=" head_img_url" column=" head_img_url" />
         <result property=" shop_email" column=" shop_email" />
@@ -156,7 +156,7 @@
   
     <update id="updateShop" parameterType="shop">
       UPDATE shop
-        <trim suffix="," prefix="set" suffixOverrides=" WHERE id = #{id}">
+        <trim suffix="WHERE id = #{id}" prefix="set" suffixOverrides=",">
             <if test="shop_name != null and shop_name !='' ">shop_name = #{shop_name},</if>
             <if test="head_img_url != null and head_img_url !='' ">head_img_url = #{head_img_url},</if>
             <if test="shop_email != null and shop_email !='' ">shop_email = #{shop_email},</if>
@@ -173,16 +173,42 @@
             <if test="is_confirm != null and is_confirm !='' ">is_confirm = #{is_confirm},</if>
             <if test="is_on != null">is_on = #{is_on},</if>
             <if test="use_start_time != null and use_start_time !='' ">use_start_time = #{use_start_time},</if>
-            <if test="use_end_time != null and use_end_time !='' ">use_end_time = #{use_end_time}</if>
-            <if test="shop_user_name != null and shop_user_name !='' ">shop_user_name = #{shop_user_name}</if>
-            <if test="shop_user_code != null and shop_user_code !='' ">shop_user_code = #{shop_user_code}</if>
+            <if test="use_end_time != null and use_end_time !='' ">use_end_time = #{use_end_time},</if>
+            <if test="shop_user_name != null and shop_user_name !='' ">shop_user_name = #{shop_user_name},</if>
+            <if test="shop_user_code != null and shop_user_code !='' ">shop_user_code = #{shop_user_code},</if>
         </trim>
     </update>
 
-    <select id="queryList" resultMap="BaseResponse" parameterType="shop">
-        SELECT
+
+    <select id="shopLoginByTelOrEmail" parameterType="java.lang.String" resultMap="BaseResponseById">
+         SELECT
             id,
             shop_name,
+            head_img_url,
+            shop_email,
+            shop_tel,
+            shop_password,
+            app_id,
+            app_secret,
+            mch_id,
+            pay_key,
+            create_time,
+            update_time,
+            last_login_ip,
+            is_deleted,
+            is_confirm,
+            is_on,
+            use_start_time,
+            use_end_time,
+        shop_user_name,
+        shop_user_code
+        FROM shop
+        where shop_tel = #{value} or shop_email = #{value}
+    </select>
+    <select id="queryList" resultMap="BaseResponse" parameterType="shop">
+        SELECT
+        id,
+        shop_name,
             head_img_url,
             shop_email,
             shop_tel,

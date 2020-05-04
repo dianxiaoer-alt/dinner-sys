@@ -67,4 +67,9 @@ public class ShopBOImpl implements ShopBO {
 		return shopDAL.queryList(shop);
 	}
 
+	@Override
+	public Shop shopLoginByTelOrEmail(String value) {
+		return shopDAL.shopLoginByTelOrEmail(value);
+	}
+
 }

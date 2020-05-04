@@ -8,7 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="user" />
         <module name="commons" />
-        <module name="shop-admin-web" />
+        <module name="app-web" />
         <module name="order" />
         <module name="register-center" />
         <module name="message" />
@@ -17,7 +17,7 @@
         <module name="goods" />
         <module name="config-center" />
         <module name="coupon" />
-        <module name="app-web" />
+        <module name="shop-admin-web" />
         <module name="config-utils-oss" />
       </profile>
     </annotationProcessing>

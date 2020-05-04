@@ -86,7 +86,12 @@ public enum ResultCodeEnum {
     FILE_DOWNLOAD_ERROR(802,"FILE_DOWNLOAD_ERROR"),
     FILE_DELETE_ERROR(803,"FILE_DELETE_ERROR"),
     FILE_GET_ERROR(804,"FILE_GET_ERROR"),
-    FILE_TYPE_ERROR(805,"FILE_TYPE_ERROR"),;
+    FILE_TYPE_ERROR(805,"FILE_TYPE_ERROR"),
+
+    /************************/
+    NO_DATA(808,"无数据"),
+
+    ;
 
 
     private int code;

@@ -99,4 +99,12 @@ public interface ShopDO {
      * @return 数据集合
      */
     List<Shop> queryList(Shop shop);
+
+
+    /**
+     *   店铺登录
+     * @param value email 或 tel
+     * @return
+     */
+    Shop shopLoginByTelOrEmail(@Param("value") String value);
 }

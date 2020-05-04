@@ -4,13 +4,15 @@
  */
 package com.dinner.shop.vo;
 
-import javax.validation.Valid;
+import javax.servlet.http.HttpServletRequest;
+
 
 
 import com.dinner.commons.domain.Shop;
 import com.dinner.commons.query.ShopQuery;
 import com.dinner.commons.request.ShopReq;
 import com.dinner.commons.result.Result;
+import com.dinner.commons.utils.IPUtils;
 import com.dinner.shop.ao.ShopAO;
 import com.github.pagehelper.PageInfo;
 import io.swagger.annotations.Api;
@@ -87,4 +89,9 @@ public class ShopVO {
 		return shopAO.queryList(query);
 	}
 
+	@ApiOperation("店铺登录")
+	@GetMapping("shopLoginByTelOrEmail")
+	public Result<Shop> shopLoginByTelOrEmail(@RequestParam("value") String value,@RequestParam("password") String password, HttpServletRequest request){
+		return shopAO.shopLoginByTelOrEmail(value,password, IPUtils.getIpAddr(request));
+	}
 }
