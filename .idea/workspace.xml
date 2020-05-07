@@ -2,7 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e772f38f-8be8-47a9-9ede-33d6934b5a0f" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop-admin-web/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/shop-admin-web/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop-admin-web/src/main/java/com/dinner/shop/admin/ShopAdminWebApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/shop-admin-web/src/main/java/com/dinner/shop/admin/ShopAdminWebApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop-admin-web/src/main/java/com/dinner/shop/admin/config/HandlerInterceptorConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/shop-admin-web/src/main/java/com/dinner/shop/admin/config/interceptor/AuthenticationInterceptor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop-admin-web/src/main/java/com/dinner/shop/admin/config/OssUploadConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/shop-admin-web/src/main/java/com/dinner/shop/admin/config/oss/OssUploadConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop-admin-web/src/main/java/com/dinner/shop/admin/config/WebMvcConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/shop-admin-web/src/main/java/com/dinner/shop/admin/config/mvc/WebMvcConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop-admin-web/src/main/java/com/dinner/shop/admin/constant/AbstractFallbackFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/shop-admin-web/src/main/java/com/dinner/shop/admin/constant/AbstractFallbackFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop-admin-web/src/main/java/com/dinner/shop/admin/feign/ShopFeign.java" beforeDir="false" afterPath="$PROJECT_DIR$/shop-admin-web/src/main/java/com/dinner/shop/admin/feign/ShopFeign.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop-admin-web/src/main/java/com/dinner/shop/admin/vo/TestUploadController.java" beforeDir="false" afterPath="$PROJECT_DIR$/shop-admin-web/src/main/java/com/dinner/shop/admin/vo/TestUploadController.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -234,7 +244,8 @@
       <workItem from="1588070560341" duration="9613000" />
       <workItem from="1588126161658" duration="183000" />
       <workItem from="1588126640866" duration="54244000" />
-      <workItem from="1588514922113" duration="11121000" />
+      <workItem from="1588514922113" duration="29864000" />
+      <workItem from="1588813889455" duration="981000" />
     </task>
     <task id="LOCAL-00001" summary="新增商家管理平台">
       <created>1588409056864</created>
@@ -287,6 +298,16 @@
           <url>file://$PROJECT_DIR$/shop-admin-web/src/main/java/com/dinner/shop/admin/vo/TestUploadController.java</url>
           <line>21</line>
           <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/shop-admin-web/src/main/java/com/dinner/shop/admin/config/interceptor/AuthenticationInterceptor.java</url>
+          <line>83</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/shop-admin-web/src/main/java/com/dinner/shop/admin/config/interceptor/AuthenticationInterceptor.java</url>
+          <line>126</line>
+          <option name="timeStamp" value="9" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

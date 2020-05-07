@@ -2,7 +2,7 @@ package com.dinner.shop.admin.vo;
 
 import com.dinner.commons.result.Result;
 import com.dinner.config.oss.utils.PathConfigEnum;
-import com.dinner.shop.admin.config.OssUploadConfig;
+import com.dinner.shop.admin.config.oss.OssUploadConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

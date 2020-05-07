@@ -1,4 +1,4 @@
-package com.dinner.shop.admin.config;
+package com.dinner.shop.admin.config.oss;
 
 import com.dinner.config.oss.client.DinnerOssClient;
 import com.dinner.config.oss.config.OssConfig;

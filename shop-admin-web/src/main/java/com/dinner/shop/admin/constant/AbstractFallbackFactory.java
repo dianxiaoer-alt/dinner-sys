@@ -11,7 +11,6 @@ import org.springframework.stereotype.Service;
  * @author:陈丽强
  * @Date:2020/5/3 14:43
  */
-@Service
 public class AbstractFallbackFactory {
     protected static final String ERR_MSG = ErrorEnum.SERVER_DOWN.getMsg();
     protected static final Integer ERR_CODE = ErrorEnum.SERVER_DOWN.getCode();

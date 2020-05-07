@@ -5,9 +5,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.ComponentScans;
 
 @SpringBootApplication
-@ComponentScan("com.dinner.*")
+@ComponentScan(basePackages = {"com.dinner.*"})
 @EnableEurekaClient
 @EnableFeignClients
 public class ShopAdminWebApplication {
