@@ -1,8 +1,9 @@
 target
 bin
 .log
-/.idea/*
 .idea
 .settings
 .classpath
 .project
+/.idea/
+*.iml
