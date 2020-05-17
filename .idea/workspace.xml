@@ -2,18 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e772f38f-8be8-47a9-9ede-33d6934b5a0f" name="Default Changelist" comment="">
-<<<<<<< HEAD
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin-web/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app-web/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/commons/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-=======
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
->>>>>>> 58ed115db8f571024805d9d4b45956dd859712a7
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -56,8 +46,8 @@
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
-        <option name="mavenHome" value="C:/Devsolft/apache-maven-3.6.3" />
-        <option name="userSettingsFile" value="C:\Devsolft\apache-maven-3.6.3\conf\settings.xml" />
+        <option name="mavenHome" value="D:/Devsolft/apache-maven-3.6.3" />
+        <option name="userSettingsFile" value="D:\Devsolft\apache-maven-3.6.1\conf\settings.xml" />
       </MavenGeneralSettings>
     </option>
     <option name="importingSettings">
@@ -82,16 +72,12 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="jdk.selected.JAVA_MODULE" value="1.8" />
-<<<<<<< HEAD
     <property name="last_opened_file_path" value="$PROJECT_DIR$/commons" />
-=======
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
->>>>>>> 58ed115db8f571024805d9d4b45956dd859712a7
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Project" />
-    <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.editor" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="database.main" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -196,11 +182,11 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Spring Boot.ShopApplication" />
         <item itemvalue="Spring Boot.ShopAdminWebApplication" />
+        <item itemvalue="Spring Boot.GoodsApplication" />
+        <item itemvalue="Spring Boot.ShopApplication" />
         <item itemvalue="Spring Boot.ConfigServerApplication" />
         <item itemvalue="Spring Boot.RegisterCenterApplication" />
-        <item itemvalue="Spring Boot.GoodsApplication" />
       </list>
     </recent_temporary>
   </component>
@@ -250,15 +236,7 @@
       <workItem from="1588126161658" duration="183000" />
       <workItem from="1588126640866" duration="54244000" />
       <workItem from="1588514922113" duration="29864000" />
-<<<<<<< HEAD
-      <workItem from="1588813889455" duration="3873000" />
-=======
-      <workItem from="1588813889455" duration="981000" />
-      <workItem from="1588855673657" duration="5228000" />
-      <workItem from="1588896541504" duration="271000" />
-      <workItem from="1588896908963" duration="1118000" />
-      <workItem from="1588898148759" duration="2606000" />
->>>>>>> 58ed115db8f571024805d9d4b45956dd859712a7
+      <workItem from="1588813889455" duration="4880000" />
     </task>
     <task id="LOCAL-00001" summary="新增商家管理平台">
       <created>1588409056864</created>

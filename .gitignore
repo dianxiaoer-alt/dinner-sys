@@ -1,4 +1,5 @@
 target
+bin
 .log
 .idea
 .class
@@ -6,4 +7,6 @@ target
 .txt
 .doc
 .xsl
-
+.settings
+.classpath
+.project
