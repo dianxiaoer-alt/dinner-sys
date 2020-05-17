@@ -1,7 +1,7 @@
 target
 bin
 .log
-/.idea/
+/.idea/*
 .idea
 .settings
 .classpath
