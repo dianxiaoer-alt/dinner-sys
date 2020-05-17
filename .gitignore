@@ -1,12 +1,8 @@
 target
 bin
 .log
+/.idea/
 .idea
-.class
-.java
-.txt
-.doc
-.xsl
 .settings
 .classpath
 .project
