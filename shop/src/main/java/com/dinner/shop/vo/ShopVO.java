@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 
 
 import com.dinner.commons.domain.Shop;
+import com.dinner.commons.page.PageResult;
 import com.dinner.commons.query.ShopQuery;
 import com.dinner.commons.request.ShopReq;
 import com.dinner.commons.result.Result;
@@ -94,4 +95,13 @@ public class ShopVO {
 	public Result<Shop> shopLoginByTelOrEmail(@RequestParam("value") String value,@RequestParam("password") String password, HttpServletRequest request){
 		return shopAO.shopLoginByTelOrEmail(value,password, IPUtils.getIpAddr(request));
 	}
+
+
+	@ApiOperation("分页查询")
+	//@GetMapping("queryPage")
+	@RequestMapping(value = "queryPage2",method = {RequestMethod.POST,RequestMethod.GET})
+	public PageResult<List<Shop>> queryPage2(@RequestBody ShopQuery query) {
+		return shopAO.pageQuery(query);
+	}
+
 }

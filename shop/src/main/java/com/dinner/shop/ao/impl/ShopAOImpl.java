@@ -17,6 +17,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
 import java.util.List;
 @Service("ShopAO")
 @Slf4j
@@ -178,5 +179,24 @@ public class ShopAOImpl implements ShopAO {
         shopManager.updateShop(req);
 
         return Result.success(shop);
+    }
+
+    @Override
+    public PageResult<List<Shop>> pageQuery(ShopQuery query) {
+        PageResult<List<Shop>> resp = new PageResult<>();
+        try {
+            Shop shop = new Shop();
+            BeanUtils.copyProperties(query,shop);
+            PageInfo<Shop> list = shopManager.queryPage(shop,query.getPageNum(),query.getPageSize());
+            resp.setCurPage(list.getPageNum());
+            resp.setPageSize(list.getPageSize());
+            resp.setTotalItem(list.getSize());
+
+            List<Shop> reslist = list.getList();
+            resp = resp.success(Collections.singletonList(reslist));
+        } catch (Exception e) {
+            resp =resp.error(ResultCodeEnum.FAIL.getCode(),e.getMessage());
+        }
+        return resp;
     }
 }

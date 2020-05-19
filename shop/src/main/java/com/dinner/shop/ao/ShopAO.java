@@ -98,4 +98,6 @@ public interface ShopAO {
 
 	Result<Shop> shopLoginByTelOrEmail(String value,String password,String ip);
 
+
+	PageResult<List<Shop>> pageQuery(ShopQuery query);
 }
