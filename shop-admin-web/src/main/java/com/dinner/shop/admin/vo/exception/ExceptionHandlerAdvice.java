@@ -1,4 +1,4 @@
-package com.dinner.admin.vo.exception;
+package com.dinner.shop.admin.vo.exception;
 
 
 import com.dinner.commons.error.AbstractControllerAdvice;

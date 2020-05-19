@@ -21,6 +21,7 @@ public enum ErrorEnum {
     DELETE_DATA_FAIL(100008,"删除失败"),
     NET_DATASOURCE_FAIL(100009,"数据库连接失败"),
     NO_DATA(100010,"无数据"),
+    SQL_VISIT_ERROR(100011,"数据库访问异常"),
 
 
 
@@ -44,22 +45,32 @@ public enum ErrorEnum {
 
     /****************************Spring Mvc**********************************/
     URL_NOT_FOUND(400000,"URL异常"),
-    /***
-     * 文件上传
-     */
+    PARAM_ERROR(400001,"参数不合法"),
+
+
+
+    /*********************************文件上传****************************************/
     FILE_UPLOAD_ERROR(500000,"FILE_UPLOAD_ERROR"),
     FILE_DOWNLOAD_ERROR(500001,"FILE_DOWNLOAD_ERROR"),
     FILE_DELETE_ERROR(500002,"FILE_DELETE_ERROR"),
     FILE_GET_ERROR(500003,"FILE_GET_ERROR"),
     FILE_TYPE_ERROR(500004,"FILE_TYPE_ERROR"),
 
+
+    /***********************************系统异常******************************************/
     UNKNOW_ERROR(600000,"未知异常"),
+    RUNING_ERROR(600001,"运行时异常"),
+    NO_POINT_ERRPR(600002,"空指针异常"),
+    IO_ERROE(600003,"io异常"),
+    CLASS_CAST_ERROR(600004,"类型转换异常"),
+    NO_METHOD_ERROR(600005,"找不到方法"),
+    OUT_OF_BOUNDS_ERROR(600006,"越界异常"),
+    NOT_READ_ERROR(600007,"400异常"),
+    METHOD_NOT_SUPPORT_ERROR(600008,"405异常"),
+    NO_HANDLER_FOUND_ERROR(600009,"404异常"),
 
 
-
-
-
-    /*******************************************/
+    /**********************身份验证*********************/
     USER_NAME_PWD_ERROE(700000,"请检查用户名或密码是否正确"),
     USER_REPEAT_ERROR(700001,"请勿重复注册"),
     IDENTITY_IS_OVERDUE(700002,"身份过期，请登录"),

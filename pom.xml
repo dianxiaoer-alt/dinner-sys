@@ -26,7 +26,7 @@
         <module>coupon</module>
         <module>config-utils</module>
         <module>shop-admin-web</module>
-        <module>app-web</module>
+        <module>app-mp-wx-web</module>
     </modules>
 
     <!-- 引入Spring Boot的依赖 -->
