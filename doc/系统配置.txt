@@ -22,3 +22,4 @@ order订单服务：8083
 user用户、系统管理员用户服务：8086
 admin-web-feign后台管理客户端：8030
 shop-web-feign店铺商家后台平台客户端：8040
+wx-mp-app 用户客户端：8050
