@@ -95,4 +95,6 @@ public interface UserAO {
 	 */
 	Result<List<User>> queryList(UserQuery query);
 
+
+	Result<User> queryUserByOpenId(String openId);
 }

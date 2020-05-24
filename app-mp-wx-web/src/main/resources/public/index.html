@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录</title>
+    <link rel="stylesheet" type="text/css" href="css/weui.css" />
+</head>
+<body>
+<script src="js/jquery.min.js"></script>
+<script src="layui/layui.js"></script>
+<script src="util/http.js"></script>
+
+
+<script>
+    //扫码点餐时商家id
+    var shop_id = location.search.substring(4);
+    if (shop_id != '' || shop_id != null){ //放到客户端cookie中
+       /**
+		* 1、判断商家是否下线  ，是否在使用
+		* 2、可用则放入cookie   判断cookie中是否有token接着进行登录  登录成功跳转index，
+		* 并将用户用户token返回值存放在kookie中，否则fail页面
+		* 
+		*/
+	   $.ajax({
+		   url:"shop/queryById",
+		   data:{shop_id:shop_id},
+		   type: "GET",
+		   dataType: "json",
+		   success:function(res){
+			   if(res.code == 0){
+				    var shop = res.data;
+				   if(shop.is_on  == 1 && shop.is_confirm){
+					   setTokenToCookir(shop.id);//放到cookie中
+					   $.ajax({
+					   						   url:"wxLogin/getCode",
+					   						   type:"get"
+					   						   });
+					   //location.href="wxLogin/getCode"; //跳转到登录
+				   }else{
+					 
+					    $.toast("该商家暂未在线或未认证", "forbidden");
+				   }
+	   
+			   }else{
+				   $.toast("暂无该商家信息或系统错误", "forbidden");
+			   }
+		   }
+	   });
+	   
+	   if(){  //
+	   	
+	   }else{
+	   	
+	   }
+    }else{
+		location.href="fali.html";
+	}
+	
+	function setTokenToCookir(value) { //将jwt返回的token放进cookie
+				var Days = 30; //此 cookie 将被保存 30 天
+				var exp = new Date();
+				exp.setTime(exp.getTime() + Days * 24 * 60 * 60 * 1000);
+				document.cookie = "shop_id"+ "=" +escape(value) + ";expires=" + exp.toGMTString();
+			}
+    
+</script>
+</body>
+</html>

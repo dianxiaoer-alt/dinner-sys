@@ -47,7 +47,22 @@
             <include refid="pubItem"/>
         </where>
     </select>
-  
+
+
+    <select id="queryUserByOpenId" parameterType="java.lang.String" resultMap="BaseResponse">
+         SELECT
+            id,
+            nick_name,
+            head_img_url,
+            open_id,
+            access_token,
+            profile,
+            `number`,
+            create_time
+            FROM user
+            where
+            open_id = #{openId}
+    </select>
     <select id="queryPage"   resultMap="BaseResponse">
       SELECT 
     	id,

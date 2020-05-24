@@ -64,4 +64,9 @@ public class UserBOImpl implements UserBO {
 		return userDAL.queryList(user);
 	}
 
+	@Override
+	public User queryUserByOpenId(String openId) {
+		return userDAL.queryUserByOpenId(openId);
+	}
+
 }

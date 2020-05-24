@@ -99,4 +99,8 @@ public class UserVO {
 		return userAO.queryList(query);
 	}
 
+	@GetMapping("queryUserByOpenId")
+	public Result<User> queryUserByOpenId(@RequestParam("openId")String openId){
+        return userAO.queryUserByOpenId(openId);
+    }
 }

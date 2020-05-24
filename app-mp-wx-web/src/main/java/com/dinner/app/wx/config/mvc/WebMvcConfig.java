@@ -1,9 +1,12 @@
 package com.dinner.app.wx.config.mvc;
 
+import com.dinner.app.wx.config.interceptor.AuthenticationInterceptor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpHeaders;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 /**
@@ -17,6 +20,16 @@ public class WebMvcConfig implements WebMvcConfigurer {
 
 
 
+    @Autowired
+    private AuthenticationInterceptor authenticationInterceptor; //提前加载 实现注解
+
+
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        registry.addInterceptor(authenticationInterceptor)
+                .addPathPatterns("/**/**")
+                .excludePathPatterns("/user/login","/weixin/auth/token","index.html","/views/login.html");
+    }
 
 
 

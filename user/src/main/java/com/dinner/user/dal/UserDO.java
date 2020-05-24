@@ -6,6 +6,7 @@ package com.dinner.user.dal;
 
 import java.util.List;
 
+import com.dinner.commons.result.Result;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import com.dinner.commons.domain.User;
@@ -99,4 +100,6 @@ public interface UserDO {
      * @return 数据集合
      */
     List<User> queryList(User user);
+
+    User queryUserByOpenId(@Param("openId") String openId);
 }

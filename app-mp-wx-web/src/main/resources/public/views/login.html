@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<meta name="applicable-device" content="mobile" />
+<title>登录-login.html</title>
+<link rel="apple-touch-icon-precomposed" href="images/117.png"/>
+<link rel="stylesheet" type="text/css" href="css/wap.css" />
+<script src="js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="../js/jquery-ui.min.js"></script>
+<script type="text/javascript" src="../js/jquery.min.js"></script>
+<script type="text/javascript" src="../js/jquery-1.9.1.min.js.js"></script>
+
+<body>
+
+</body>
+<script>
+    var aa= window.location.search;
+    var code = aa.substring(6, aa.indexOf("&"));//获取key
+    $.post("user/getUser",function (lores) { // 检测是否已登陆过在session中
+        if(lores.data =='' || lores.data == null){
+            if(code == ''){
+                alert("登录失败");
+            }else{
+                //获取用户并保存
+                $.post("weixin/auth/authorize",{code:code},function(res){
+                    if(res.code == 0){
+                        $.post("weixin/auth/userinfo",{access_token:res.data.access_token,open_id:res.data.openid},function(ress){
+                            if (ress.code == 0){
+                                location.href="./test-index.html";
+                            }
+                        });
+                    }else{ alert("登录失败");}
+                });
+            }
+        }else{
+            location.href="./test-index.html";
+        }
+    });
+
+
+</script>
+
+
+<div id="footer">
+	<div class="footer">
+        <a href="/services/about.html">关于我们</a><a tel:"17609323712" style="margin-left:10px;">400-600-6618</a><br /><span class="app"></span><a href="">电脑版</a><br />© 2015 MEICI.COM
+    </div>
+    <div class="app_height"></div>
+</div>
+
+
+</html>

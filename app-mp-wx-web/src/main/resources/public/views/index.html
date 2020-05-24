@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="utf-8">
+   <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="applicable-device" content="mobile" />
+	<title>首页</title>
+  <!-- <link rel="stylesheet" type="text/css" href="./css/weui.min.css" /> -->
+    <!-- <link rel="stylesheet" type="text/css" href="./css/jquery-weui.min.css" /> -->
+	   <link rel="stylesheet" type="text/css" href="../css/weui.css" />
+	 <link rel="stylesheet" type="text/css" href="../css/layui.css" />
+	  <link rel="stylesheet" type="text/css" href="../css/dinner.css" />
+</head>
+<body>
+<div id="mybody">
+	<div id="page">
+		
+		<div class="weui-flex">
+		  <div class="weui-flex__item">
+			  <div class="shop_title"> 
+				  <div class="shop_name">北京夏普夏普</div>
+				  <div class="shop_desc">北京最的最点北京最的最点北京最的最点</div>
+			  </div>
+			  <div class="head"><img  src="https://mjkt-shop.oss-cn-beijing.aliyuncs.com/small/shop/2020/01/05/e83127b9d8274d4a96e79de7dc3daa8e.jpg"></div>
+		  </div>		  
+		</div>
+		
+		
+		
+		
+		<div class="layui-carousel" id="test1">
+		  <div carousel-item>
+				<div><img  src="img/banner1.jpg"></div>
+				<div><img  src="img/banner2.jpg"></div>
+				<div><img  src="img/banner3.jpg"></div>
+		  </div>
+		</div>
+		
+		<div style="margin-top: 5px;" class="layui-carousel" id="menu_nav">
+		  <div carousel-item>
+				<div>
+					<div class="weui-flex">
+					  <div class="weui-flex__item" onclick="alert(55)">weui</div>
+					  <div class="weui-flex__item">weui</div>
+					  <div class="weui-flex__item">weui</div>
+					  <div class="weui-flex__item">weui</div>
+					  
+					</div>
+					<div class="weui-flex">
+					  <div class="weui-flex__item">weui</div>
+					  <div class="weui-flex__item">weui</div>
+					  <div class="weui-flex__item">weui</div>
+					  <div class="weui-flex__item">weui</div>
+					</div>
+				</div>
+				
+				
+				<div>
+					<div class="weui-flex">
+					  <div class="weui-flex__item">weui</div>
+					  <div class="weui-flex__item">weui</div>
+					  <div class="weui-flex__item">weui</div>
+					  <div class="weui-flex__item">weui</div>
+					  
+					</div>
+					<div class="weui-flex">
+					  <div class="weui-flex__item">weui</div>
+					  <div class="weui-flex__item">weui</div>
+					  <div class="weui-flex__item">weui</div>
+					  <div class="weui-flex__item">weui</div>
+					</div>
+				</div>
+				
+				
+				
+		  </div>
+		</div>
+		
+		<iframe height="350px" width="99%" style="border: none;"  src="http://www.baidu.com"></iframe>
+		  <div class="weui-tabbar">
+		    <a href="javascript:;" class="weui-tabbar__item weui-bar__item--on">
+		      <span class="weui-badge" style="position: absolute;top: -.4em;right: 1em;">8</span>
+		      <div class="weui-tabbar__icon">
+		        <img src="img/index_face.png" alt="">
+		      </div>
+		      <p class="weui-tabbar__label">菜品中心</p>
+		    </a>
+		    <a href="javascript:;" class="weui-tabbar__item">
+		      <div class="weui-tabbar__icon">
+		        <img src="img/msg.png" alt="">
+		      </div>
+		      <p class="weui-tabbar__label">购物车</p>
+		    </a>
+		    <a href="javascript:;" class="weui-tabbar__item">
+		      <div class="weui-tabbar__icon">
+		        <img src="img/list.png" alt="">
+		      </div>
+		      <p class="weui-tabbar__label">我的订单</p>
+		    </a>
+		    <a href="javascript:;" class="weui-tabbar__item">
+		      <div class="weui-tabbar__icon">
+		        <img src="img/per_face.png" alt="">
+		      </div>
+		      <p class="weui-tabbar__label">个人中心</p>
+		    </a>
+		  </div>
+	   
+	</div>
+	
+	</div>  
+</body>
+
+
+<script src="../js/jquery.min.js"></script>
+ <script src="../js/jquery-weui.min.js"></script> 
+ <script src="../layui/layui.js"></script>
+ <script src="util/http.js"></script>
+<script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+ <script src="https://res.wx.qq.com/open/libs/weuijs/1.2.1/weui.min.js"></script> 
+ 
+<!-- body 最后 -->
+
+<script type="text/javascript">
+	var H = window.screen.availHeight ;  //获取手机屏幕总高度
+	var W = window.screen.availWidth;
+	
+$(document).ready(function(){
+	$("#mybody").attr('style',"height:"+H+"px;width:"+W+"px;");
+/* document.getElementById("page").style.width = W;
+ document.getElementById("page").style.height = H;
+ */
+ 
+ console.log(H);
+ console.log(W);
+});
+	
+	
+	
+	/* var loading = weui.loading('正在登录...'); */
+	//loading.hide();
+	
+	
+	
+	       
+	           $('.weui-tabbar__item').on('click', function () {
+	               $(this).addClass('weui-bar__item_on').siblings('.weui-bar__item_on').removeClass('weui-bar__item_on');
+	           });
+	      
+		   
+		   
+		   //轮播
+		  layui.use('carousel', function(){
+		    var carousel = layui.carousel;
+		    //建造实例
+		    carousel.render({
+		      elem: '#test1'
+		      ,width: '100%' ,//设置容器宽度
+			   height:'120px'
+		      ,arrow: 'none' //始终显示箭头
+		      //,anim: 'updown' //切换动画方式
+		    });
+			
+			
+			carousel.render({
+			  elem: '#menu_nav'
+			  ,width: '100%' ,//设置容器宽度
+			   height:'120px'
+			  ,arrow: 'none' //始终显示箭头
+			  //,anim: 'updown' //切换动画方式
+			  ,autoplay:false
+			});
+		  });
+		  
+	
+	
+	/* $.ajax({
+	             type: "GET",
+	             url: "http://www.baidu.com",
+	             data: {username:""},
+	             dataType: "json",
+	             success: function(data){
+	                    
+	                      }
+	         }); */
+	  
+	  //alert(a);
+	   </script>
+</html>

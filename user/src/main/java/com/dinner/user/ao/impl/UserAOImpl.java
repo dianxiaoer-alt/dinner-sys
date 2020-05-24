@@ -5,6 +5,7 @@
 package com.dinner.user.ao.impl;
 
 import com.dinner.commons.domain.User;
+import com.dinner.commons.error.ErrorEnum;
 import com.dinner.commons.page.PageResult;
 import com.dinner.commons.query.UserQuery;
 import com.dinner.commons.request.UserReq;
@@ -13,6 +14,7 @@ import com.dinner.commons.result.ResultCodeEnum;
 import com.dinner.user.ao.UserAO;
 import com.dinner.user.bo.UserBO;
 import com.github.pagehelper.PageInfo;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -124,6 +126,20 @@ public class UserAOImpl implements UserAO {
 			resp =resp.error(ResultCodeEnum.FAIL.getCode(),e.getMessage());
 		}
 		return resp;
+	}
+
+	@Override
+	public Result<User> queryUserByOpenId(String openId) {
+		try {
+			//TODO 你需要做点校验吗?
+			if (StringUtils.isNoneBlank(openId)) {
+				User user = userManager.queryUserByOpenId(openId);
+				return Result.success(user);
+			}
+			return Result.error(ErrorEnum.PARAMETER_VALIDATION_ERROR);
+		} catch (Exception e) {
+			return Result.error(ErrorEnum.UNKNOW_ERROR);
+		}
 	}
 
 

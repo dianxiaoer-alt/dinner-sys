@@ -29,3 +29,7 @@ eureka:
 jasypt:
   encryptor:
     password: dinner-sys
+
+# JWT
+jwt:
+  issuer: dinner-sys

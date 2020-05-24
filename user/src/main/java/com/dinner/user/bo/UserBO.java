@@ -91,4 +91,6 @@ public interface UserBO {
      * @return 数据集合
      */
      List<User> queryList(User user);
+
+    User queryUserByOpenId(String openId);
 }
