@@ -8,7 +8,7 @@ import com.dinner.commons.result.Result;
 import feign.hystrix.FallbackFactory;
 import org.springframework.stereotype.Service;
 
-@Service
+@Service("ShopFeign")
 public class ShopFeignFallbackFactoryImpl extends AbstractFallbackFactory implements FallbackFactory<ShopFeign> {
     @Override
     public ShopFeign create(Throwable throwable) {

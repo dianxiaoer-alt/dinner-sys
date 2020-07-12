@@ -15,7 +15,7 @@ import org.springframework.stereotype.Service;
  * @author:陈丽强
  * @Date:2020/5/21 21:41
  */
-@Service
+@Service("UserFeign")
 public class UserFeignFallbackFactoryImpl extends AbstractFallbackFactory implements FallbackFactory<UserFeign> {
     @Override
     public UserFeign create(Throwable throwable) {

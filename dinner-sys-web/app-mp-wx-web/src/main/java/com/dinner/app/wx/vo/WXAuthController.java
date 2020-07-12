@@ -32,19 +32,18 @@ public class WXAuthController extends AbstractController {
     @ApiOperation("用户换取openid与access_token")
     @RequestMapping(value="authorize",method = {RequestMethod.POST, RequestMethod.GET})
     public Result<Map<String,Object>> authorize(String code){
-        init(); // 初始化
-        return wxAuthAO.authorize(code);
+        return wxAuthAO.authorize(code,shop_id);
     }
 
     @ApiOperation("用户刷新续期openid与access_token,很少用")
     @RequestMapping(value="reflushAccessToken",method = {RequestMethod.POST, RequestMethod.GET})
     public Result<Map<String,Object>> reflushAccessToken(String refresh_token){
-        return wxAuthAO.reflushAccessToken(refresh_token);
+        return wxAuthAO.reflushAccessToken(refresh_token,shop_id);
     }
 
     @RequestMapping("userinfo")
     public Result<User> userinfo(String access_token, String open_id, HttpSession session) {
-        return wxAuthAO.userInfo(access_token,open_id,session);
+        return wxAuthAO.userInfo(access_token,open_id,shop_id);
     }
 
     /**

@@ -34,9 +34,9 @@ public class AbstractController {
 
     private HttpServletRequest request =  HttpContextUtils.getHttpServletRequest();
 
-    private String shop_id = request.getParameter("shop_id");
+    protected Long shop_id = Long.parseLong(request.getParameter("shop_id")) ;
 
-    private String user_id = request.getParameter("user_id");
+    protected Long user_id =Long.parseLong( request.getParameter("user_id"));
 
 
 

@@ -3,6 +3,9 @@ package com.dinner.app.wx.ao.impl;
 
 
 import com.dinner.app.wx.ao.WXAuthAO;
+import com.dinner.app.wx.config.jasypt.JasyptConfig;
+import com.dinner.app.wx.feignService.ShopFeign;
+import com.dinner.commons.domain.Shop;
 import com.dinner.commons.domain.User;
 import com.dinner.commons.result.Result;
 import com.dinner.wx.pay.constants.WXPayRequestConfig;
@@ -19,14 +22,22 @@ import java.util.Map;
 @Slf4j
 public class WXAuthAOImpl implements WXAuthAO {
 
+    @Autowired
+    private ShopFeign shopFeign;
+    @Autowired
+    private JasyptConfig jasyptConfig;
 
 
     @Override
-    public Result<Map<String, Object>> authorize(String code) {
+    public Result<Map<String, Object>> authorize(String code,Long shop_id) {
         Result<Map<String, Object>> resp = new Result<>();
         try {
-            WXPayRequestConfig wxPayRequestConfig = new WXPayRequestConfig();
-            WXUtils wxUtils = new WXUtils(wxPayRequestConfig);
+            Result<Shop> res =  shopFeign.queryOneById(shop_id);
+            if (res.getData() == null){
+                return Result.error(1,"该商家不存在");
+            }
+            Shop shop = res.getData();
+            WXUtils wxUtils = new WXUtils(initWXPay(shop));
             if(StringUtils.isNoneBlank(code)){
                 Map<String, Object> map = wxUtils.getJsapiAccessTokenByCode(code);
                 resp =  Result.success(map);
@@ -40,7 +51,7 @@ public class WXAuthAOImpl implements WXAuthAO {
     }
 
     @Override
-    public Result<User> userInfo(String access_token, String open_id, HttpSession session) {
+    public Result<User> userInfo(String access_token, String open_id,Long shop_id) {
      /*   Result<User> res = new Result<User>();
         try {
             log.info("参数access_token = "+access_token+"'----------open_id="+open_id);
@@ -81,11 +92,15 @@ public class WXAuthAOImpl implements WXAuthAO {
     }
 
     @Override
-    public Result<Map<String, Object>> reflushAccessToken(String access_token) {
+    public Result<Map<String, Object>> reflushAccessToken(String access_token,Long shop_id) {
         Result<Map<String, Object>> resp = new Result<>();
         try {
-            WXPayRequestConfig wxPayRequestConfig = new WXPayRequestConfig();
-            WXUtils wxUtils = new WXUtils(wxPayRequestConfig);
+            Result<Shop> res =  shopFeign.queryOneById(shop_id);
+            if (res.getData() == null){
+                return Result.error(1,"该商家不存在");
+            }
+            Shop shop = res.getData();
+            WXUtils wxUtils = new WXUtils(initWXPay(shop));
             if(StringUtils.isNoneBlank(access_token)){
                 Map<String, Object> map = wxUtils.refushAccessToken(access_token);
                 resp =  Result.success(map);
@@ -97,5 +112,16 @@ public class WXAuthAOImpl implements WXAuthAO {
         }
 
         return resp;
+    }
+
+    private WXPayRequestConfig initWXPay(Shop shop){
+        if (shop == null)
+            return null;
+        WXPayRequestConfig wxPayRequestConfig = new WXPayRequestConfig();
+        wxPayRequestConfig.setAPI_KEY(jasyptConfig.decyptPwd(shop.getPay_key()));
+        wxPayRequestConfig.setAPP_ID(jasyptConfig.decyptPwd(shop.getApp_id()));
+        wxPayRequestConfig.setMCH_ID(jasyptConfig.decyptPwd(shop.getMch_id()));
+        wxPayRequestConfig.setSECRET(jasyptConfig.decyptPwd(shop.getApp_secret()));
+        return wxPayRequestConfig;
     }
 }
