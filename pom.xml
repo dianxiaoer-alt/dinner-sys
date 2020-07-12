@@ -14,19 +14,9 @@
     </properties>
 
     <modules>
-        <module>register-center</module>
-        <module>admin-web</module>
-        <module>config-center</module>
-        <module>order</module>
-        <module>commons</module>
-        <module>goods</module>
-        <module>shop</module>
-        <module>user</module>
-        <module>message</module>
-        <module>coupon</module>
-        <module>config-utils</module>
-        <module>shop-admin-web</module>
-        <module>app-mp-wx-web</module>
+        <module>dinner-sys-web</module>
+        <module>dinner-sys-service</module>
+        <module>dinner-sys-commons</module>
     </modules>
 
     <!-- 引入Spring Boot的依赖 -->
