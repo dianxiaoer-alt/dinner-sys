@@ -16,6 +16,7 @@ import com.dinner.wx.pay.redis.RedisKeyEnum;
 import com.dinner.wx.pay.redis.RedisKeyUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -42,18 +43,17 @@ import java.util.concurrent.TimeUnit;
  * @date 2018/8/17
  */
 @Slf4j
-@Component
 public class WXUtils {
 
-    @Autowired
-    private RestTemplate restTemplate;
+    //@Autowired
+    private RestTemplate restTemplate = new RestTemplate();
 
-    @Autowired
-    private RedisTemplate redisTemplate;
+   /* @Autowired
+    private RedisTemplate redisTemplate;*/
 
     private WXPayRequestConfig config;
 
-    public WXUtils(final WXPayRequestConfig config){
+    public WXUtils(WXPayRequestConfig config){
         this.config = config;
     }
 
@@ -67,17 +67,17 @@ public class WXUtils {
 
         // 取redis数据
         String key = WXConstants.WECHAT_ACCESSTOKEN + code;
-        String accessToken = (String) redisTemplate.opsForValue().get(key);
+       /* String accessToken = (String) redisTemplate.opsForValue().get(key);
         if (accessToken != null) {
             return accessToken;
-        }
+        }*/
 
         // 通过接口取得access_token
         JSONObject jsonObject = restTemplate.getForObject(MessageFormat.format(WXURL.BASE_ACCESS_TOKEN, config.getAPP_ID(),config.getSECRET()), JSONObject.class);
         String token = (String) jsonObject.get("access_token");
         if (StringUtils.isNotBlank(token)) {
             // 存储redis
-            redisTemplate.opsForValue().set(key, token, 7000, TimeUnit.SECONDS);
+           // redisTemplate.opsForValue().set(key, token, 7000, TimeUnit.SECONDS);
             return token;
         } else {
             log.error("获取微信accessToken出错，微信返回信息为：[{}]", jsonObject.toString());
@@ -214,10 +214,10 @@ public class WXUtils {
             String redisKey = RedisKeyUtil.keyBuilder(RedisKeyEnum.XXX_MINI_WX_CODE, scene + RedisKeyUtil.KEY_SPLIT_CHAR + page);
 
             // 从redis中获取缓存图片
-            Object obj = redisTemplate.opsForValue().get(redisKey);
+         /*   Object obj = redisTemplate.opsForValue().get(redisKey);
             if (obj != null) {
                 return obj.toString();
-            }
+            }*/
 
             // 获取微信永久无限制二维码
             byte[] code = this.getwxacodeunlimit(scene, page);
@@ -240,7 +240,7 @@ public class WXUtils {
                 return imgUrl;
             }
             // 设置到redis中，下次取直接拿缓存即可，防止多次生成
-            redisTemplate.opsForValue().set(redisKey, imgUrl);
+           // redisTemplate.opsForValue().set(redisKey, imgUrl);
 
         } catch (Exception e) {
             log.error("getWxMiniQRImg:调用小程序生成微信永久小程序码URL接口异常", e);
@@ -493,10 +493,10 @@ public class WXUtils {
             String redisKey = RedisKeyUtil.keyBuilder(RedisKeyEnum.IMALL_WXCARD_APITICKET, access_token);
 
             // 从redis中获取缓存
-            Object obj = redisTemplate.opsForValue().get(redisKey);
+           /* Object obj = redisTemplate.opsForValue().get(redisKey);
             if (obj != null) {
                 return obj.toString();
-            }
+            }*/
 
             // 获取卡券 api_ticket
             String api_ticket = restTemplate.getForObject(WXURL.BASE_API_TICKET, String.class, access_token);
@@ -511,7 +511,7 @@ public class WXUtils {
 
             // 设置到redis中，下次取直接拿缓存即可，防止多次生成
             String ticket = jsonObject.getString("ticket");
-            redisTemplate.opsForValue().set(redisKey, ticket, jsonObject.getIntValue("expires_in"), TimeUnit.SECONDS);
+           // redisTemplate.opsForValue().set(redisKey, ticket, jsonObject.getIntValue("expires_in"), TimeUnit.SECONDS);
 
             return ticket;
         } catch (Exception e) {
@@ -539,10 +539,10 @@ public class WXUtils {
             String redisKey = RedisKeyUtil.keyBuilder(RedisKeyEnum.IMALL_WX_APITICKET, access_token);
 
             // 从redis中获取缓存
-            Object obj = redisTemplate.opsForValue().get(redisKey);
+          /*  Object obj = redisTemplate.opsForValue().get(redisKey);
             if (obj != null) {
                 return obj.toString();
-            }
+            }*/
 
             // 获取 api_ticket
             String api_ticket = restTemplate.getForObject(WXURL.BASE_JSAPI_TICKET, String.class, access_token);
@@ -557,7 +557,7 @@ public class WXUtils {
 
             // 设置到redis中，下次取直接拿缓存即可，防止多次生成
             String ticket = jsonObject.getString("ticket");
-            redisTemplate.opsForValue().set(redisKey, ticket, jsonObject.getIntValue("expires_in"), TimeUnit.SECONDS);
+            //redisTemplate.opsForValue().set(redisKey, ticket, jsonObject.getIntValue("expires_in"), TimeUnit.SECONDS);
 
             return ticket;
         } catch (Exception e) {

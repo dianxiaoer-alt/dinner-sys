@@ -3,6 +3,7 @@ package com.dinner.app.wx.vo;
 
 
 import com.dinner.app.wx.ao.WXAuthAO;
+import com.dinner.app.wx.config.jwt.UserPassToken;
 import com.dinner.app.wx.vo.base.AbstractController;
 import com.dinner.commons.domain.User;
 import com.dinner.commons.result.Result;
@@ -20,27 +21,30 @@ import java.util.Map;
 @Api(tags = "微信签名")
 @RestController
 @RequestMapping("weixin/auth")
-public class WXAuthController extends AbstractController {
+public class WXAuthController{
     @Autowired
     private WXAuthAO wxAuthAO;
 
+    private Long shop_id = 1L;
     /**
      * 获取code之后进行获取openid
      * @param code
      * @return
      */
     @ApiOperation("用户换取openid与access_token")
+    @UserPassToken
     @RequestMapping(value="authorize",method = {RequestMethod.POST, RequestMethod.GET})
     public Result<Map<String,Object>> authorize(String code){
         return wxAuthAO.authorize(code,shop_id);
     }
 
     @ApiOperation("用户刷新续期openid与access_token,很少用")
+    @UserPassToken
     @RequestMapping(value="reflushAccessToken",method = {RequestMethod.POST, RequestMethod.GET})
     public Result<Map<String,Object>> reflushAccessToken(String refresh_token){
         return wxAuthAO.reflushAccessToken(refresh_token,shop_id);
     }
-
+    @UserPassToken
     @RequestMapping("userinfo")
     public Result<User> userinfo(String access_token, String open_id, HttpSession session) {
         return wxAuthAO.userInfo(access_token,open_id,shop_id);

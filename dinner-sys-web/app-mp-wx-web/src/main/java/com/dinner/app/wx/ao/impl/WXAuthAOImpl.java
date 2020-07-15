@@ -4,7 +4,7 @@ package com.dinner.app.wx.ao.impl;
 
 import com.dinner.app.wx.ao.WXAuthAO;
 import com.dinner.app.wx.config.jasypt.JasyptConfig;
-import com.dinner.app.wx.feignService.ShopFeign;
+import com.dinner.app.wx.feignService.ShopFeignService;
 import com.dinner.commons.domain.Shop;
 import com.dinner.commons.domain.User;
 import com.dinner.commons.result.Result;
@@ -15,7 +15,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.servlet.http.HttpSession;
+import javax.annotation.Resource;
 import java.util.Map;
 
 @Service("WXAuthAO")
@@ -23,7 +23,7 @@ import java.util.Map;
 public class WXAuthAOImpl implements WXAuthAO {
 
     @Autowired
-    private ShopFeign shopFeign;
+    private ShopFeignService shopFeignService;
     @Autowired
     private JasyptConfig jasyptConfig;
 
@@ -32,7 +32,7 @@ public class WXAuthAOImpl implements WXAuthAO {
     public Result<Map<String, Object>> authorize(String code,Long shop_id) {
         Result<Map<String, Object>> resp = new Result<>();
         try {
-            Result<Shop> res =  shopFeign.queryOneById(shop_id);
+            Result<Shop> res =  shopFeignService.queryOneById(shop_id);
             if (res.getData() == null){
                 return Result.error(1,"该商家不存在");
             }
@@ -95,7 +95,7 @@ public class WXAuthAOImpl implements WXAuthAO {
     public Result<Map<String, Object>> reflushAccessToken(String access_token,Long shop_id) {
         Result<Map<String, Object>> resp = new Result<>();
         try {
-            Result<Shop> res =  shopFeign.queryOneById(shop_id);
+            Result<Shop> res =  shopFeignService.queryOneById(shop_id);
             if (res.getData() == null){
                 return Result.error(1,"该商家不存在");
             }

@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("userLogin")
-public class UserLoginController extends AbstractController{
+public class UserLoginController{
 
     @Autowired
     private JasyptConfig jasyptConfig;
@@ -28,12 +28,12 @@ public class UserLoginController extends AbstractController{
      */
     @RequestMapping("getCode")
     public String toGetCode(){
-        if(shop != null){
+       /* if(shop != null){
             String url  = "https://open.weixin.qq.com/connect/oauth2/authorize";
             String res_html = "http%3a%2f%2fsmall.nat300.top%2forder-shop-mobile%2flogin.html";
             String res = "redirect:"+url+"?appid="+jasyptConfig.decyptPwd(shop.getApp_id())+"&redirect_uri="+res_html+"&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect";
             return res;
-        }
+        }*/
         return "Error";
     }
 }

@@ -11,20 +11,18 @@ import com.dinner.app.wx.config.jwt.PassToken;
 import com.dinner.app.wx.config.jwt.UserLoginToken;
 import com.dinner.app.wx.config.jwt.UserPassToken;
 
-import com.dinner.app.wx.feignService.UserFeign;
+import com.dinner.app.wx.feignService.UserFeignService;
 import com.dinner.commons.domain.User;
 import com.dinner.commons.error.ErrorEnum;
 import com.dinner.commons.result.Result;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerInterceptor;
 
 
-import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -42,7 +40,7 @@ import java.lang.reflect.Method;
 public class AuthenticationInterceptor implements HandlerInterceptor {
 
    // @Resource
-    private  UserFeign userFeign ;
+    private UserFeignService userFeignService;
 
     @Value("${jwt.issuer}")
     private String issuer;
@@ -104,7 +102,7 @@ public class AuthenticationInterceptor implements HandlerInterceptor {
                         print(response,ErrorEnum.AUTHENTICATION_FAILED);
                     }
 
-                    Result<User> user =userFeign.queryById(user_id);
+                    Result<User> user = userFeignService.queryById(user_id);
 
                     if (user.getData() == null) {
                         //用户不存在，请重新登录

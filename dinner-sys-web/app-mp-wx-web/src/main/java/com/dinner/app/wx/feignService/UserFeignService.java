@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
  * @Date:2020/5/21 12:42
  */
 @FeignClient(value = "user",fallbackFactory = UserFeignFallbackFactoryImpl.class)
-public interface UserFeign {
+public interface UserFeignService {
     @GetMapping("user/queryById")
     Result<User> queryById(@RequestParam("userId") Long userId);
 
