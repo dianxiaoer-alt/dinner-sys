@@ -21,6 +21,10 @@ import java.util.Map;
 @Service("WXAuthAO")
 @Slf4j
 public class WXAuthAOImpl implements WXAuthAO {
+    //http://dinner-sys.natapp1.cc/views/login.html
+    private String resUrl = "http%3A%2F%2Fdinner-sys.natapp1.cc%2Fviews%2Flogin.html";
+
+    private String url  = "https://open.weixin.qq.com/connect/oauth2/authorize";
 
     @Autowired
     private ShopFeignService shopFeignService;
@@ -95,6 +99,8 @@ public class WXAuthAOImpl implements WXAuthAO {
     public Result<Map<String, Object>> reflushAccessToken(String access_token,Long shop_id) {
         Result<Map<String, Object>> resp = new Result<>();
         try {
+            if (shop_id == null || StringUtils.isBlank(access_token))
+                return Result.error(1,"shopId或access_token不能为空");
             Result<Shop> res =  shopFeignService.queryOneById(shop_id);
             if (res.getData() == null){
                 return Result.error(1,"该商家不存在");
@@ -112,6 +118,17 @@ public class WXAuthAOImpl implements WXAuthAO {
         }
 
         return resp;
+    }
+
+    @Override
+    public String getCode(Long shopId) {
+        if (shopId == null)
+            return null;
+        Result<Shop> res =  shopFeignService.queryOneById(shopId);
+        if (res.getCode() !=0)
+            return null;
+
+        return "redirect:"+url+"?appid="+jasyptConfig.decyptPwd(res.getData().getApp_id())+"&redirect_uri="+resUrl+"&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect";
     }
 
     private WXPayRequestConfig initWXPay(Shop shop){

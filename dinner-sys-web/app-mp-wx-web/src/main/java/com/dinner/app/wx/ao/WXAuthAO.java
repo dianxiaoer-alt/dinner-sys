@@ -25,4 +25,6 @@ public interface WXAuthAO {
     Result<User> userInfo(String access_token, String open_id,Long shop_id);
 
     Result<Map<String,Object>> reflushAccessToken(String access_token,Long shop_id);
+
+    String getCode(Long shopId);
 }

@@ -19,6 +19,7 @@
 </body>
 <script>
     var aa= window.location.search;
+    alert(aa);
     var code = aa.substring(6, aa.indexOf("&"));//获取key
     $.post("user/getUser",function (lores) { // 检测是否已登陆过在session中
         if(lores.data =='' || lores.data == null){

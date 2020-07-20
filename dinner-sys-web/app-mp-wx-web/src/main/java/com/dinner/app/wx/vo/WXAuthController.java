@@ -9,18 +9,19 @@ import com.dinner.commons.domain.User;
 import com.dinner.commons.result.Result;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 import java.util.Arrays;
 import java.util.Map;
 
 @Api(tags = "微信签名")
-@RestController
+@Controller
 @RequestMapping("weixin/auth")
+@Slf4j
 public class WXAuthController{
     @Autowired
     private WXAuthAO wxAuthAO;
@@ -33,6 +34,7 @@ public class WXAuthController{
      */
     @ApiOperation("用户换取openid与access_token")
     @UserPassToken
+    @ResponseBody
     @RequestMapping(value="authorize",method = {RequestMethod.POST, RequestMethod.GET})
     public Result<Map<String,Object>> authorize(String code){
         return wxAuthAO.authorize(code,shop_id);
@@ -40,14 +42,23 @@ public class WXAuthController{
 
     @ApiOperation("用户刷新续期openid与access_token,很少用")
     @UserPassToken
+    @ResponseBody
     @RequestMapping(value="reflushAccessToken",method = {RequestMethod.POST, RequestMethod.GET})
     public Result<Map<String,Object>> reflushAccessToken(String refresh_token){
         return wxAuthAO.reflushAccessToken(refresh_token,shop_id);
     }
     @UserPassToken
+    @ResponseBody
     @RequestMapping("userinfo")
     public Result<User> userinfo(String access_token, String open_id, HttpSession session) {
         return wxAuthAO.userInfo(access_token,open_id,shop_id);
+    }
+
+    @UserPassToken
+    @RequestMapping("getCode")
+    public String getCode(Long shopId){
+        log.info(wxAuthAO.getCode(shopId));
+        return wxAuthAO.getCode(shopId);
     }
 
     /**
@@ -58,6 +69,7 @@ public class WXAuthController{
      * @param echostr
      * @return
      */
+    @ResponseBody
     @ApiOperation("用户换取token")
     @RequestMapping(value="token",method = {RequestMethod.POST, RequestMethod.GET})
     public Object getToken(String signature,String timestamp,String nonce,String echostr){
