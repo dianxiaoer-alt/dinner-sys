@@ -53,6 +53,8 @@ public class GoodsType extends Base implements Serializable {
 	@ApiModelProperty("")
     private String title;
 
+	private String icon;
+
 	@Override
 	public String toString() {
 		return ReflectionToStringBuilder.toString(this);

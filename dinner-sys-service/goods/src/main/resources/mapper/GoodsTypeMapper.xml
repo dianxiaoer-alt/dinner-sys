@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dinner.goods.dal.GoodsTypeDO">
+
+    <insert id="insert" parameterType="goodsType" useGeneratedKeys="true" keyProperty="id">
+        insert into goods_type(
+        shop_id,
+        title,
+        icon
+        )values (
+        #{shop_id},
+        #{title},
+        #{icon}
+        )
+    </insert>
+
+    <update id="update">
+        update goods_type
+        <trim prefix="set" suffix="where id = #{id}" suffixOverrides=",">
+            <if test="shop_id != null"> shop_id = #{shop_id},</if>
+            <if test="title != null"> title = #{title},</if>
+            <if test="icon != null"> icon = #{icon},</if>
+        </trim>
+    </update>
+
+    <select id="queryList" resultType="goodsType">
+        select <include refid="baseColumn"></include>
+        from goods_type
+    </select>
+
+    <select id="queryOneById" resultType="goodsType">
+        select <include refid="baseColumn"></include>
+        from goods_type where id = #{id}
+    </select>
+
+    <select id="queryListByShopId" resultType="goodsType">
+        select <include refid="baseColumn"></include>
+        from goods_type where shop_id = #{shop_id}
+    </select>
+
+    <delete id="delete">
+        delete from goods_type where id = #{id}
+    </delete>
+
+
+    <sql id="baseColumn">
+        id,shop_id,title,icon
+    </sql>
+
+</mapper>

@@ -36,7 +36,7 @@ public class GoodsTypeReq {
 	 * </pre>
 	 */
 	@ApiModelProperty(value = "", example = "1000", dataType = "Long")
-	@NotNull(message = "{com.dinner.goodsType.id.notNoll.message}")
+
     private Long id;
 	/**
 	 * <pre>
@@ -55,6 +55,8 @@ public class GoodsTypeReq {
 	@NotEmpty(message = "{com.dinner.goodsType.title.notEmpty.message}")
 	@Length(max = 32, message = "{com.dinner.goodsType.title.maxLength.message}")
     private String title;
+
+	private String icon;
 
 	@Override
 	public String toString() {
