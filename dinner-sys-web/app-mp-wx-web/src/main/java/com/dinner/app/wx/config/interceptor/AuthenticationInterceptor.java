@@ -7,22 +7,28 @@ import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.exceptions.JWTDecodeException;
 import com.auth0.jwt.exceptions.JWTVerificationException;
 import com.auth0.jwt.interfaces.DecodedJWT;
+import com.dinner.app.wx.ao.UserAO;
 import com.dinner.app.wx.config.jwt.PassToken;
 import com.dinner.app.wx.config.jwt.UserLoginToken;
 import com.dinner.app.wx.config.jwt.UserPassToken;
 
-import com.dinner.app.wx.feignService.UserFeignService;
+import com.dinner.app.wx.feign.GoodsFeignAO;
+import com.dinner.app.wx.feign.UserFeignAO;
+import com.dinner.app.wx.feign.impl.UserFeignFallbackFactoryImpl;
 import com.dinner.commons.domain.User;
 import com.dinner.commons.error.ErrorEnum;
 import com.dinner.commons.result.Result;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerInterceptor;
 
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -35,12 +41,12 @@ import java.lang.reflect.Method;
  * @author:陈丽强
  * @Date:2020/5/2 16:09
  */
-@Component
+@Configuration
 @Slf4j
 public class AuthenticationInterceptor implements HandlerInterceptor {
 
-   // @Resource
-    private UserFeignService userFeignService;
+    @Autowired
+    UserAO userAO;
 
     @Value("${jwt.issuer}")
     private String issuer;
@@ -53,12 +59,8 @@ public class AuthenticationInterceptor implements HandlerInterceptor {
 
         response.setContentType("text/html;charset=UTF-8");
 
-
-
-
         HandlerMethod handlerMethod = (HandlerMethod)object;
         Method method = handlerMethod.getMethod();
-        log.info("handlerMethod -> {} "+handlerMethod);
 
 
         //检查是否有passtoken注释，有则跳过认证
@@ -102,7 +104,7 @@ public class AuthenticationInterceptor implements HandlerInterceptor {
                         print(response,ErrorEnum.AUTHENTICATION_FAILED);
                     }
 
-                    Result<User> user = userFeignService.queryById(user_id);
+                    Result<User> user = userAO.queryById(user_id);
 
                     if (user.getData() == null) {
                         //用户不存在，请重新登录
@@ -135,7 +137,7 @@ public class AuthenticationInterceptor implements HandlerInterceptor {
                 // 执行认证
                 if (StringUtils.isBlank(token)) {
                     //无token，请重新登录
-                    request.setAttribute("user_id", null);
+                    request.setAttribute("userId", 1); //默认null
                     return true;
                 }else{
                     // 获取 token 中的 userId
@@ -151,6 +153,7 @@ public class AuthenticationInterceptor implements HandlerInterceptor {
 
                 return true;
             }
+
         }
 
 

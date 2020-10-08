@@ -45,6 +45,9 @@ public class GoodsOrder extends Base implements Serializable {
 	 */
 	@ApiModelProperty("用户id")
     private Long user_id;
+
+	@ApiModelProperty("商家id")
+	private Long shop_id;
 	/**
 	 * <pre>
 	 * 数据库字段: table_num

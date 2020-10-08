@@ -4,7 +4,7 @@ package com.dinner.app.wx.ao.impl;
 
 import com.dinner.app.wx.ao.WXAuthAO;
 import com.dinner.app.wx.config.jasypt.JasyptConfig;
-import com.dinner.app.wx.feignService.ShopFeignService;
+import com.dinner.app.wx.feign.ShopFeignAO;
 import com.dinner.commons.domain.Shop;
 import com.dinner.commons.domain.User;
 import com.dinner.commons.result.Result;
@@ -15,10 +15,8 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
 import java.util.Map;
-
-@Service("WXAuthAO")
+@Service
 @Slf4j
 public class WXAuthAOImpl implements WXAuthAO {
     //http://dinner-sys.natapp1.cc/views/login.html
@@ -27,7 +25,7 @@ public class WXAuthAOImpl implements WXAuthAO {
     private String url  = "https://open.weixin.qq.com/connect/oauth2/authorize";
 
     @Autowired
-    private ShopFeignService shopFeignService;
+    private ShopFeignAO shopFeignAO;
     @Autowired
     private JasyptConfig jasyptConfig;
 
@@ -36,7 +34,7 @@ public class WXAuthAOImpl implements WXAuthAO {
     public Result<Map<String, Object>> authorize(String code,Long shop_id) {
         Result<Map<String, Object>> resp = new Result<>();
         try {
-            Result<Shop> res =  shopFeignService.queryOneById(shop_id);
+            Result<Shop> res =  shopFeignAO.queryOneById(shop_id);
             if (res.getData() == null){
                 return Result.error(1,"该商家不存在");
             }
@@ -101,7 +99,7 @@ public class WXAuthAOImpl implements WXAuthAO {
         try {
             if (shop_id == null || StringUtils.isBlank(access_token))
                 return Result.error(1,"shopId或access_token不能为空");
-            Result<Shop> res =  shopFeignService.queryOneById(shop_id);
+            Result<Shop> res =  shopFeignAO.queryOneById(shop_id);
             if (res.getData() == null){
                 return Result.error(1,"该商家不存在");
             }
@@ -124,7 +122,7 @@ public class WXAuthAOImpl implements WXAuthAO {
     public String getCode(Long shopId) {
         if (shopId == null)
             return null;
-        Result<Shop> res =  shopFeignService.queryOneById(shopId);
+        Result<Shop> res =  shopFeignAO.queryOneById(shopId);
         if (res.getCode() !=0)
             return null;
 

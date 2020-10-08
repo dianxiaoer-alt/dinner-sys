@@ -72,4 +72,6 @@ public interface GoodsOrderAO {
      */
     Result<List<GoodsOrder>> queryList( GoodsOrderQuery query);
 
+    Result<Integer> saveByCollectIds(List<Long> goodsIds,Long shopId,Long userId);
+
 }

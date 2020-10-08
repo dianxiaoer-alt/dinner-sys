@@ -17,7 +17,7 @@ import java.sql.SQLException;
  * @author:陈丽强
  * @Date:2020/5/19 22:48
  */
-@RestControllerAdvice
+//@RestControllerAdvice
 public class AbstractControllerAdvice {
     //参数异常
     @ExceptionHandler(MethodArgumentNotValidException.class)

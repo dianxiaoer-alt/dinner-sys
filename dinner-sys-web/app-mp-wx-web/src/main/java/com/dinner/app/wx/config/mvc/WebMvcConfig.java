@@ -3,10 +3,12 @@ package com.dinner.app.wx.config.mvc;
 import com.dinner.app.wx.config.interceptor.AuthenticationInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpHeaders;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 /**
@@ -15,10 +17,8 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  * @author:陈丽强
  * @Date:2020/5/2 19:53
  */
-@Component
-public class WebMvcConfig implements WebMvcConfigurer {
-
-
+@Configuration
+public class WebMvcConfig extends WebMvcConfigurationSupport {
 
     @Autowired
     private AuthenticationInterceptor authenticationInterceptor; //提前加载 实现注解

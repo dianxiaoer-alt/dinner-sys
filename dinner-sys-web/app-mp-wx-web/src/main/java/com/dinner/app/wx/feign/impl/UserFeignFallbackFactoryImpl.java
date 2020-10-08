@@ -1,8 +1,9 @@
-package com.dinner.app.wx.feignService.impl;
+package com.dinner.app.wx.feign.impl;
 
 import com.dinner.app.wx.constant.AbstractFallbackFactory;
-import com.dinner.app.wx.feignService.UserFeignService;
+import com.dinner.app.wx.feign.UserFeignAO;
 import com.dinner.commons.domain.User;
+import com.dinner.commons.error.ErrorEnum;
 import com.dinner.commons.request.UserReq;
 import com.dinner.commons.result.Result;
 import feign.hystrix.FallbackFactory;
@@ -15,24 +16,24 @@ import org.springframework.stereotype.Service;
  * @author:陈丽强
  * @Date:2020/5/21 21:41
  */
-@Service("UserFeignService")
-public class UserFeignFallbackFactoryImpl extends AbstractFallbackFactory implements FallbackFactory<UserFeignService> {
+@Service("userFeignAO")
+public class UserFeignFallbackFactoryImpl extends AbstractFallbackFactory implements FallbackFactory<UserFeignAO> {
     @Override
-    public UserFeignService create(Throwable throwable) {
-        return new UserFeignService() {
+    public UserFeignAO create(Throwable throwable) {
+        return new UserFeignAO() {
             @Override
             public Result<User> queryById(Long userId) {
-                return null;
+                return Result.error(ErrorEnum.SERVER_DOWN);
             }
 
             @Override
             public Result<User> queryOneByOpenId(String openId) {
-                return null;
+                return Result.error(ErrorEnum.SERVER_DOWN);
             }
 
             @Override
             public Result<Long> save(UserReq userReq) {
-                return null;
+                return Result.error(ErrorEnum.SERVER_DOWN);
             }
         };
     }

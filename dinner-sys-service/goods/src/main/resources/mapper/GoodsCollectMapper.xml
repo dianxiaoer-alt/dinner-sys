@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dinner.goods.dal.GoodsCollectDAO">
+
+    <!--醉翁 clq_zuiweng@163.com -->
+    <!--生成的代码 sql自动映射 -->
+
+
+    <resultMap type="goodsCollect" id="BaseResponse">
+         <result property="id" column="id" />
+         <result property="goods_id" column="goods_id" />
+         <result property="goods_num" column="goods_num" />
+         <result property="user_id" column="user_id" />
+         <result property="shop_id" column="shop_id" />
+         <result property="is_deleted" column="is_deleted" />
+         <result property="create_time" column="create_time" />
+         <result property="update_time" column="update_time" />
+        <result property=" goods_title" column=" goods_title" />
+        <result property=" goods_head_img" column=" goods_head_img" />
+        <result property=" goods_price" column=" goods_price" />
+        <result property=" goods_market_price" column=" goods_market_price" />
+        <result property=" goods_content" column=" goods_content" />
+        <result property=" goods_type_id" column=" goods_type_id" />
+        <result property=" goods_shop_id" column=" goods_shop_id" />
+        <result property=" goods_sell_sum" column=" goods_sell_sum" />
+        <result property=" is_deleted" column=" is_deleted" />
+        <result property=" is_on_sale" column=" is_on_sale" />
+    </resultMap>
+    <insert id="insertGoodsCollect" parameterType="goodsCollect" useGeneratedKeys="true" keyProperty="id">
+     INSERT INTO goods_collect 
+     (
+    	goods_id,
+    	goods_num,
+    	user_id,
+    	shop_id,
+    	is_deleted,
+    	create_time,
+    	update_time
+     ) 
+      VALUES 
+     (
+    	#{goods_id},
+    	#{goods_num},
+    	#{user_id},
+    	#{shop_id},
+    	#{is_deleted},
+    	NOW(),
+    	#{update_time}
+     )
+    </insert>
+
+    <update id="changeDeleted" >
+        update goods_collect set is_deleted = 1 where id
+        in
+        <foreach collection="idList" item="itemId" open="(" separator="," close=")">
+            #{itemId}
+        </foreach>
+    </update>
+  
+    <delete id="deleteById" parameterType="Long">
+      DELETE FROM goods_collect WHERE id = #{id}
+    </delete>
+  	
+
+  	  
+    <select id="countPage" resultType="java.lang.Integer">
+     SELECT count(*) FROM goods_collect
+        <where>
+            <include refid="pubItem"/>
+        </where>
+    </select>
+  
+    <select id="queryPage"   resultType="com.dinner.commons.result.dto.GoodsCollectDO">
+      SELECT
+      <include refid="resultColumn"/>
+      FROM goods_collect
+    </select>
+  
+    <select id="queryById" parameterType="Long" resultType="com.dinner.commons.result.dto.GoodsCollectDO">
+      SELECT
+      <include refid="resultColumn"/>
+        FROM goods_collect c
+        left join goods g on c.goods_id = g.id
+        WHERE c.id = #{id} and c.is_deleted = 0
+
+    </select>
+  
+    <update id="updateGoodsCollect" parameterType="goodsCollect">
+      UPDATE goods_collect
+      <trim prefix="SET" suffix="WHERE id = #{id}" suffixOverrides=",">
+            <if test="goods_id != null">goods_id = #{goods_id},</if>
+            <if test="goods_num != null">goods_num = #{goods_num},</if>
+            <if test="user_id != null">user_id = #{user_id},</if>
+            <if test="shop_id != null">shop_id = #{shop_id},</if>
+            <if test="is_deleted != null">is_deleted = #{is_deleted},</if>
+            <if test="create_time != null">create_time = #{create_time},</if>
+            update_time = NOW()
+       </trim>
+
+    </update>
+
+    <select id="queryList"  parameterType="goodsCollect" resultType="com.dinner.commons.result.dto.GoodsCollectDO">
+        SELECT
+        <include refid="resultColumn"/>
+        FROM goods_collect c
+        left join goods g on c.goods_id = g.id
+        <where>
+            <include refid="pubItem"/>
+        </where>
+    </select>
+
+
+    <sql id="pubItem">
+         <if test="goods_id != null">and goods_id = #{goods_id}</if>
+         <if test="goods_num != null">and goods_num = #{goods_num}</if>
+         <if test="user_id != null">and user_id = #{user_id}</if>
+         <if test="shop_id != null">and shop_id = #{shop_id}</if>
+        and c.is_deleted = 0
+
+    </sql>
+
+
+    <sql id="resultColumn">
+         c.id,
+         c.goods_id,
+         c.goods_num,
+         c.user_id,
+         c.shop_id,
+         c.is_deleted,
+         c.create_time,
+         c.update_time,
+        g.goods_title,
+    	g.goods_head_img,
+    	g.goods_price,
+    	g.goods_market_price,
+    	g.goods_content,
+    	g.goods_type_id,
+    	g.goods_shop_id,
+    	g.goods_sell_sum,
+    	g.is_deleted goods_is_deleted,
+    	g.is_on_sale goods_is_on_sale
+    </sql>
+
+  
+</mapper>

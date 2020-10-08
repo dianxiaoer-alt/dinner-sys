@@ -23,7 +23,7 @@ import java.util.Map;
 @RequestMapping("weixin/auth")
 @Slf4j
 public class WXAuthController{
-    @Autowired
+    @Autowired(required = true)
     private WXAuthAO wxAuthAO;
 
     private Long shop_id = 1L;

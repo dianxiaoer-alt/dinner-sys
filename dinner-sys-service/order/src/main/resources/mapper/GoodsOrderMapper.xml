@@ -14,11 +14,13 @@
          <result property=" pay_time" column=" pay_time" />
          <result property=" pay_type" column=" pay_type" />
         <result property="nick_name" column="nick_name" />
+        <result property="shop_id" column="shop_id" />
     </resultMap>
     <insert id="insertGoodsOrder" parameterType="goodsOrder" useGeneratedKeys="true" keyProperty="id">
      INSERT INTO goods_order 
      (
     	user_id,
+    	shop_id,
     	table_num,
     	order_num,
     	order_price,
@@ -28,6 +30,7 @@
       VALUES 
      (
     	#{user_id},
+    	#{shop_id},
     	#{table_num},
     	#{order_num},
     	#{order_price},
@@ -61,6 +64,7 @@
     	create_time,
     	pay_time,
     	pay_type,
+        shop_id,
     	(select nick_name from user as u where u.id = user_id ) as  nick_name
       FROM goods_order
       where 1=1
@@ -79,7 +83,8 @@
     	is_payed,
     	create_time,
     	pay_time,
-    	pay_type
+    	pay_type,
+    	shop_id
       FROM goods_order
 
       WHERE id = #{id}
@@ -114,7 +119,8 @@
             is_payed,
             create_time,
             pay_time,
-            pay_type
+            pay_type,
+            shop_id
         FROM goods_order
         <where>
             <include refid="pubItem"/>
@@ -133,6 +139,7 @@
          <if test="create_time != null and create_time !='' ">and create_time = #{create_time}</if>
          <if test="pay_time != null and pay_time !='' ">and pay_time = #{pay_time}</if>
          <if test="pay_type != null and pay_type !='' ">and pay_type = #{pay_type}</if>
+        <if test="shop_id != null and shop_id !='' ">and shop_id = #{shop_id}</if>
     </sql>
 
 

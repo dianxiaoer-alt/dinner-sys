@@ -19,7 +19,7 @@ public class TestUploadController {
 
     @RequestMapping("start")
     public Result<String> upload() throws Exception {
-       File file = new File("D:/001.jpg");
+        File file = new File("D:/001.jpg");
         InputStream inputStream = new FileInputStream(file);
         return Result.success( ossUploadConfig.upload(inputStream, PathConfigEnum.DATE.getPath(),false,file.getName(),"jpg"));
     }

@@ -46,6 +46,10 @@ public class GoodsOrderReq {
 	@ApiModelProperty(value = "用户id", example = "1000", dataType = "Long")
 	@NotNull(message = "{com.dinner.goodsOrder.user_id.notNoll.message}")
     private Long user_id;
+
+	@ApiModelProperty(value = "商家id", example = "1000", dataType = "Long")
+	@NotNull(message = "商家id不能为空")
+	private Long shop_id;
 	/**
 	 * <pre>
 	 *  餐桌号;字段长度:32,是否必填:否。

@@ -10,11 +10,16 @@ import com.github.pagehelper.PageInfo;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
+
 @Api(tags = "订单")
 @RestController
 @RequestMapping("order")
@@ -58,9 +63,18 @@ public class GoodsOrderVO {
     public Result<Integer> update(@RequestBody  GoodsOrderReq goodsOrderReq) {
         return goodsOrderAO.updateGoodsOrder(goodsOrderReq);
     }
-        @ApiOperation("查询集合用户订单")
-        @RequestMapping(value = "queryList",method = {RequestMethod.POST,RequestMethod.GET})
-        public Result<List<GoodsOrder>> queryList(@RequestBody  GoodsOrderQuery query) {
-            return goodsOrderAO.queryList(query);
-        }
+
+    @ApiOperation("查询集合用户订单")
+    @RequestMapping(value = "queryList",method = {RequestMethod.POST,RequestMethod.GET})
+    public Result<List<GoodsOrder>> queryList(@RequestBody  GoodsOrderQuery query) {
+        return goodsOrderAO.queryList(query);
+    }
+
+    @GetMapping("saveByCollectIds")
+    public Result<Integer> saveByCollectIds(@RequestParam("goodsCollectIds")String goodsCollectIds,@RequestParam("shopId")Long shopId,@RequestParam("userId")Long userId){
+        List<Long> list = new ArrayList<>();
+        if (StringUtils.isNoneBlank(goodsCollectIds))
+            list =  Arrays.stream(goodsCollectIds.split(",")).map(s -> Long.parseLong(s.trim())).collect(Collectors.toList());
+       return  goodsOrderAO.saveByCollectIds(list,shopId,userId);
+    }
 }

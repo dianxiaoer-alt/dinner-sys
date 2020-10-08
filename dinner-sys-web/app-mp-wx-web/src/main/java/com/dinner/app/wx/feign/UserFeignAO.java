@@ -1,6 +1,6 @@
-package com.dinner.app.wx.feignService;
+package com.dinner.app.wx.feign;
 
-import com.dinner.app.wx.feignService.impl.UserFeignFallbackFactoryImpl;
+import com.dinner.app.wx.feign.impl.UserFeignFallbackFactoryImpl;
 import com.dinner.commons.domain.User;
 import com.dinner.commons.request.UserReq;
 import com.dinner.commons.result.Result;
@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
  * @Date:2020/5/21 12:42
  */
 @FeignClient(value = "user",fallbackFactory = UserFeignFallbackFactoryImpl.class)
-public interface UserFeignService {
+public interface UserFeignAO {
     @GetMapping("user/queryById")
     Result<User> queryById(@RequestParam("userId") Long userId);
 
