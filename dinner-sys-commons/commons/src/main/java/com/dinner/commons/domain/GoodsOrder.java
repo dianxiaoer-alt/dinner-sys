@@ -6,7 +6,9 @@ package com.dinner.commons.domain;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 import com.dinner.commons.domain.base.Base;
 
@@ -95,6 +97,7 @@ public class GoodsOrder extends Base implements Serializable {
 	 * </pre>
 	 */
 	@ApiModelProperty("支付时间")
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date pay_time;
 	/**
 	 * <pre>
@@ -107,6 +110,7 @@ public class GoodsOrder extends Base implements Serializable {
 
 	private String nick_name;
 
+	List<OrderDetail> orderDetailList;
 
 	@Override
 	public String toString() {

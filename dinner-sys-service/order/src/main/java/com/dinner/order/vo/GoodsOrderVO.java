@@ -59,7 +59,7 @@ public class GoodsOrderVO {
 
     @ApiOperation("更新用户订单")
     //@PutMapping("update")
-    @RequestMapping(value = "update",method = {RequestMethod.POST,RequestMethod.GET,RequestMethod.PUT})
+    @PostMapping(value = "update")
     public Result<Integer> update(@RequestBody  GoodsOrderReq goodsOrderReq) {
         return goodsOrderAO.updateGoodsOrder(goodsOrderReq);
     }

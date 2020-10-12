@@ -8,6 +8,7 @@ import com.dinner.app.wx.feign.ShopFeignAO;
 import com.dinner.commons.domain.Shop;
 import com.dinner.commons.domain.User;
 import com.dinner.commons.result.Result;
+import com.dinner.commons.result.dto.ShopDTO;
 import com.dinner.wx.pay.constants.WXPayRequestConfig;
 import com.dinner.wx.pay.utils.WXUtils;
 import lombok.extern.slf4j.Slf4j;
@@ -122,7 +123,7 @@ public class WXAuthAOImpl implements WXAuthAO {
     public String getCode(Long shopId) {
         if (shopId == null)
             return null;
-        Result<Shop> res =  shopFeignAO.queryOneById(shopId);
+        Result<ShopDTO> res =  shopFeignAO.queryDetailById(shopId);
         if (res.getCode() !=0)
             return null;
 
@@ -132,11 +133,11 @@ public class WXAuthAOImpl implements WXAuthAO {
     private WXPayRequestConfig initWXPay(Shop shop){
         if (shop == null)
             return null;
-        WXPayRequestConfig wxPayRequestConfig = new WXPayRequestConfig();
+      /*  WXPayRequestConfig wxPayRequestConfig = new WXPayRequestConfig();
         wxPayRequestConfig.setAPI_KEY(jasyptConfig.decyptPwd(shop.getPay_key()));
         wxPayRequestConfig.setAPP_ID(jasyptConfig.decyptPwd(shop.getApp_id()));
         wxPayRequestConfig.setMCH_ID(jasyptConfig.decyptPwd(shop.getMch_id()));
-        wxPayRequestConfig.setSECRET(jasyptConfig.decyptPwd(shop.getApp_secret()));
-        return wxPayRequestConfig;
+        wxPayRequestConfig.setSECRET(jasyptConfig.decyptPwd(shop.getApp_secret()));*/
+        return null;
     }
 }

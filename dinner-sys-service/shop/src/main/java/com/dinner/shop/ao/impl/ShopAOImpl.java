@@ -7,6 +7,7 @@ import com.dinner.commons.query.ShopQuery;
 import com.dinner.commons.request.ShopReq;
 import com.dinner.commons.result.Result;
 import com.dinner.commons.result.ResultCodeEnum;
+import com.dinner.commons.result.dto.ShopDTO;
 import com.dinner.shop.ao.ShopAO;
 import com.dinner.shop.bo.ShopBO;
 import com.dinner.shop.config.JasyptConfig;
@@ -40,7 +41,7 @@ public class ShopAOImpl implements ShopAO {
                 Shop shop = new Shop();
                 BeanUtils.copyProperties(shopReq, shop);
 
-                if(StringUtils.isNoneBlank(shop.getApp_secret()))
+               /* if(StringUtils.isNoneBlank(shop.getApp_secret()))
                     shop.setApp_secret(jasyptConfig.encryptPwd(shop.getApp_secret()));
 
                 if(StringUtils.isNoneBlank(shop.getPay_key()))
@@ -50,7 +51,7 @@ public class ShopAOImpl implements ShopAO {
                     shop.setApp_id(jasyptConfig.encryptPwd(shop.getApp_id()));
 
                 if(StringUtils.isNoneBlank(shop.getMch_id()))
-                    shop.setMch_id(jasyptConfig.encryptPwd(shop.getMch_id()));
+                    shop.setMch_id(jasyptConfig.encryptPwd(shop.getMch_id()));*/
 
                 if(StringUtils.isNoneBlank(shop.getShop_password()))
                     shop.setShop_password(jasyptConfig.encryptPwd(shop.getShop_password()));
@@ -118,7 +119,7 @@ public class ShopAOImpl implements ShopAO {
 
                 BeanUtils.copyProperties(shopReq, shop);
 
-                if(StringUtils.isNoneBlank(shop.getApp_secret()))
+                /*if(StringUtils.isNoneBlank(shop.getApp_secret()))
                     shop.setApp_secret(jasyptConfig.encryptPwd(shop.getApp_secret()));
 
                 if(StringUtils.isNoneBlank(shop.getPay_key()))
@@ -128,7 +129,7 @@ public class ShopAOImpl implements ShopAO {
                     shop.setApp_id(jasyptConfig.encryptPwd(shop.getApp_id()));
 
                 if(StringUtils.isNoneBlank(shop.getMch_id()))
-                    shop.setMch_id(jasyptConfig.encryptPwd(shop.getMch_id()));
+                    shop.setMch_id(jasyptConfig.encryptPwd(shop.getMch_id()));*/
 
                 if(StringUtils.isNoneBlank(shop.getShop_password()))
                     shop.setShop_password(jasyptConfig.encryptPwd(shop.getShop_password()));
@@ -194,6 +195,18 @@ public class ShopAOImpl implements ShopAO {
 
             List<Shop> reslist = list.getList();
             resp = resp.success(Collections.singletonList(reslist));
+        } catch (Exception e) {
+            resp =resp.error(ResultCodeEnum.FAIL.getCode(),e.getMessage());
+        }
+        return resp;
+    }
+
+    @Override
+    public Result<ShopDTO> queryDetailById(Long id) {
+        Result<ShopDTO> resp = new Result<>();
+        try {
+            ShopDTO shop = shopManager.queryDetailById(id);
+            resp = Result.success(shop);
         } catch (Exception e) {
             resp =resp.error(ResultCodeEnum.FAIL.getCode(),e.getMessage());
         }

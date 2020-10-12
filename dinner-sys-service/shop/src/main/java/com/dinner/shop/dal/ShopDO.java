@@ -6,6 +6,7 @@ package com.dinner.shop.dal;
 
 import java.util.List;
 
+import com.dinner.commons.result.dto.ShopDTO;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import com.dinner.commons.domain.Shop;
@@ -107,4 +108,7 @@ public interface ShopDO {
      * @return
      */
     Shop shopLoginByTelOrEmail(@Param("value") String value);
+
+    //详细信息的查询
+    ShopDTO queryDetailById(@Param("id") Long Id);
 }

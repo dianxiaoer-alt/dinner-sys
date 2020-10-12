@@ -25,6 +25,8 @@ public class GoodsOrderQuery extends Query {
 
     private Long user_id;
 
+    private Long shop_id;
+
     private Integer is_payed;
 
     @Override

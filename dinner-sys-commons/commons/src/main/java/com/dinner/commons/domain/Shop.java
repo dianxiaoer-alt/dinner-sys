@@ -68,52 +68,7 @@ public class Shop extends Base implements Serializable {
 	 */
 	@ApiModelProperty("店铺电话")
     private String shop_tel;
-	/**
-	 * <pre>
-	 * 数据库字段: shop_password
-	 * 描述: ;字段长度:300,是否必填:是。
-	 * </pre>
-	 */
-	@ApiModelProperty("")
-    private String shop_password;
-	/**
-	 * <pre>
-	 * 数据库字段: app_id
-	 * 描述: 公众号APPID;字段长度:200,是否必填:否。
-	 * </pre>
-	 */
-	@ApiModelProperty("公众号APPID")
-    private String app_id;
-	/**
-	 * <pre>
-	 * 数据库字段: app_secret
-	 * 描述: 公众号AppSecret;字段长度:200,是否必填:否。
-	 * </pre>
-	 */
-	@ApiModelProperty("公众号AppSecret")
-    private String app_secret;
-	/**
-	 * <pre>
-	 * 数据库字段: mch_id
-	 * 描述: 商户号;字段长度:200,是否必填:否。
-	 * </pre>
-	 */
-	@ApiModelProperty("商户号")
-    private String mch_id;
-	/**
-	 * <pre>
-	 * 数据库字段: pay_key
-	 * 描述: 商户支付密码;字段长度:200,是否必填:否。
-	 * </pre>
-	 */
-	@ApiModelProperty("商户支付密码")
-    private String pay_key;
-	/**
-	 * <pre>
-	 * 数据库字段: last_login_ip
-	 * 描述: ;字段长度:32,是否必填:否。
-	 * </pre>
-	 */
+
 	@ApiModelProperty("")
     private String last_login_ip;
 	/**
@@ -140,6 +95,7 @@ public class Shop extends Base implements Serializable {
 	 */
 	@ApiModelProperty("是否在缴费使用期是否正常使用；0不能使用，1能使用")
     private Integer is_on;
+	private String shop_password;
 	/**
 	 * <pre>
 	 * 数据库字段: use_start_time

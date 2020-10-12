@@ -11,7 +11,7 @@ import com.dinner.commons.page.PageResult;
 import com.dinner.commons.query.GoodsCollectQuery;
 import com.dinner.commons.request.GoodsCollectReq;
 import com.dinner.commons.result.Result;
-import com.dinner.commons.result.dto.GoodsCollectDO;
+import com.dinner.commons.result.dto.GoodsCollectDTO;
 import com.dinner.goods.ao.GoodsCollectAO;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -70,7 +70,7 @@ public class GoodsCollectVO {
 
 	@ApiOperation("根据ID查询菜品购物车")
 	@RequestMapping(value ="queryById")
-	public Result<GoodsCollectDO > queryById(@RequestParam("goodsCollectId")Long goodsCollectId) {
+	public Result<GoodsCollectDTO> queryById(@RequestParam("goodsCollectId")Long goodsCollectId) {
 		return goodsCollectAO.queryById(goodsCollectId);
 	}
 
@@ -88,7 +88,7 @@ public class GoodsCollectVO {
 
 	@ApiOperation("查询集合菜品购物车")
 	@PostMapping("/queryList")
-	public Result<List<GoodsCollectDO >> queryList(@Valid @RequestBody GoodsCollectQuery query) {
+	public Result<List<GoodsCollectDTO>> queryList(@Valid @RequestBody GoodsCollectQuery query) {
 		return goodsCollectAO.queryList(query);
 	}
 

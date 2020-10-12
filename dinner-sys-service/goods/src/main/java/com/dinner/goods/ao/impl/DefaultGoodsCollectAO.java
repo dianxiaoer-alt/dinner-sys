@@ -7,23 +7,19 @@ package com.dinner.goods.ao.impl;
 import java.util.List;
 
 import com.dinner.commons.domain.GoodsCollect;
-import com.dinner.commons.error.ErrorEnum;
 import com.dinner.commons.page.PageResult;
 import com.dinner.commons.query.GoodsCollectQuery;
 import com.dinner.commons.request.GoodsCollectReq;
 import com.dinner.commons.result.Result;
 import com.dinner.commons.result.ResultCodeEnum;
-import com.dinner.commons.result.dto.GoodsCollectDO;
+import com.dinner.commons.result.dto.GoodsCollectDTO;
 import com.dinner.goods.ao.GoodsCollectAO;
 import com.dinner.goods.bo.GoodsCollectBO;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 
-
-import java.util.List;
 /**
  * <pre>
  *   默认 菜品购物车应用实现类，提供菜品购物车相关流程应用操作、查询等。
@@ -73,10 +69,10 @@ public class DefaultGoodsCollectAO  implements GoodsCollectAO {
 	}
 
 	@Override
-	public Result<GoodsCollectDO > queryById(Long goodsCollectId) {
-		Result<GoodsCollectDO > resp = new Result<>();
+	public Result<GoodsCollectDTO> queryById(Long goodsCollectId) {
+		Result<GoodsCollectDTO> resp = new Result<>();
 		try {
-			GoodsCollectDO  goodsCollect = goodsCollectBO.queryById(goodsCollectId);
+			GoodsCollectDTO goodsCollect = goodsCollectBO.queryById(goodsCollectId);
 		    resp = Result.success(goodsCollect);
 		} catch (Exception e) {
 			resp =resp.error(ResultCodeEnum.FAIL);
@@ -122,15 +118,15 @@ public class DefaultGoodsCollectAO  implements GoodsCollectAO {
 		return resp;
 	}
 	@Override
-	public	Result<List<GoodsCollectDO >> queryList(GoodsCollectQuery query){
-		Result<List<GoodsCollectDO >> resp = new Result<>();
+	public	Result<List<GoodsCollectDTO>> queryList(GoodsCollectQuery query){
+		Result<List<GoodsCollectDTO>> resp = new Result<>();
 
 		try {
 			//TODO 你需要做点校验吗?
 			if (resp.isSuccess()) {
 				GoodsCollect goodsCollect = new GoodsCollect();
 				BeanUtils.copyProperties(query, goodsCollect);
-				List<GoodsCollectDO > list = goodsCollectBO.queryList(goodsCollect);
+				List<GoodsCollectDTO> list = goodsCollectBO.queryList(goodsCollect);
 				resp = Result.success(list);
 			}
 		} catch (Exception e) {

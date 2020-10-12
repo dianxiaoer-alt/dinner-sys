@@ -69,6 +69,10 @@ public class OrderDetail extends Base implements Serializable {
 	@ApiModelProperty("总价格  商品价格*商品数量")
     private Double goods_sum_price;
 
+	private String goods_title;
+
+	private String goods_head_img;
+
 	@Override
 	public String toString() {
 		return ReflectionToStringBuilder.toString(this);

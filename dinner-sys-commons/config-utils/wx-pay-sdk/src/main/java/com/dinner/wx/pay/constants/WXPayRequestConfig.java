@@ -49,7 +49,7 @@ public class WXPayRequestConfig/* extends WXPayConfig*/ {
     /**
      * 证书路径
      */
-    private String APICLIENT_CERT = "/data/ops/cert/apiclient_cert.p12"; // 真实
+    private String APICLIENT_CERT = "/static/cert/wx/apiclient_cert.p12"; // 真实
     private String APICLIENT_CERT_XXX = "/data/ops/cert_xxx/apiclient_cert.p12"; // 真实
     /**
      * 交易类型

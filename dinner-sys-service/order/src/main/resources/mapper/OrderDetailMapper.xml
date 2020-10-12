@@ -3,12 +3,12 @@
 <mapper namespace="com.dinner.order.dal.OrderDetailDO">
 
     <resultMap type="orderDetail" id="BaseResponse">
-         <result property=" id" column=" id" />
-         <result property=" order_id" column=" order_id" />
-         <result property=" goods_id" column=" goods_id" />
-         <result property=" goods_count" column=" goods_count" />
-         <result property=" goods_sum_price" column=" goods_sum_price" />
-         <result property=" create_time" column=" create_time" />
+         <result property="id" column="id" />
+         <result property="order_id" column="order_id" />
+         <result property="goods_id" column="goods_id" />
+         <result property="goods_count" column="goods_count" />
+         <result property="goods_sum_price" column="goods_sum_price" />
+         <result property="create_time" column="create_time" />
     </resultMap>
     <insert id="insertOrderDetail" parameterType="orderDetail" useGeneratedKeys="true" keyProperty="id">
      INSERT INTO order_detail 
@@ -43,26 +43,32 @@
   
     <select id="queryPage"   resultMap="BaseResponse">
       SELECT 
-    	id,
-    	order_id,
-    	goods_id,
-    	goods_count,
-    	goods_sum_price,
-    	create_time
-      FROM order_detail
+    	    o.id,
+            o.order_id,
+            o.goods_id,
+            o.goods_count,
+            o.goods_sum_price,
+            o.create_time,
+            g.goods_title,
+            g.goods_head_img
+        FROM order_detail o
+        left join goods g on g.id = o.goods_id
       ORDER BY create_time DESC
       LIMIT #{page.startRow},#{page.pageSize}
     </select>
   
     <select id="queryById" parameterType="Long" resultMap="BaseResponse">
       SELECT
-    	id,
-    	order_id,
-    	goods_id,
-    	goods_count,
-    	goods_sum_price,
-    	create_time
-      FROM order_detail
+    	     o.id,
+            o.order_id,
+            o.goods_id,
+            o.goods_count,
+            o.goods_sum_price,
+            o.create_time,
+            g.goods_title,
+            g.goods_head_img
+        FROM order_detail o
+        left join goods g on g.id = o.goods_id
       WHERE id = #{id}
     </select>
   
@@ -80,19 +86,36 @@
 
     <select id="queryList" resultMap="BaseResponse" parameterType="orderDetail">
         SELECT
-            id,
-            order_id,
-            goods_id,
-            goods_count,
-            goods_sum_price,
-            create_time
-        FROM order_detail
+            o.id,
+            o.order_id,
+            o.goods_id,
+            o.goods_count,
+            o.goods_sum_price,
+            o.create_time,
+            g.goods_title,
+            g.goods_head_img
+        FROM order_detail o
+        left join goods g on g.id = o.goods_id
         <where>
             <include refid="pubItem"/>
         </where>
         ORDER BY create_time DESC
     </select>
 
+    <select id="queryListByOrderId" resultMap="BaseResponse">
+         SELECT
+            o.id,
+            o.order_id,
+            o.goods_id,
+            o.goods_count,
+            o.goods_sum_price,
+            o.create_time,
+            g.goods_title,
+            g.goods_head_img
+        FROM order_detail o
+        left join goods g on g.id = o.goods_id
+        where order_id = #{orderId}
+    </select>
 
     <sql id="pubItem">
          <if test="order_id != null and order_id !='' ">and order_id = #{order_id}</if>

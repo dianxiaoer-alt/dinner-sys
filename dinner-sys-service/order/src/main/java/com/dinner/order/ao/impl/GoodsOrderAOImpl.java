@@ -1,16 +1,14 @@
 package com.dinner.order.ao.impl;
 
-import com.dinner.commons.domain.GoodsCollect;
 import com.dinner.commons.domain.GoodsOrder;
 import com.dinner.commons.domain.OrderDetail;
 import com.dinner.commons.domain.Shop;
 import com.dinner.commons.error.ErrorEnum;
-import com.dinner.commons.page.PageResult;
 import com.dinner.commons.query.GoodsOrderQuery;
 import com.dinner.commons.request.GoodsOrderReq;
 import com.dinner.commons.result.Result;
 import com.dinner.commons.result.ResultCodeEnum;
-import com.dinner.commons.result.dto.GoodsCollectDO;
+import com.dinner.commons.result.dto.GoodsCollectDTO;
 import com.dinner.order.ao.GoodsOrderAO;
 import com.dinner.order.bo.GoodsOrderBO;
 import com.dinner.order.bo.OrderDetailBO;
@@ -24,7 +22,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 @Service("GoodsOrderAO")
@@ -148,10 +145,10 @@ public class GoodsOrderAOImpl implements GoodsOrderAO {
             if (res.getCode() != 0 && res.getData() == null)
                 return Result.error(1,"商家不存在");
 
-            List<GoodsCollectDO> list = new ArrayList<>();
+            List<GoodsCollectDTO> list = new ArrayList<>();
 
             for (Long collectId : idList ) {
-                Result<GoodsCollectDO> re = goodsCollectFeign.queryById(collectId);
+                Result<GoodsCollectDTO> re = goodsCollectFeign.queryById(collectId);
                 if (re.getCode() == 0)
                     list.add(re.getData());
             }
@@ -167,12 +164,12 @@ public class GoodsOrderAOImpl implements GoodsOrderAO {
             Integer inRes = goodsOrderBO.insertGoodsOrder(goodsOrder);
 
             if (inRes > 0){
-                for (GoodsCollectDO collectDO: list ) {
+                for (GoodsCollectDTO collectDO: list ) {
                     OrderDetail orderDetail = new OrderDetail();
                     orderDetail.setGoods_count(collectDO.getGoods_num());
                     orderDetail.setGoods_id(collectDO.getGoods_id());
                     orderDetail.setGoods_sum_price(collectDO.getGoods_num()*collectDO.getGoods_price());
-                    orderDetail.setOrder_id((long)inRes);
+                    orderDetail.setOrder_id(goodsOrder.getId());
                     if (orderDetailBO.insertOrderDetail(orderDetail) > 0){
                         resp = Result.success(inRes);
                     }else{
@@ -192,9 +189,9 @@ public class GoodsOrderAOImpl implements GoodsOrderAO {
         return resp;
     }
 
-    private double getAllGoodsPrice( List<GoodsCollectDO> list){
+    private double getAllGoodsPrice( List<GoodsCollectDTO> list){
         double res  =  0;
-        for (GoodsCollectDO g:list) {
+        for (GoodsCollectDTO g:list) {
             res+=g.getGoods_price()*g.getGoods_num();
         }
         return res;

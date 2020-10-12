@@ -3,18 +3,19 @@
 <mapper namespace="com.dinner.order.dal.GoodsOrderDO">
 
     <resultMap type="goodsOrder" id="BaseResponse">
-         <result property=" id" column=" id" />
-         <result property=" user_id" column=" user_id" />
-         <result property=" table_num" column=" table_num" />
-         <result property=" order_num" column=" order_num" />
-         <result property=" order_price" column=" order_price" />
-         <result property=" is_deleted" column=" is_deleted" />
-         <result property=" is_payed" column=" is_payed" />
-         <result property=" create_time" column=" create_time" />
-         <result property=" pay_time" column=" pay_time" />
-         <result property=" pay_type" column=" pay_type" />
-        <result property="nick_name" column="nick_name" />
-        <result property="shop_id" column="shop_id" />
+         <result property="id" column="id" />
+         <result property="user_id" column="user_id" />
+         <result property="table_num" column="table_num" />
+         <result property="order_num" column="order_num" />
+         <result property="order_price" column="order_price" />
+         <result property="is_deleted" column="is_deleted" />
+         <result property="is_payed" column="is_payed" />
+         <result property="create_time" column="create_time" />
+         <result property="pay_time" column="pay_time" />
+         <result property="pay_type" column="pay_type" />
+         <result property="nick_name" column="nick_name" />
+         <result property="shop_id" column="shop_id" />
+        <association property="orderDetailList" column="id" select="com.dinner.order.dal.OrderDetailDO.queryListByOrderId"></association>
     </resultMap>
     <insert id="insertGoodsOrder" parameterType="goodsOrder" useGeneratedKeys="true" keyProperty="id">
      INSERT INTO goods_order 
@@ -102,7 +103,8 @@
           <if test="is_payed != null and is_payed !='' ">is_payed = #{is_payed},</if>
           <if test="create_time != null and create_time !='' ">create_time = #{create_time},</if>
           <if test="pay_time != null and pay_time !='' ">pay_time = #{pay_time},</if>
-          <if test="pay_type != null and pay_type !='' ">pay_type = #{pay_type}</if>
+          <if test="pay_type != null and pay_type !='' ">pay_type = #{pay_type},</if>
+          <if test="shop_id != null and shop_id !='' ">shop_id = #{shop_id}</if>
       </trim>
 
 
@@ -139,7 +141,7 @@
          <if test="create_time != null and create_time !='' ">and create_time = #{create_time}</if>
          <if test="pay_time != null and pay_time !='' ">and pay_time = #{pay_time}</if>
          <if test="pay_type != null and pay_type !='' ">and pay_type = #{pay_type}</if>
-        <if test="shop_id != null and shop_id !='' ">and shop_id = #{shop_id}</if>
+         <if test="shop_id != null and shop_id !='' ">and shop_id = #{shop_id}</if>
     </sql>
 
 

@@ -9,9 +9,7 @@ import com.dinner.commons.page.PageResult;
 import com.dinner.commons.query.GoodsCollectQuery;
 import com.dinner.commons.request.GoodsCollectReq;
 import com.dinner.commons.result.Result;
-import com.dinner.commons.result.dto.GoodsCollectDO;
-import com.github.pagehelper.PageHelper;
-import com.github.pagehelper.PageInfo;
+import com.dinner.commons.result.dto.GoodsCollectDTO;
 
 
 import java.util.List;
@@ -64,7 +62,7 @@ public interface GoodsCollectAO {
 	 * @param goodsCollectId  菜品购物车Id
 	 * @return GoodsCollect
 	 */
-	Result<GoodsCollectDO > queryById(Long goodsCollectId);
+	Result<GoodsCollectDTO> queryById(Long goodsCollectId);
 	/**
 	 * <pre>
 	 * 分页查询 菜品购物车
@@ -95,7 +93,7 @@ public interface GoodsCollectAO {
 	 * @param query 查询条件
 	 * @return      数据集合
 	 */
-	Result<List<GoodsCollectDO >> queryList( GoodsCollectQuery query);
+	Result<List<GoodsCollectDTO>> queryList(GoodsCollectQuery query);
 
 	Result<Integer> changeDeleted(List<Long> idList);
 

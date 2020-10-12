@@ -5,6 +5,7 @@ import com.dinner.app.wx.feign.ShopFeignAO;
 import com.dinner.commons.domain.Shop;
 import com.dinner.commons.error.ErrorEnum;
 import com.dinner.commons.result.Result;
+import com.dinner.commons.result.dto.ShopDTO;
 import feign.hystrix.FallbackFactory;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +16,11 @@ public class ShopFeignFallbackFactoryImpl extends AbstractFallbackFactory implem
         return new ShopFeignAO() {
             @Override
             public Result<Shop> queryOneById(Long shopId) {
+                return Result.error(ErrorEnum.SERVER_DOWN);
+            }
+
+            @Override
+            public Result<ShopDTO> queryDetailById(Long id) {
                 return Result.error(ErrorEnum.SERVER_DOWN);
             }
         };

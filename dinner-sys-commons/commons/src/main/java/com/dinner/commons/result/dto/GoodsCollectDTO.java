@@ -5,7 +5,7 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 @Data
-public class GoodsCollectDO extends GoodsCollect {
+public class GoodsCollectDTO extends GoodsCollect {
 
     //返回商品部分
 

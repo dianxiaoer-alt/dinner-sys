@@ -7,7 +7,7 @@ package com.dinner.goods.bo;
 import java.util.List;
 
 import com.dinner.commons.domain.GoodsCollect;
-import com.dinner.commons.result.dto.GoodsCollectDO;
+import com.dinner.commons.result.dto.GoodsCollectDTO;
 import com.github.pagehelper.PageInfo;
 
 
@@ -73,7 +73,7 @@ public interface GoodsCollectBO {
      * @return GoodsCollect
      * @throws 
      */
-    GoodsCollectDO  queryById(Long goodsCollectId);
+    GoodsCollectDTO queryById(Long goodsCollectId);
     /**
      * <pre>
      * 根据ID修改菜品购物车
@@ -90,7 +90,7 @@ public interface GoodsCollectBO {
      * @param goodsCollect  查询对象信息
      * @return 数据集合
      */
-     List<GoodsCollectDO > queryList(GoodsCollect goodsCollect);
+     List<GoodsCollectDTO> queryList(GoodsCollect goodsCollect);
 
     int changeDeleted(List<Long> idList);
 }

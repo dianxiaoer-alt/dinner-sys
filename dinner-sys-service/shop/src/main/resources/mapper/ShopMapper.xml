@@ -25,7 +25,30 @@
         <result property="shop_user_code" column="shop_user_code" />
     </resultMap>
 
+
+
     <resultMap type="shop" id="BaseResponseById">
+        <result property="id" column="id" />
+        <result property=" shop_name" column=" shop_name" />
+        <result property=" head_img_url" column=" head_img_url" />
+        <result property=" shop_email" column=" shop_email" />
+        <result property=" shop_tel" column=" shop_tel" />
+        <result property=" shop_password" column=" shop_password" />
+        <result property=" create_time" column=" create_time" />
+        <result property=" update_time" column=" update_time" />
+        <result property=" last_login_ip" column=" last_login_ip" />
+        <result property=" is_deleted" column=" is_deleted" />
+        <result property=" is_confirm" column=" is_confirm" />
+        <result property=" is_on" column=" is_on" />
+        <result property=" use_start_time" column=" use_start_time" />
+        <result property=" use_end_time" column=" use_end_time" />
+        <result property="shop_user_name" column="shop_user_name" />
+        <result property="shop_user_code" column="shop_user_code" />
+        <association property="shop_detail" select="com.dinner.shop.dal.ShopDetailDO.queryOneByShopId" column="id" ></association>
+    </resultMap>
+
+
+    <resultMap type="com.dinner.commons.result.dto.ShopDTO" id="ResultDetailById">
         <result property="id" column="id" />
         <result property=" shop_name" column=" shop_name" />
         <result property=" head_img_url" column=" head_img_url" />
@@ -107,10 +130,6 @@
     	shop_email,
     	shop_tel,
     	shop_password,
-    	app_id,
-    	app_secret,
-    	mch_id,
-    	pay_key,
     	create_time,
     	update_time,
     	last_login_ip,
@@ -129,6 +148,29 @@
     </select>
   
     <select id="queryById" parameterType="Long" resultMap="BaseResponseById">
+      SELECT
+    	id,
+    	shop_name,
+    	head_img_url,
+    	shop_email,
+    	shop_tel,
+    	shop_password,
+    	create_time,
+    	update_time,
+    	last_login_ip,
+    	is_deleted,
+    	is_confirm,
+    	is_on,
+    	use_start_time,
+    	use_end_time,
+    	shop_user_name,
+    	shop_user_code
+      FROM shop
+      WHERE id = #{id}
+    </select>
+
+
+    <select id="queryDetailById" parameterType="Long" resultMap="ResultDetailById">
       SELECT
     	id,
     	shop_name,
@@ -188,10 +230,6 @@
             shop_email,
             shop_tel,
             shop_password,
-            app_id,
-            app_secret,
-            mch_id,
-            pay_key,
             create_time,
             update_time,
             last_login_ip,
@@ -213,10 +251,6 @@
             shop_email,
             shop_tel,
             shop_password,
-            app_id,
-            app_secret,
-            mch_id,
-            pay_key,
             create_time,
             update_time,
             last_login_ip,

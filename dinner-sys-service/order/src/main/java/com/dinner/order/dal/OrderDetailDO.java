@@ -8,6 +8,7 @@ import java.util.List;
 
 import com.dinner.commons.domain.OrderDetail;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 /**
  * <pre>
@@ -97,4 +98,6 @@ public interface OrderDetailDO {
      * @return 数据集合
      */
     List<OrderDetail> queryList(OrderDetail orderDetail);
+
+    List<OrderDetail> queryListByOrderId(@Param("orderId")Long orderId);
 }

@@ -7,7 +7,7 @@ package com.dinner.goods.dal;
 import java.util.List;
 
 import com.dinner.commons.domain.GoodsCollect;
-import com.dinner.commons.result.dto.GoodsCollectDO;
+import com.dinner.commons.result.dto.GoodsCollectDTO;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 /**
@@ -57,7 +57,7 @@ public interface GoodsCollectDAO {
      * @param Id
      * @return GoodsCollect
      */
-    GoodsCollectDO  queryById(Long Id);
+    GoodsCollectDTO queryById(Long Id);
     
     /**
      * <pre>
@@ -94,7 +94,7 @@ public interface GoodsCollectDAO {
      *
      * @return 数据集合
      */
-    List<GoodsCollectDO > queryList(GoodsCollect goodsCollect);
+    List<GoodsCollectDTO> queryList(GoodsCollect goodsCollect);
 
     int changeDeleted(@Param("idList") List<Long> idList);
 }

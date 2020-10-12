@@ -6,12 +6,11 @@ package com.dinner.app.wx.vo;
 
 import com.dinner.app.wx.config.jwt.UserPassToken;
 import com.dinner.app.wx.feign.GoodsCollectFeignAO;
-import com.dinner.commons.domain.GoodsCollect;
 import com.dinner.commons.query.GoodsCollectQuery;
 import com.dinner.commons.request.GoodsCollectReq;
 import com.dinner.commons.result.Result;
 
-import com.dinner.commons.result.dto.GoodsCollectDO;
+import com.dinner.commons.result.dto.GoodsCollectDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -59,7 +58,7 @@ public class GoodsCollectVO {
 
 	@UserPassToken
 	@GetMapping("/queryById")
-	public Result<GoodsCollectDO > queryById(@RequestParam("goodsCollectId")Long goodsCollectId) {
+	public Result<GoodsCollectDTO> queryById(@RequestParam("goodsCollectId")Long goodsCollectId) {
 		return goodsCollectFeignAO.queryById(goodsCollectId);
 	}
 
@@ -71,7 +70,7 @@ public class GoodsCollectVO {
 
 	@UserPassToken
 	@PostMapping("/queryList")
-	public Result<List<GoodsCollectDO>> queryList(@Valid @RequestBody GoodsCollectQuery query, HttpServletRequest request) {
+	public Result<List<GoodsCollectDTO>> queryList(@Valid @RequestBody GoodsCollectQuery query, HttpServletRequest request) {
 		query.setShop_id(Long.parseLong(request.getHeader("shopId")));
 		query.setUser_id(Long.parseLong(String.valueOf(request.getAttribute("userId"))));
 		return goodsCollectFeignAO.queryList(query);

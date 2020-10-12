@@ -22,7 +22,7 @@ public class WXPayConfigImpl extends WXPayConfig {
     private  WXPayConfigImpl INSTANCE;
     WXPayRequestConfig wxPayConfig;
 
-    private WXPayConfigImpl(WXPayRequestConfig wxPayConfig) throws Exception {
+    public WXPayConfigImpl(WXPayRequestConfig wxPayConfig) throws Exception {
         String certPath =wxPayConfig.getAPICLIENT_CERT();
         File file = new File(certPath);
         InputStream certStream = new FileInputStream(file);

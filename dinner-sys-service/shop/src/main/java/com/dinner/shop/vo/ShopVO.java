@@ -13,6 +13,7 @@ import com.dinner.commons.page.PageResult;
 import com.dinner.commons.query.ShopQuery;
 import com.dinner.commons.request.ShopReq;
 import com.dinner.commons.result.Result;
+import com.dinner.commons.result.dto.ShopDTO;
 import com.dinner.commons.utils.IPUtils;
 import com.dinner.shop.ao.ShopAO;
 import com.github.pagehelper.PageInfo;
@@ -104,4 +105,9 @@ public class ShopVO {
 		return shopAO.pageQuery(query);
 	}
 
+
+	@GetMapping("queryDetailById")
+	public Result<ShopDTO> queryDetailById(@RequestParam("id")Long id){
+		return shopAO.queryDetailById(id);
+	}
 }

@@ -10,7 +10,9 @@ import java.util.List;
 import com.dinner.commons.domain.Shop;
 import com.dinner.commons.query.ShopQuery;
 import com.dinner.commons.page.Page;
+import com.dinner.commons.result.dto.ShopDTO;
 import com.github.pagehelper.PageInfo;
+import org.apache.ibatis.annotations.Param;
 
 /**
  * <pre>
@@ -88,4 +90,6 @@ public interface ShopBO {
      * @return
      */
     Shop shopLoginByTelOrEmail(String value);
+
+    ShopDTO queryDetailById( Long Id);
 }

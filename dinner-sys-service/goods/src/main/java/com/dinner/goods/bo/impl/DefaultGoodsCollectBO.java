@@ -4,11 +4,10 @@
  */
 package com.dinner.goods.bo.impl;
 
-import java.util.Collections;
 import java.util.List;
 
 import com.dinner.commons.domain.GoodsCollect;
-import com.dinner.commons.result.dto.GoodsCollectDO;
+import com.dinner.commons.result.dto.GoodsCollectDTO;
 import com.dinner.goods.dal.GoodsCollectDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -50,7 +49,7 @@ public class DefaultGoodsCollectBO implements GoodsCollectBO {
 	}
 
 	@Override
-	public GoodsCollectDO  queryById(Long goodsCollectId) {
+	public GoodsCollectDTO queryById(Long goodsCollectId) {
 		return goodsCollectDAO.queryById(goodsCollectId);
 	}
 
@@ -66,7 +65,7 @@ public class DefaultGoodsCollectBO implements GoodsCollectBO {
 	}
 
 	@Override
-	public List<GoodsCollectDO > queryList(GoodsCollect goodsCollect){
+	public List<GoodsCollectDTO> queryList(GoodsCollect goodsCollect){
 		return goodsCollectDAO.queryList(goodsCollect);
 	}
 

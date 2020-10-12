@@ -70,13 +70,13 @@
         </where>
     </select>
   
-    <select id="queryPage"   resultType="com.dinner.commons.result.dto.GoodsCollectDO">
+    <select id="queryPage"   resultType="com.dinner.commons.result.dto.GoodsCollectDTO">
       SELECT
       <include refid="resultColumn"/>
       FROM goods_collect
     </select>
   
-    <select id="queryById" parameterType="Long" resultType="com.dinner.commons.result.dto.GoodsCollectDO">
+    <select id="queryById" parameterType="Long" resultType="com.dinner.commons.result.dto.GoodsCollectDTO">
       SELECT
       <include refid="resultColumn"/>
         FROM goods_collect c
@@ -99,7 +99,7 @@
 
     </update>
 
-    <select id="queryList"  parameterType="goodsCollect" resultType="com.dinner.commons.result.dto.GoodsCollectDO">
+    <select id="queryList"  parameterType="goodsCollect" resultType="com.dinner.commons.result.dto.GoodsCollectDTO">
         SELECT
         <include refid="resultColumn"/>
         FROM goods_collect c

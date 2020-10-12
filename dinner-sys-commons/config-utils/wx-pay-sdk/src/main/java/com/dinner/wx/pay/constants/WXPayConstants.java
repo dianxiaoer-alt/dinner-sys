@@ -123,17 +123,17 @@ public class WXPayConstants {
      * 作用：提交刷卡支付<br>
      * 场景：刷卡支付
      */
-    public static final String MICROPAY_URL_SUFFIX     = "/com/dinner/wx/pay/micropay";
+    public static final String MICROPAY_URL_SUFFIX     = "/pay/micropay";
     /**
      * 作用：统一下单<br>
      * 场景：公共号支付、扫码支付、APP支付
      */
-    public static final String UNIFIEDORDER_URL_SUFFIX = "/com/dinner/wx/pay/unifiedorder";
+    public static final String UNIFIEDORDER_URL_SUFFIX = "/pay/unifiedorder";
     /**
      * 作用：查询订单<br>
      * 场景：刷卡支付、公共号支付、扫码支付、APP支付
      */
-    public static final String ORDERQUERY_URL_SUFFIX   = "/com/dinner/wx/pay/orderquery";
+    public static final String ORDERQUERY_URL_SUFFIX   = "/pay/orderquery";
     /**
      * 作用：撤销订单<br>
      * 场景：刷卡支付<br>
@@ -144,7 +144,7 @@ public class WXPayConstants {
      * 作用：关闭订单<br>
      * 场景：公共号支付、扫码支付、APP支付
      */
-    public static final String CLOSEORDER_URL_SUFFIX   = "/com/dinner/wx/pay/closeorder";
+    public static final String CLOSEORDER_URL_SUFFIX   = "/pay/closeorder";
     /**
      * 作用：申请退款<br>
      * 场景：刷卡支付、公共号支付、扫码支付、APP支付<br>
@@ -155,14 +155,14 @@ public class WXPayConstants {
      * 作用：退款查询<br>
      * 场景：刷卡支付、公共号支付、扫码支付、APP支付
      */
-    public static final String REFUNDQUERY_URL_SUFFIX  = "/com/dinner/wx/pay/refundquery";
+    public static final String REFUNDQUERY_URL_SUFFIX  = "/pay/refundquery";
     /**
      * 作用：对账单下载<br>
      * 场景：刷卡支付、公共号支付、扫码支付、APP支付<br>
      * 其他：无论是否成功都返回Map。若成功，返回的Map中含有return_code、return_msg、data，
      *      其中return_code为`SUCCESS`，data为对账单数据。
      */
-    public static final String DOWNLOADBILL_URL_SUFFIX = "/com/dinner/wx/pay/downloadbill";
+    public static final String DOWNLOADBILL_URL_SUFFIX = "/pay/downloadbill";
     /**
      * 作用：交易保障<br>
      * 场景：刷卡支付、公共号支付、扫码支付、APP支付

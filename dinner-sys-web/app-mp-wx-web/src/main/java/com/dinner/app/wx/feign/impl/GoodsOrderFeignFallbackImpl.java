@@ -5,8 +5,12 @@ import com.dinner.app.wx.feign.GoodsFeignAO;
 import com.dinner.app.wx.feign.GoodsOrderFeignAO;
 import com.dinner.commons.domain.GoodsOrder;
 import com.dinner.commons.error.ErrorEnum;
+import com.dinner.commons.query.GoodsOrderQuery;
+import com.dinner.commons.request.GoodsOrderReq;
 import com.dinner.commons.result.Result;
 import feign.hystrix.FallbackFactory;
+
+import java.util.List;
 
 public class GoodsOrderFeignFallbackImpl extends AbstractFallbackFactory implements FallbackFactory<GoodsOrderFeignAO> {
     @Override
@@ -19,6 +23,16 @@ public class GoodsOrderFeignFallbackImpl extends AbstractFallbackFactory impleme
 
             @Override
             public Result<GoodsOrder> queryById(Long goodsOrderId) {
+                return Result.error(ErrorEnum.SERVER_DOWN);
+            }
+
+            @Override
+            public Result<List<GoodsOrder>> queryList(GoodsOrderQuery query) {
+                return Result.error(ErrorEnum.SERVER_DOWN);
+            }
+
+            @Override
+            public Result<Integer> update(GoodsOrderReq goodsOrderReq) {
                 return Result.error(ErrorEnum.SERVER_DOWN);
             }
         };

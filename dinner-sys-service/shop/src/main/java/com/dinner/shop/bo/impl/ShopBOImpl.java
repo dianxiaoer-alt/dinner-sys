@@ -7,6 +7,7 @@ package com.dinner.shop.bo.impl;
 
 
 import com.dinner.commons.domain.Shop;
+import com.dinner.commons.result.dto.ShopDTO;
 import com.dinner.shop.bo.ShopBO;
 import com.dinner.shop.dal.ShopDO;
 import com.github.pagehelper.PageHelper;
@@ -70,6 +71,11 @@ public class ShopBOImpl implements ShopBO {
 	@Override
 	public Shop shopLoginByTelOrEmail(String value) {
 		return shopDAL.shopLoginByTelOrEmail(value);
+	}
+
+	@Override
+	public ShopDTO queryDetailById(Long Id) {
+		return shopDAL.queryDetailById(Id);
 	}
 
 }

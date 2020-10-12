@@ -10,6 +10,7 @@ import com.dinner.commons.page.Page;
 import com.dinner.commons.page.PageResult;
 import com.dinner.commons.result.Result;
 import com.dinner.commons.request.ShopReq;
+import com.dinner.commons.result.dto.ShopDTO;
 import com.github.pagehelper.PageInfo;
 
 import java.util.List;
@@ -100,4 +101,6 @@ public interface ShopAO {
 
 
 	PageResult<List<Shop>> pageQuery(ShopQuery query);
+
+	Result<ShopDTO> queryDetailById(Long id);
 }
