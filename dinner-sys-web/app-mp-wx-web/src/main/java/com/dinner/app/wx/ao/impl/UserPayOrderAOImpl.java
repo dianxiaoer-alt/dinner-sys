@@ -37,7 +37,7 @@ public class UserPayOrderAOImpl implements UserPayOrderAO {
     String notify_url = "http://dinner-sys.natapp1.cc/wx/pay/notify";
 
     @Override
-    public Result<Map<String, String>> unifiedOrder(UnifiedOrderReq req) {
+    public synchronized Result<Map<String, String>> unifiedOrder(UnifiedOrderReq req) {
         try {
             Result<ShopDTO> shopRes = shopFeignAO.queryDetailById(req.getShopId());
             if (shopRes == null || shopRes.getData() == null)
