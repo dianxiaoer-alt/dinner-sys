@@ -3,9 +3,11 @@ package com.dinner.shop.admin.vo;
 import com.dinner.commons.domain.Goods;
 import com.dinner.commons.query.GoodsQuery;
 import com.dinner.commons.result.Result;
+import com.dinner.config.oss.utils.PathConfigEnum;
 import com.dinner.config.utils.generate.code.QRCodeGenerator;
 import com.dinner.config.utils.generate.code.entity.QRCodeEntity;
 import com.dinner.shop.admin.config.jwt.UserLoginToken;
+import com.dinner.shop.admin.config.jwt.UserPassToken;
 import com.dinner.shop.admin.config.oss.OssUploadConfig;
 import com.dinner.shop.admin.feign.GoodsFeign;
 import com.google.zxing.WriterException;
@@ -38,13 +40,13 @@ public class GoodsController {
         return goodsFeign.queryList(query);
     }
 
-    @UserLoginToken
+    @UserPassToken
     @RequestMapping("orcode")
     public Result<String> ORCode() throws IOException, Exception {
         QRCodeEntity qrCodeEntity = new QRCodeEntity();
         qrCodeEntity.setText("Test");
         InputStream in = QRCodeGenerator.getQRCodeImage(qrCodeEntity);
-        String res = ossUploadConfig.upload(in,"",true, UUID.randomUUID().toString().replace("-",""),"png");
+        String res = ossUploadConfig.upload(in, PathConfigEnum.DATE.getPath(),false, UUID.randomUUID().toString().replace("-",""),"png");
         return Result.success(res);
     }
 
