@@ -83,6 +83,11 @@ public class GoodsBOImpl implements GoodsBO {
         return goodsDAL.queryList(goods);
     }
 
+    @Override
+    public Integer onSaleOrNo(Long goods_id, Integer is_on_sale) {
+        return goodsDAL.onSaleOrNo(goods_id,is_on_sale);
+    }
+
 
     public List<Goods> queryListByTypeId(Long goods_type_id){
         Goods goods = new Goods();

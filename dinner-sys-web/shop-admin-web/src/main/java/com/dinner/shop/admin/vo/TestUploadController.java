@@ -2,6 +2,7 @@ package com.dinner.shop.admin.vo;
 
 import com.dinner.commons.result.Result;
 import com.dinner.config.oss.utils.PathConfigEnum;
+import com.dinner.shop.admin.config.jwt.UserPassToken;
 import com.dinner.shop.admin.config.oss.OssUploadConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,6 +18,7 @@ public class TestUploadController {
     @Autowired
     private OssUploadConfig ossUploadConfig;
 
+    @UserPassToken
     @RequestMapping("start")
     public Result<String> upload() throws Exception {
         File file = new File("D:/001.jpg");

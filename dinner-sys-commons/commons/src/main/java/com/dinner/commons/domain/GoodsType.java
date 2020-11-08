@@ -55,6 +55,7 @@ public class GoodsType extends Base implements Serializable {
 
 	private String icon;
 
+	private Integer is_deleted;
 	@Override
 	public String toString() {
 		return ReflectionToStringBuilder.toString(this);

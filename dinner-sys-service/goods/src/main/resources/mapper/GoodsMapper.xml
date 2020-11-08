@@ -3,19 +3,21 @@
 <mapper namespace="com.dinner.goods.dal.GoodsDO">
 
     <resultMap type="goods" id="BaseResponse">
-         <result property=" id" column=" id" />
-         <result property=" goods_title" column=" goods_title" />
-         <result property=" goods_head_img" column=" goods_head_img" />
-         <result property=" goods_price" column=" goods_price" />
-         <result property=" goods_market_price" column=" goods_market_price" />
-         <result property=" goods_content" column=" goods_content" />
-         <result property=" goods_type_id" column=" goods_type_id" />
-         <result property=" goods_shop_id" column=" goods_shop_id" />
-         <result property=" goods_sell_sum" column=" goods_sell_sum" />
-         <result property=" is_deleted" column=" is_deleted" />
-         <result property=" is_on_sale" column=" is_on_sale" />
-         <result property=" update_time" column=" update_time" />
-         <result property=" create_time" column=" create_time" />
+         <result property=" id" column="id" />
+         <result property=" goods_title" column="goods_title" />
+         <result property=" goods_head_img" column="goods_head_img" />
+         <result property=" goods_price" column="goods_price" />
+         <result property=" goods_market_price" column="goods_market_price" />
+         <result property=" goods_content" column="goods_content" />
+         <result property=" goods_type_id" column="goods_type_id" />
+         <result property=" goods_shop_id" column="goods_shop_id" />
+         <result property=" goods_sell_sum" column="goods_sell_sum" />
+         <result property=" is_deleted" column="is_deleted" />
+         <result property=" is_on_sale" column="is_on_sale" />
+         <result property=" update_time" column="update_time" />
+         <result property=" create_time" column="create_time" />
+
+
     </resultMap>
     <insert id="insertGoods" parameterType="goods" useGeneratedKeys="true" keyProperty="id">
      INSERT INTO goods 
@@ -44,7 +46,7 @@
     </insert>
   
     <delete id="deleteById" parameterType="Long">
-      DELETE FROM goods WHERE id = #{id}
+       update goods set is_deleted = 1,update_time = NOW() where id = #{id}
     </delete>
   	
 
@@ -72,7 +74,7 @@
     	update_time,
     	create_time
       FROM goods
-      where 1=1
+      where  is_deleted = 0
         <include refid="pubItem"/>
       ORDER BY create_time DESC
     </select>
@@ -111,6 +113,7 @@
           <if test="is_on_sale != null and is_on_sale !='' ">is_on_sale = #{is_on_sale},</if>
          update_time = NOW(),
           <if test="create_time != null and create_time !='' ">create_time = #{create_time}</if>
+
       </trim>
     </update>
 
@@ -130,9 +133,8 @@
             update_time,
             create_time
         FROM goods
-        <where>
-            <include refid="pubItem"/>
-        </where>
+        where is_deleted = 0
+        <include refid="pubItem"/>
         ORDER BY create_time DESC
     </select>
 
@@ -153,5 +155,8 @@
     </sql>
 
 
+    <update id="onSaleOrNo">
+        update goods set is_on_sale = #{is_on_sale},update_time = NOW() where id = #{goods_id}
+    </update>
   
 </mapper>

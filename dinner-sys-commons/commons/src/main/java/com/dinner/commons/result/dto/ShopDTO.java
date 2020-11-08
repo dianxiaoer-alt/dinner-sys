@@ -29,6 +29,8 @@ public class ShopDTO extends Base implements Serializable {
      */
     @ApiModelProperty("店铺头像")
     private String head_img_url;
+
+    private String code_img;
     /**
      * <pre>
      * 数据库字段: shop_email

@@ -58,6 +58,8 @@ public class GoodsTypeReq {
 
 	private String icon;
 
+	private Integer is_deleted;
+
 	@Override
 	public String toString() {
 		return ReflectionToStringBuilder.toString(this);

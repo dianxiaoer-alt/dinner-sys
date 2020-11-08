@@ -22,7 +22,7 @@ public interface WXAuthAO {
     Result<Map<String,Object>> authorize(String code,Long shop_id);
 
 
-    Result<User> userInfo(String access_token, String open_id,Long shop_id);
+    Result<String> login(String access_token, String open_id,Long shop_id);
 
     Result<Map<String,Object>> reflushAccessToken(String access_token,Long shop_id);
 

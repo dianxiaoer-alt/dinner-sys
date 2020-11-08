@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.Arrays;
 import java.util.Map;
@@ -23,10 +24,8 @@ import java.util.Map;
 @RequestMapping("weixin/auth")
 @Slf4j
 public class WXAuthController{
-    @Autowired(required = true)
+    @Autowired
     private WXAuthAO wxAuthAO;
-
-    private Long shop_id = 1L;
     /**
      * 获取code之后进行获取openid
      * @param code
@@ -35,27 +34,30 @@ public class WXAuthController{
     @ApiOperation("用户换取openid与access_token")
     @UserPassToken
     @ResponseBody
-    @RequestMapping(value="authorize",method = {RequestMethod.POST, RequestMethod.GET})
-    public Result<Map<String,Object>> authorize(String code){
+    @GetMapping(value="authorize")
+    public Result<Map<String,Object>> authorize(String code, HttpServletRequest request){
+        Long shop_id = Long.parseLong(request.getHeader("shopId"));
         return wxAuthAO.authorize(code,shop_id);
     }
 
     @ApiOperation("用户刷新续期openid与access_token,很少用")
     @UserPassToken
     @ResponseBody
-    @RequestMapping(value="reflushAccessToken",method = {RequestMethod.POST, RequestMethod.GET})
-    public Result<Map<String,Object>> reflushAccessToken(String refresh_token){
+    @GetMapping(value="reflushAccessToken")
+    public Result<Map<String,Object>> reflushAccessToken(String refresh_token,Long shop_id){
         return wxAuthAO.reflushAccessToken(refresh_token,shop_id);
     }
     @UserPassToken
     @ResponseBody
-    @RequestMapping("userinfo")
-    public Result<User> userinfo(String access_token, String open_id, HttpSession session) {
-        return wxAuthAO.userInfo(access_token,open_id,shop_id);
+    @GetMapping("login")
+    public Result<String> login(String access_token, String open_id, HttpServletRequest request) {
+        Long shop_id = Long.parseLong(request.getHeader("shopId"));
+        return wxAuthAO.login(access_token,open_id,shop_id);
     }
 
+    //扫码登陆入口
     @UserPassToken
-    @RequestMapping("getCode")
+    @GetMapping("getCode")
     public String getCode(Long shopId){
         log.info(wxAuthAO.getCode(shopId));
         return wxAuthAO.getCode(shopId);
@@ -71,7 +73,7 @@ public class WXAuthController{
      */
     @ResponseBody
     @ApiOperation("用户换取token")
-    @RequestMapping(value="token",method = {RequestMethod.POST, RequestMethod.GET})
+    @GetMapping(value="token")
     public Object getToken(String signature,String timestamp,String nonce,String echostr){
         //1. 将token、timestamp、nonce三个参数进行字典序排序
         String[] arr = {timestamp,nonce,"smjkt"}; //后面为token页面填写的

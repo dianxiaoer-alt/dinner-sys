@@ -23,6 +23,7 @@
          <result property=" use_end_time" column=" use_end_time" />
         <result property="shop_user_name" column="shop_user_name" />
         <result property="shop_user_code" column="shop_user_code" />
+        <result property="code_img" column="code_img" />
     </resultMap>
 
 
@@ -44,6 +45,7 @@
         <result property=" use_end_time" column=" use_end_time" />
         <result property="shop_user_name" column="shop_user_name" />
         <result property="shop_user_code" column="shop_user_code" />
+        <result property="code_img" column="code_img" />
         <association property="shop_detail" select="com.dinner.shop.dal.ShopDetailDO.queryOneByShopId" column="id" ></association>
     </resultMap>
 
@@ -69,6 +71,7 @@
         <result property=" use_end_time" column=" use_end_time" />
         <result property="shop_user_name" column="shop_user_name" />
         <result property="shop_user_code" column="shop_user_code" />
+        <result property="code_img" column="code_img" />
         <association property="shop_detail" select="com.dinner.shop.dal.ShopDetailDO.queryOneByShopId" column="id" ></association>
     </resultMap>
 
@@ -139,7 +142,8 @@
     	use_start_time,
     	use_end_time,
     	shop_user_name,
-    	shop_user_code
+    	shop_user_code,
+        code_img
       FROM shop
         <where>
             <include refid="pubItem"/>
@@ -164,7 +168,8 @@
     	use_start_time,
     	use_end_time,
     	shop_user_name,
-    	shop_user_code
+    	shop_user_code,
+    	code_img
       FROM shop
       WHERE id = #{id}
     </select>
@@ -191,7 +196,8 @@
     	use_start_time,
     	use_end_time,
     	shop_user_name,
-    	shop_user_code
+    	shop_user_code,
+    	code_img
       FROM shop
       WHERE id = #{id}
     </select>
@@ -218,6 +224,7 @@
             <if test="use_end_time != null and use_end_time !='' ">use_end_time = #{use_end_time},</if>
             <if test="shop_user_name != null and shop_user_name !='' ">shop_user_name = #{shop_user_name},</if>
             <if test="shop_user_code != null and shop_user_code !='' ">shop_user_code = #{shop_user_code},</if>
+            <if test="code_img != null and code_img !='' ">code_img = #{code_img}</if>
         </trim>
     </update>
 
@@ -238,8 +245,9 @@
             is_on,
             use_start_time,
             use_end_time,
-        shop_user_name,
-        shop_user_code
+            shop_user_name,
+            shop_user_code,
+            code_img
         FROM shop
         where shop_tel = #{value} or shop_email = #{value}
     </select>
@@ -260,7 +268,8 @@
             use_start_time,
             use_end_time,
         shop_user_name,
-        shop_user_code
+        shop_user_code,
+        code_img
         FROM shop
         <where>
             <include refid="pubItem"/>

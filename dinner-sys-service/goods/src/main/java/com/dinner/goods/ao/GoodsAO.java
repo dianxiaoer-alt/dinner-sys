@@ -117,4 +117,6 @@ public interface GoodsAO {
 	 * @return
 	 */
 	Result<List<Goods>> queryListByShopId(Long goods_shop_id);
+
+    Result<Integer> onSaleOrNo(Long goods_id, Integer is_on_sale);
 }

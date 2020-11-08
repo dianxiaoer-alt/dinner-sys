@@ -1,6 +1,7 @@
 package com.dinner.goods.ao.impl;
 
 import com.dinner.commons.domain.Goods;
+import com.dinner.commons.error.ErrorEnum;
 import com.dinner.commons.page.Page;
 import com.dinner.commons.page.PageResult;
 import com.dinner.commons.query.GoodsQuery;
@@ -41,7 +42,7 @@ public class GoodsAOImpl implements GoodsAO {
                 resp = Result.success(goods.getId());
             }
         } catch (Exception e) {
-            resp =resp.error(ResultCodeEnum.FAIL.getCode(),e.getMessage());
+            resp =resp.error(ErrorEnum.ADD_DATA_FAIL);
         }
         return resp;
     }
@@ -96,7 +97,7 @@ public class GoodsAOImpl implements GoodsAO {
                 resp = Result.success(flag);
             }
         } catch (Exception e) {
-            resp =resp.error(ResultCodeEnum.FAIL.getCode(),e.getMessage());
+            resp =resp.error(ErrorEnum.UPDATE_DATA_FAIL);
         }
         return resp;
     }
@@ -143,6 +144,22 @@ public class GoodsAOImpl implements GoodsAO {
             resp = Result.success(list);
         }catch (Exception e) {
             resp =resp.error(ResultCodeEnum.FAIL.getCode(),e.getMessage());
+        }
+        return resp;
+    }
+
+    @Override
+    public Result<Integer> onSaleOrNo(Long goods_id, Integer is_on_sale) {
+        Result<Integer> resp = new Result<>();
+        try {
+            //TODO 你需要做点校验吗?
+            if (resp.isSuccess()) {
+
+                int flag = goodsBO.onSaleOrNo(goods_id,is_on_sale);
+                resp = Result.success(flag);
+            }
+        } catch (Exception e) {
+            resp =resp.error(ErrorEnum.UPDATE_DATA_FAIL);
         }
         return resp;
     }

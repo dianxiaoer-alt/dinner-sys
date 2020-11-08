@@ -30,6 +30,7 @@ public class WXPayConstants {
      */
     public static String NOTIFY_URL_REFUND = "https://xxx.com/v1/weixin/pay/refund";
 
+    public static String AUTHORIZE_URL = "https://open.weixin.qq.com/connect/oauth2/authorize";
 
     /**
      * 微信 - API域名地址

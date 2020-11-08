@@ -8,6 +8,7 @@ import java.util.List;
 
 import com.dinner.commons.domain.Goods;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 /**
  * <pre>
@@ -97,4 +98,6 @@ public interface GoodsDO {
      * @return 数据集合
      */
     List<Goods> queryList(Goods goods);
+
+    Integer onSaleOrNo(@Param("goods_id") Long goods_id,@Param("is_on_sale") Integer is_on_sale);
 }

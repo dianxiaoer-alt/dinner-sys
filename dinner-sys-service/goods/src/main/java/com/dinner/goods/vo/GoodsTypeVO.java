@@ -37,22 +37,22 @@ public class GoodsTypeVO {
     }
 
     @GetMapping("queryOneById")
-    Result<GoodsType> queryOneById(Long id){
+    Result<GoodsType> queryOneById(@RequestParam("id") Long id){
         return goodsTypeAO.queryOneById(id);
     }
 
-    @GetMapping("queryList")
+    @PostMapping("queryList")
     Result<List<GoodsType>> queryList(@RequestBody GoodsTypeQuery goodsTypeQuery){
         return goodsTypeAO.queryList(goodsTypeQuery);
     }
 
     @GetMapping("queryListByShopId")
-    Result<List<GoodsType>> queryListByShopId(Long shop_id){
+    Result<List<GoodsType>> queryListByShopId(@RequestParam("shop_id") Long shop_id){
         return goodsTypeAO.queryListByShopId(shop_id);
     }
 
     @GetMapping("delete")
-    Result<Integer> delete(Long id){
+    Result<Integer> delete(@RequestParam("id")Long id){
         return goodsTypeAO.delete(id);
     }
 }

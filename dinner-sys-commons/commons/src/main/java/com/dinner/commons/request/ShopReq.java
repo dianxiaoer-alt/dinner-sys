@@ -47,6 +47,8 @@ public class ShopReq {
 	@NotEmpty(message = "{com.dinner.shop.shop_name.notEmpty.message}")
 	@Length(max = 32, message = "{com.dinner.shop.shop_name.maxLength.message}")
     private String shop_name;
+
+	private String code_img;
 	/**
 	 * <pre>
 	 *  店铺头像;字段长度:300,是否必填:否。

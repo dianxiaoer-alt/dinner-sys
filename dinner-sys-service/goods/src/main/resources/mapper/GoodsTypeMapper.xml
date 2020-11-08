@@ -25,7 +25,7 @@
 
     <select id="queryList" resultType="goodsType">
         select <include refid="baseColumn"></include>
-        from goods_type
+        from goods_type where is_deleted = 0
     </select>
 
     <select id="queryOneById" resultType="goodsType">
@@ -35,16 +35,16 @@
 
     <select id="queryListByShopId" resultType="goodsType">
         select <include refid="baseColumn"></include>
-        from goods_type where shop_id = #{shop_id}
+        from goods_type where shop_id = #{shop_id} and is_deleted = 0
     </select>
 
     <delete id="delete">
-        delete from goods_type where id = #{id}
+        update  goods_type set is_deleted = 1 where id = #{id}
     </delete>
 
 
     <sql id="baseColumn">
-        id,shop_id,title,icon
+        id,shop_id,title,icon,is_deleted
     </sql>
 
 </mapper>

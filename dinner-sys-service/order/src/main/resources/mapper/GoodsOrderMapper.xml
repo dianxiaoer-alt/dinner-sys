@@ -68,8 +68,9 @@
         shop_id,
     	(select nick_name from user as u where u.id = user_id ) as  nick_name
       FROM goods_order
-      where 1=1
-        <include refid="pubItem"/>
+        <where>
+            <include refid="pubItem"/>
+        </where>
       ORDER BY create_time DESC
     </select>
   
@@ -136,7 +137,7 @@
          <if test="table_num != null and table_num !='' ">and table_num = #{table_num}</if>
          <if test="order_num != null and order_num !='' ">and order_num = #{order_num}</if>
          <if test="order_price != null and order_price !='' ">and order_price = #{order_price}</if>
-         <if test="is_deleted != null and is_deleted !='' ">and is_deleted = #{is_deleted}</if>
+       and is_deleted = 0
          <if test="is_payed != null and is_payed !='' ">and is_payed = #{is_payed}</if>
          <if test="create_time != null and create_time !='' ">and create_time = #{create_time}</if>
          <if test="pay_time != null and pay_time !='' ">and pay_time = #{pay_time}</if>

@@ -50,7 +50,7 @@ public interface GoodsOrderAO {
      * @param query 查询条件
      * @return      分页数据集合
      */
-    Result<PageInfo<GoodsOrder>> queryPage(GoodsOrderQuery query);
+    PageResult<GoodsOrder>  queryPage(GoodsOrderQuery query);
     /**
      * <pre>
      * 根据ID修改 用户订单

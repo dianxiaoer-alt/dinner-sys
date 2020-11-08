@@ -64,6 +64,7 @@ public class GoodsReq {
 	@ApiModelProperty(value = "", example = "1.00", dataType = "Double")
 	@NotNull(message = "{com.dinner.goods.goods_price.notNoll.message}")
     private Double goods_price;
+
 	/**
 	 * <pre>
 	 *  market price;字段长度:10,0,是否必填:是。

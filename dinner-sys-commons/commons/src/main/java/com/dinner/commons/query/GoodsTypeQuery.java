@@ -23,6 +23,7 @@ import lombok.Setter;
 @Setter
 public class GoodsTypeQuery extends Query {
 
+    private Long shop_id;
     @Override
     public String toString() {
       return ReflectionToStringBuilder.toString(this);

@@ -4,6 +4,7 @@ import com.dinner.commons.domain.GoodsOrder;
 import com.dinner.commons.domain.OrderDetail;
 import com.dinner.commons.domain.Shop;
 import com.dinner.commons.error.ErrorEnum;
+import com.dinner.commons.page.PageResult;
 import com.dinner.commons.query.GoodsOrderQuery;
 import com.dinner.commons.request.GoodsOrderReq;
 import com.dinner.commons.result.Result;
@@ -82,15 +83,16 @@ public class GoodsOrderAOImpl implements GoodsOrderAO {
     }
 
     @Override
-    public Result<PageInfo<GoodsOrder>> queryPage(GoodsOrderQuery query) {
-        Result<PageInfo<GoodsOrder>> pr = new Result<>();
+    public PageResult<GoodsOrder> queryPage(GoodsOrderQuery query) {
+        PageResult<GoodsOrder> pr = new PageResult<>();
         try {
             GoodsOrder goodsOrder = new GoodsOrder();
             BeanUtils.copyProperties(query,goodsOrder);
-
-            PageInfo<GoodsOrder> list = goodsOrderBO.queryPage(goodsOrder,query.getPageNum(), query.getPageSize());
-             pr = pr.success(list);
-
+            PageInfo<GoodsOrder> page =  goodsOrderBO.queryPage(goodsOrder,query.getPageNum(), query.getPageSize());
+            pr = pr.success(page.getList());
+            pr.setTotalItem(page.getSize());
+            pr.setPageSize(page.getPageSize());
+            pr.setCurPage(page.getPageNum());
         } catch (Exception e) {
             pr =pr.error(ResultCodeEnum.FAIL.getCode(),e.getMessage());
         }

@@ -9,10 +9,7 @@ import com.dinner.order.ao.OrderDetailAO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -44,7 +41,7 @@ public class OrderDetailVO {
     @ApiOperation("根据ID查询订单详情")
     //@GetMapping("queryById")
     @RequestMapping(value = "queryById",method = {RequestMethod.POST,RequestMethod.GET})
-    public Result<OrderDetail> queryById(Long orderDetailId) {
+    public Result<OrderDetail> queryById(@RequestParam("orderDetailId")Long orderDetailId) {
         return orderDetailAO.queryById(orderDetailId);
     }
 

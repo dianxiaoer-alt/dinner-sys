@@ -60,6 +60,7 @@ public class Goods extends Base implements Serializable {
 	 */
 	@ApiModelProperty("")
     private Double goods_price;
+
 	/**
 	 * <pre>
 	 * 数据库字段: goods_market_price

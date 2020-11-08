@@ -1,6 +1,7 @@
 package com.dinner.order.vo;
 
 import com.dinner.commons.domain.GoodsOrder;
+import com.dinner.commons.page.PageResult;
 import com.dinner.commons.query.GoodsOrderQuery;
 import com.dinner.commons.request.GoodsOrderReq;
 import com.dinner.commons.result.Result;
@@ -52,7 +53,7 @@ public class GoodsOrderVO {
     @ApiOperation("查询用户订单")
     //@GetMapping("queryPage")
     @RequestMapping(value = "queryPage",method = {RequestMethod.POST,RequestMethod.GET})
-    public Result<PageInfo<GoodsOrder>> queryPage(@RequestBody  GoodsOrderQuery query) {
+    public  PageResult<GoodsOrder> queryPage(@RequestBody  GoodsOrderQuery query) {
         log.info(ReflectionToStringBuilder.toString(query));
         return goodsOrderAO.queryPage( query);
     }

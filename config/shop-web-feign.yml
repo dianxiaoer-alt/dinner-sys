@@ -42,3 +42,7 @@ jasypt:
 # JWT
 jwt:
   issuer: dinner-sys
+
+dinner:
+  sys:
+    appUrl: http://dinner.natapp1.cc

@@ -88,5 +88,9 @@ public class GoodsVO {
         return goodsAO.queryListByShopId(goods_shop_id);
     }
 
+    @GetMapping("onSaleOrNo")
+    public Result<Integer> onSaleOrNo(@RequestParam("goods_id")Long goods_id,@RequestParam("is_on_sale")Integer is_on_sale){
+        return goodsAO.onSaleOrNo(goods_id,is_on_sale);
+    }
 
 }

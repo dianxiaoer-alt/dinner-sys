@@ -120,4 +120,6 @@ public interface GoodsBO {
      */
     @Cacheable(value = "goods",key = "#goods_shop_id")
     List<Goods> queryListByTypeAndShop(Long goods_type_id, Long goods_shop_id);
+
+    Integer onSaleOrNo(Long goods_id, Integer is_on_sale);
 }

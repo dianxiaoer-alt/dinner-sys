@@ -1,9 +1,12 @@
 package com.dinner.shop.admin.feign.impl;
 
 import com.dinner.commons.domain.Goods;
+import com.dinner.commons.domain.GoodsType;
 import com.dinner.commons.error.ErrorEnum;
 import com.dinner.commons.query.GoodsQuery;
+import com.dinner.commons.query.GoodsTypeQuery;
 import com.dinner.commons.request.GoodsReq;
+import com.dinner.commons.request.GoodsTypeReq;
 import com.dinner.commons.result.Result;
 import com.dinner.shop.admin.constant.AbstractFallbackFactory;
 import com.dinner.shop.admin.feign.GoodsFeign;
@@ -73,6 +76,36 @@ public class GoodsFeignFallbackFactoryImpl extends AbstractFallbackFactory imple
 
             @Override
             public Result<List<Goods>> queryListByShopId(Long goods_shop_id) {
+                return Result.error(ERR_CODE,ERR_MSG);
+            }
+
+            @Override
+            public Result<Integer> onSaleOrNo(Long goods_id, Integer is_on_sale) {
+                return Result.error(ERR_CODE,ERR_MSG);
+            }
+
+            @Override
+            public Result<List<GoodsType>> queryGoodsTypeList(GoodsTypeQuery goodsTypeQuery) {
+                return Result.error(ERR_CODE,ERR_MSG);
+            }
+
+            @Override
+            public Result<Integer> goodsTypeUpdate(GoodsTypeReq goodsTypeReq) {
+                return Result.error(ERR_CODE,ERR_MSG);
+            }
+
+            @Override
+            public Result<Integer> goodsTypeDelete(Long id) {
+                return Result.error(ERR_CODE,ERR_MSG);
+            }
+
+            @Override
+            public Result<GoodsType> goodsTypeQueryOneById(Long id) {
+                return Result.error(ERR_CODE,ERR_MSG);
+            }
+
+            @Override
+            public Result<Integer> goodsTypeInsert(GoodsTypeReq goodsTypeReq) {
                 return Result.error(ERR_CODE,ERR_MSG);
             }
         };

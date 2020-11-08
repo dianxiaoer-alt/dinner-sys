@@ -52,11 +52,7 @@ public class AuthenticationInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object object) throws Exception {
         response.setHeader("Access-Control-Allow-Origin", "*");
-
         response.setContentType("text/html;charset=UTF-8");
-
-
-
 
         HandlerMethod handlerMethod = (HandlerMethod)object;
         Method method = handlerMethod.getMethod();
@@ -75,11 +71,10 @@ public class AuthenticationInterceptor implements HandlerInterceptor {
         //检查有没有需要用户权限的注解
         if (method.isAnnotationPresent(UserLoginToken.class)) {
 
-            String token = request.getHeader("token");// 从 http 请求头中取出 token
+            String token = request.getHeader("authorization");// 从 http 请求头中取出 token
             if(StringUtils.isBlank(token)){
-                token = request.getParameter("token");
+                token = request.getParameter("authorization");
             }
-            log.info("token---"+token);
             UserLoginToken userLoginToken = method.getAnnotation(UserLoginToken.class);
             if (userLoginToken.required()) {
                 // 执行认证
@@ -93,7 +88,6 @@ public class AuthenticationInterceptor implements HandlerInterceptor {
                     try {
                         DecodedJWT decodedJWT = JWT.decode(token);
                         shop_id = Long.parseLong(decodedJWT.getAudience().get(0));
-                        log.info("shop_id -> {} "+shop_id);
 
                         //验证签发方是否正确
                         if(!StringUtils.equals(decodedJWT.getIssuer(), issuer)){
@@ -130,7 +124,7 @@ public class AuthenticationInterceptor implements HandlerInterceptor {
 
         //检查是否有获取用户信息，但不拦截注解
         if (method.isAnnotationPresent(UserPassToken.class)) {
-            String token = request.getHeader("token");// 从 http 请求头中取出 token
+            String token = request.getHeader("authorization");// 从 http 请求头中取出 token
             log.info("UserPassToken");
             UserPassToken userPassToken = method.getAnnotation(UserPassToken.class);
             if (userPassToken.required()) {

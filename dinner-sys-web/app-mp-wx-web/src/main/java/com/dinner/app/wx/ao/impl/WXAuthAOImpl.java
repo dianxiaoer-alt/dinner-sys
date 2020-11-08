@@ -2,17 +2,24 @@ package com.dinner.app.wx.ao.impl;
 
 
 
+import com.alibaba.fastjson.JSONObject;
 import com.dinner.app.wx.ao.WXAuthAO;
 import com.dinner.app.wx.config.jasypt.JasyptConfig;
+import com.dinner.app.wx.config.jwt.JWTTokenConfig;
 import com.dinner.app.wx.feign.ShopFeignAO;
+import com.dinner.app.wx.feign.UserFeignAO;
 import com.dinner.commons.domain.Shop;
 import com.dinner.commons.domain.User;
+import com.dinner.commons.request.UserReq;
 import com.dinner.commons.result.Result;
 import com.dinner.commons.result.dto.ShopDTO;
+import com.dinner.wx.pay.constants.WXConstants;
+import com.dinner.wx.pay.constants.WXPayConstants;
 import com.dinner.wx.pay.constants.WXPayRequestConfig;
 import com.dinner.wx.pay.utils.WXUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,23 +30,27 @@ public class WXAuthAOImpl implements WXAuthAO {
     //http://dinner-sys.natapp1.cc/views/login.html
     private String resUrl = "http%3A%2F%2Fdinner-sys.natapp1.cc%2Fviews%2Flogin.html";
 
-    private String url  = "https://open.weixin.qq.com/connect/oauth2/authorize";
+    private String url  = WXPayConstants.AUTHORIZE_URL;
 
     @Autowired
     private ShopFeignAO shopFeignAO;
     @Autowired
+    private UserFeignAO userFeignAO;
+    @Autowired
     private JasyptConfig jasyptConfig;
+    @Autowired
+    private JWTTokenConfig jwtTokenConfig;
 
 
     @Override
     public Result<Map<String, Object>> authorize(String code,Long shop_id) {
         Result<Map<String, Object>> resp = new Result<>();
         try {
-            Result<Shop> res =  shopFeignAO.queryOneById(shop_id);
+            Result<ShopDTO> res =  shopFeignAO.queryDetailById(shop_id);
             if (res.getData() == null){
                 return Result.error(1,"该商家不存在");
             }
-            Shop shop = res.getData();
+            ShopDTO shop = res.getData();
             WXUtils wxUtils = new WXUtils(initWXPay(shop));
             if(StringUtils.isNoneBlank(code)){
                 Map<String, Object> map = wxUtils.getJsapiAccessTokenByCode(code);
@@ -54,20 +65,23 @@ public class WXAuthAOImpl implements WXAuthAO {
     }
 
     @Override
-    public Result<User> userInfo(String access_token, String open_id,Long shop_id) {
-     /*   Result<User> res = new Result<User>();
+    public Result<String> login(String access_token, String open_id,Long shop_id) {
+        Result<String> res = new Result<>();
         try {
             log.info("参数access_token = "+access_token+"'----------open_id="+open_id);
+            Result<ShopDTO> resShop =  shopFeignAO.queryDetailById(shop_id);
+            if (res.getData() == null){
+                return Result.error(1,"该商家不存在");
+            }
+            ShopDTO shop = resShop.getData();
+            WXUtils wxUtils = new WXUtils(initWXPay(shop));
             // 通过access_token和openid请求获取用户信息
             JSONObject jsonUserinfo = wxUtils.getJsapiUserinfo(access_token, open_id);
             if (null == jsonUserinfo) {
                 return Result.error(1, WXConstants.ERROR);
             }
-
-
-
-            User resUser = null;
-           User user = userManager.queryOneByOpenId(open_id);
+           User resUser = null;
+           Result<User> user = userFeignAO.queryOneByOpenId(open_id);
 
             if(user == null){
                 User us = new User();
@@ -76,22 +90,24 @@ public class WXAuthAOImpl implements WXAuthAO {
                 us.setNick_name(jsonUserinfo.getString("nickname"));
                 us.setOpen_id(open_id);
                 us.setProfile(jsonUserinfo.toString());
-                userManager.insertUser(us);
+                UserReq userReq = new UserReq();
+                BeanUtils.copyProperties(us,userReq);
+                userFeignAO.save(userReq);
                resUser = us;
             }else{
-                resUser = user;
+                resUser = user.getData();
             }
 
 
-            //登录成功
-            session.setMaxInactiveInterval(-1);
-            session.setAttribute(SessionConfig.USER,resUser.getId());
-            return Result.success(resUser);
+            if (resUser != null)
+                return Result.success(jwtTokenConfig.getTokenString(resUser));
+
+
         }catch (Exception e){
             res = Result.error(1,e.getMessage());
-        }*/
+        }
 
-        return null;
+        return res;
     }
 
     @Override
@@ -100,11 +116,11 @@ public class WXAuthAOImpl implements WXAuthAO {
         try {
             if (shop_id == null || StringUtils.isBlank(access_token))
                 return Result.error(1,"shopId或access_token不能为空");
-            Result<Shop> res =  shopFeignAO.queryOneById(shop_id);
+            Result<ShopDTO> res =  shopFeignAO.queryDetailById(shop_id);
             if (res.getData() == null){
                 return Result.error(1,"该商家不存在");
             }
-            Shop shop = res.getData();
+            ShopDTO shop = res.getData();
             WXUtils wxUtils = new WXUtils(initWXPay(shop));
             if(StringUtils.isNoneBlank(access_token)){
                 Map<String, Object> map = wxUtils.refushAccessToken(access_token);
@@ -130,14 +146,14 @@ public class WXAuthAOImpl implements WXAuthAO {
         return "redirect:"+url+"?appid="+jasyptConfig.decyptPwd(res.getData().getApp_id())+"&redirect_uri="+resUrl+"&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect";
     }
 
-    private WXPayRequestConfig initWXPay(Shop shop){
+    private WXPayRequestConfig initWXPay(ShopDTO shop){
         if (shop == null)
             return null;
-      /*  WXPayRequestConfig wxPayRequestConfig = new WXPayRequestConfig();
-        wxPayRequestConfig.setAPI_KEY(jasyptConfig.decyptPwd(shop.getPay_key()));
-        wxPayRequestConfig.setAPP_ID(jasyptConfig.decyptPwd(shop.getApp_id()));
-        wxPayRequestConfig.setMCH_ID(jasyptConfig.decyptPwd(shop.getMch_id()));
-        wxPayRequestConfig.setSECRET(jasyptConfig.decyptPwd(shop.getApp_secret()));*/
-        return null;
+        WXPayRequestConfig requestConfig = new WXPayRequestConfig();
+        requestConfig.setAPP_ID(jasyptConfig.decyptPwd(shop.getApp_id()));
+        requestConfig.setAPI_KEY(jasyptConfig.decyptPwd(shop.getPay_key()));
+        requestConfig.setMCH_ID(jasyptConfig.decyptPwd(shop.getMch_id()));
+        requestConfig.setSECRET(jasyptConfig.decyptPwd(shop.getApp_secret()));
+        return requestConfig;
     }
 }

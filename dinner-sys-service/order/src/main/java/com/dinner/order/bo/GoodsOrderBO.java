@@ -1,6 +1,7 @@
 package com.dinner.order.bo;
 
 import com.dinner.commons.domain.GoodsOrder;
+import com.dinner.commons.page.PageResult;
 import com.github.pagehelper.PageInfo;
 
 import java.util.List;
