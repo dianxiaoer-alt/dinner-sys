@@ -29,7 +29,7 @@ aliyun:
   oss:
     endpoint: oss-cn-beijing.aliyuncs.com # oss对外服务的访问域名
     accessKeyId: '{cipher}d62b7ff60a773855a8db9606c40e13542e6bd55d094de76c58d2da57f8d682a6f476e8424783a6db1f7c8306ec0202cc' # 访问身份验证中用到用户标识
-    accessKeySecret: '{cipher}c3bf973adc0d4d39b6152c9eff8a1a8a38d948e7867e73dad1f7a7799683f9f17b05203efc64192e093aa586541595b3'  # 用户用于加密签名字符串和oss用来验证签名字符串的密钥
+    accessKeySecret: '{cipher}9824b75ff3071c88c391f4359d98f7ffc25ea158b3f9b86aafa913afd7eb4742d1856d7fee9ef79785e3931d7bdcc8f3'  # 用户用于加密签名字符串和oss用来验证签名字符串的密钥
     bucketName: dinner-sys # oss的存储空间
     prefix: dinner/goods
 
